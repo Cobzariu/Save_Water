@@ -1,12 +1,26 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {connect} from 'react-redux';
+import {logout} from '../../actions/user';
+import {View, Text, Button} from 'react-native';
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation, logout}) => {
   return (
     <View>
       <Text>Home Screen</Text>
+      <Button
+        title="Logout"
+        onPress={() => {
+          logout();
+        }}
+      />
+      <Button
+        title="Add household"
+        onPress={() => {
+          navigation.navigate('FirstHousehold');
+        }}
+      />
     </View>
   );
 };
 
-export default HomeScreen;
+export default connect(null, {logout})(HomeScreen);

@@ -5,6 +5,7 @@ import {
   LOCAL_LOGIN,
   LOGIN_FAIL,
   LOGIN_SUCCESS,
+  LOGOUT,
   SIGNUP_FAIL,
   SIGNUP_SUCCESS,
 } from '../constants';
@@ -53,5 +54,12 @@ export const tryLocalSignIn = () => async (dispatch) => {
   dispatch({
     type: LOCAL_LOGIN,
     payload: {token, loggedStatus},
+  });
+};
+
+export const logout = () => async (dispatch) => {
+  await AsyncStorage.removeItem('accessToken');
+  dispatch({
+    type: LOGOUT,
   });
 };

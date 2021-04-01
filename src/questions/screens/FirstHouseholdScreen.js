@@ -1,16 +1,19 @@
 import React, {useState} from 'react';
+import {connect} from 'react-redux';
 import NumericInput from 'react-native-numeric-input';
 import RadioForm from 'react-native-simple-radio-button';
 import {View, Text} from 'react-native';
+import {firstHouseholdSave} from '../../actions/household';
 import {firstHouseholdScreenStyles} from './styles';
 import {Button} from 'react-native-elements';
 
-const FirstHouseholdScreen = () => {
+const FirstHouseholdScreen = ({navigation, firstHouseholdSave}) => {
   const [locationType, setLocationType] = useState(true);
   const [numberPeople, setNumberPeople] = useState(1);
   const [washingMachineNumber, setWashingMachineNumber] = useState(1);
   const [fullyLoad, setFullyLoad] = useState(true);
   const [handWashingNumber, setHandWashingNumber] = useState(1);
+  const [dishWasherNumber, setDishWasherNumber] = useState(0);
   const [useBowl, setUseBowl] = useState(false);
   const [dualFlush, setDualFlush] = useState(false);
 
@@ -100,6 +103,20 @@ const FirstHouseholdScreen = () => {
         </View>
         <View style={firstHouseholdScreenStyles.locationTypeView}>
           <Text style={firstHouseholdScreenStyles.qustionTextStyle}>
+            Use dishwasher each week
+          </Text>
+          <NumericInput
+            onChange={(item) => setDishWasherNumber(item)}
+            value={dishWasherNumber}
+            initValue={dishWasherNumber}
+            minValue={0}
+            containerStyle={
+              firstHouseholdScreenStyles.numericInputContainerStyle
+            }
+          />
+        </View>
+        <View style={firstHouseholdScreenStyles.locationTypeView}>
+          <Text style={firstHouseholdScreenStyles.qustionTextStyle}>
             Do you use a bowl for washing up?
           </Text>
           <RadioForm
@@ -128,7 +145,17 @@ const FirstHouseholdScreen = () => {
           title="Next"
           style={firstHouseholdScreenStyles.buttonStyle}
           onPress={() => {
-            console.log('press');
+            firstHouseholdSave(
+              locationType,
+              numberPeople,
+              washingMachineNumber,
+              fullyLoad,
+              handWashingNumber,
+              useBowl,
+              dishWasherNumber,
+              dualFlush,
+            );
+            navigation.navigate('SecondHousehold');
           }}
         />
       </View>
@@ -136,4 +163,4 @@ const FirstHouseholdScreen = () => {
   );
 };
 
-export default FirstHouseholdScreen;
+export default connect(null, {firstHouseholdSave})(FirstHouseholdScreen);

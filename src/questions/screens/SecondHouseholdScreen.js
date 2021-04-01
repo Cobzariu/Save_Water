@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
+import {connect} from 'react-redux';
 import NumericInput from 'react-native-numeric-input';
 import RadioForm from 'react-native-simple-radio-button';
 import {View, Text} from 'react-native';
+import {saveHousehold} from '../../actions/household';
 import {secondHouseholdScreenStyles} from './styles';
 import {Button} from 'react-native-elements';
 
-const SecondHouseholdScreen = () => {
+const SecondHouseholdScreen = ({navigation, saveHousehold}) => {
   const [washCarNumber, setWashCarNumber] = useState(0);
   const [waterGarden, setWaterGarden] = useState(0);
   const [wateringLength, setWateringLength] = useState(0);
@@ -52,7 +54,7 @@ const SecondHouseholdScreen = () => {
         </View>
         <View style={secondHouseholdScreenStyles.locationTypeView}>
           <Text style={secondHouseholdScreenStyles.qustionTextStyle}>
-            Water garden every week
+            Watering lenght
           </Text>
           <NumericInput
             onChange={(item) => setWateringLength(item)}
@@ -81,7 +83,20 @@ const SecondHouseholdScreen = () => {
           title="Next"
           style={secondHouseholdScreenStyles.buttonStyle}
           onPress={() => {
-            console.log('press');
+            saveHousehold(
+              washCarNumber,
+              waterGarden,
+              wateringLength,
+              collectWater,
+            ).then(
+              (succ) => {
+                console.log('Success');
+                navigation.navigate('Person');
+              },
+              (fail) => {
+                console.log('FAIL');
+              },
+            );
           }}
         />
       </View>
@@ -89,4 +104,4 @@ const SecondHouseholdScreen = () => {
   );
 };
 
-export default SecondHouseholdScreen;
+export default connect(null, {saveHousehold})(SecondHouseholdScreen);

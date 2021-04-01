@@ -4,11 +4,10 @@ import configureStore from './src/configureStore';
 import AppNavigator from './src/navigation/AppNavigator';
 import { FirstHouseholdScreen, PersonScreen, SecondHouseholdScreen } from './src/questions/screens';
 
-const store = configureStore();
 const App = () => {
   return (
-    <Provider store={store}>
-      <PersonScreen />
+    <Provider store={configureStore}>
+      <AppNavigator />
     </Provider>
   );
 };
