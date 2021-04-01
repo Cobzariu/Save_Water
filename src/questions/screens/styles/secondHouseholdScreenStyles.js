@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 
-const firstHouseholdScreenStyles = StyleSheet.create({
+const secondHouseholdScreenStyles = StyleSheet.create({
   titleStyle: {
     fontSize: 20,
     textAlign: 'center',
@@ -40,4 +40,4 @@ const firstHouseholdScreenStyles = StyleSheet.create({
   },
 });
 
-export default firstHouseholdScreenStyles;
+export default secondHouseholdScreenStyles;

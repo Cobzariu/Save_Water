@@ -1,13 +1,9 @@
 import React, {useState} from 'react';
 import NumericInput from 'react-native-numeric-input';
-import RadioForm, {
-  RadioButton,
-  RadioButtonInput,
-  RadioButtonLabel,
-} from 'react-native-simple-radio-button';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import RadioForm from 'react-native-simple-radio-button';
 import {View, Text} from 'react-native';
 import {firstHouseholdScreenStyles} from './styles';
+import {Button} from 'react-native-elements';
 
 const FirstHouseholdScreen = () => {
   const [locationType, setLocationType] = useState(true);
@@ -29,7 +25,7 @@ const FirstHouseholdScreen = () => {
   ];
 
   return (
-    <View>
+    <View style={firstHouseholdScreenStyles.mainViewStyle}>
       <Text style={firstHouseholdScreenStyles.titleStyle}>
         Enter your households details
       </Text>
@@ -128,6 +124,13 @@ const FirstHouseholdScreen = () => {
             }}
           />
         </View>
+        <Button
+          title="Next"
+          style={firstHouseholdScreenStyles.buttonStyle}
+          onPress={() => {
+            console.log('press');
+          }}
+        />
       </View>
     </View>
   );

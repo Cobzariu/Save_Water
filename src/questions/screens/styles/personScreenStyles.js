@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 
-const firstHouseholdScreenStyles = StyleSheet.create({
+const personScreenStyles = StyleSheet.create({
   titleStyle: {
     fontSize: 20,
     textAlign: 'center',
@@ -12,6 +12,11 @@ const firstHouseholdScreenStyles = StyleSheet.create({
   locationTypeView: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-between',
+    marginTop: 30,
+  },
+  specialQustionView:{
+    // /alignItems: 'center',
     justifyContent: 'space-between',
     marginTop: 30,
   },
@@ -40,4 +45,4 @@ const firstHouseholdScreenStyles = StyleSheet.create({
   },
 });
 
-export default firstHouseholdScreenStyles;
+export default personScreenStyles;
