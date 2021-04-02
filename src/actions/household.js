@@ -1,6 +1,7 @@
 import householdApi from '../api/householdApi';
 import {
   FIRST_HOUSEHOLD_SAVE,
+  INCREASE_COUNT_PEOPLE,
   SAVE_HOUSEHOLD_FAIL,
   SAVE_HOUSEHOLD_SUCCESS,
 } from '../constants';
@@ -77,5 +78,12 @@ export const firstHouseholdSave = (
       dishwasherNumberWeek,
       toiletDualFlush,
     },
+  });
+};
+
+export const increaseCountPeople = (newCountPeople) => (dispatch) => {
+  dispatch({
+    type: INCREASE_COUNT_PEOPLE,
+    payload: newCountPeople,
   });
 };

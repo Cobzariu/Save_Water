@@ -1,12 +1,13 @@
 import {
   CHANGE_COUNT_PEOPLE,
   FIRST_HOUSEHOLD_SAVE,
+  INCREASE_COUNT_PEOPLE,
   SAVE_HOUSEHOLD_FAIL,
   SAVE_HOUSEHOLD_SUCCESS,
 } from '../constants';
 
 const initialState = {
-  countPeople: 0,
+  countPeople: 1,
   formCompleted: false,
   error_message: '',
   locationTypeHouse: null,
@@ -66,6 +67,12 @@ export default function (state = initialState, action) {
         dishwasherNumberWeek: payload.dishwasherNumberWeek,
         toiletDualFlush: payload.toiletDualFlush,
       };
+    }
+    case INCREASE_COUNT_PEOPLE:{
+      return{
+        ...state,
+        countPeople: payload
+      }
     }
     default:
       return state;

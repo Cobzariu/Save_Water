@@ -1,11 +1,18 @@
 import React, {useState} from 'react';
+import {connect} from 'react-redux';
+import {increaseCountPeople} from '../../actions/household';
 import NumericInput from 'react-native-numeric-input';
 import RadioForm from 'react-native-simple-radio-button';
 import {View, Text} from 'react-native';
 import {personScreenStyles} from './styles';
 import {Button, Input} from 'react-native-elements';
 
-const PersonScreen = () => {
+const PersonScreen = ({
+  countPeople,
+  navigation,
+  increaseCountPeople,
+  personNumber,
+}) => {
   const [name, setName] = useState('');
   const [bathsWeek, setBathsWeek] = useState(1);
   const [showersWeek, setShowersWeek] = useState(1);
@@ -20,7 +27,7 @@ const PersonScreen = () => {
   return (
     <View style={personScreenStyles.mainViewStyle}>
       <Text style={personScreenStyles.titleStyle}>
-        Enter some details about yourself
+        Enter some details person #{countPeople}
       </Text>
 
       <View style={personScreenStyles.questionsView}>
@@ -85,12 +92,22 @@ const PersonScreen = () => {
           title="Next"
           style={personScreenStyles.buttonStyle}
           onPress={() => {
-            console.log('press');
+            if (countPeople < personNumber) {
+              increaseCountPeople(countPeople + 1);
+              navigation.navigate('Person');
+            } else {
+              navigation.navigate('Home');
+            }
           }}
         />
       </View>
     </View>
   );
 };
-
-export default PersonScreen;
+const mapStateToProps = (state) => {
+  return {
+    countPeople: state.household.countPeople,
+    personNumber: state.household.personNumber,
+  };
+};
+export default connect(mapStateToProps, {increaseCountPeople})(PersonScreen);

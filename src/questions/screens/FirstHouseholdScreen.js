@@ -3,11 +3,15 @@ import {connect} from 'react-redux';
 import NumericInput from 'react-native-numeric-input';
 import RadioForm from 'react-native-simple-radio-button';
 import {View, Text} from 'react-native';
-import {firstHouseholdSave} from '../../actions/household';
+import {firstHouseholdSave, saveHousehold} from '../../actions/household';
 import {firstHouseholdScreenStyles} from './styles';
 import {Button} from 'react-native-elements';
 
-const FirstHouseholdScreen = ({navigation, firstHouseholdSave}) => {
+const FirstHouseholdScreen = ({
+  navigation,
+  firstHouseholdSave,
+  saveHousehold,
+}) => {
   const [locationType, setLocationType] = useState(true);
   const [numberPeople, setNumberPeople] = useState(1);
   const [washingMachineNumber, setWashingMachineNumber] = useState(1);
@@ -155,7 +159,19 @@ const FirstHouseholdScreen = ({navigation, firstHouseholdSave}) => {
               dishWasherNumber,
               dualFlush,
             );
-            navigation.navigate('SecondHousehold');
+            if (locationType === true) {
+              navigation.navigate('SecondHousehold');
+            } else {
+              saveHousehold(0, 0, 0, false).then(
+                (succ) => {
+                  console.log('Success');
+                  navigation.navigate('Person');
+                },
+                (fail) => {
+                  console.log('FAIL');
+                },
+              );
+            }
           }}
         />
       </View>
@@ -163,4 +179,6 @@ const FirstHouseholdScreen = ({navigation, firstHouseholdSave}) => {
   );
 };
 
-export default connect(null, {firstHouseholdSave})(FirstHouseholdScreen);
+export default connect(null, {firstHouseholdSave, saveHousehold})(
+  FirstHouseholdScreen,
+);
