@@ -1,26 +1,24 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {getHousehold} from '../actions/household';
+import {connect} from 'react-redux';
 import {createStackNavigator} from '@react-navigation/stack';
 import {HomeScreen} from '../home/screens';
-import {
-  FirstHouseholdScreen,
-  PersonScreen,
-  SecondHouseholdScreen,
-} from '../questions/screens';
+import FormStack from './FormStack';
+import MainHomeStack from './MainHomeStack';
 
 const Stack = createStackNavigator();
 
-const HomeStack = () => {
-  return (
-    <Stack.Navigator
-      screenOptions={{
-        headerShown: false,
-      }}>
-      <Stack.Screen component={HomeScreen} name="Home" />
-      <Stack.Screen component={FirstHouseholdScreen} name="FirstHousehold" />
-      <Stack.Screen component={SecondHouseholdScreen} name="SecondHousehold" />
-      <Stack.Screen component={PersonScreen} name="Person" />
-    </Stack.Navigator>
-  );
-};
+const HomeStack = ({getHousehold, formCompleted}) => {
+  useEffect(() => {
+    getHousehold();
+  }, []);
 
-export default HomeStack;
+  console.log('Form is completed: ' + formCompleted);
+  return <>{formCompleted ? <MainHomeStack /> : <FormStack />}</>;
+};
+const mapStateToProps = (state) => {
+  return {
+    formCompleted: state.household.formCompleted,
+  };
+};
+export default connect(mapStateToProps, {getHousehold})(HomeStack);

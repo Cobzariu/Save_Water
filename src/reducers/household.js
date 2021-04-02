@@ -1,6 +1,7 @@
 import {
   CHANGE_COUNT_PEOPLE,
   FIRST_HOUSEHOLD_SAVE,
+  GET_HOUSEHOLD_SUCCESS,
   INCREASE_COUNT_PEOPLE,
   SAVE_HOUSEHOLD_FAIL,
   SAVE_HOUSEHOLD_SUCCESS,
@@ -68,11 +69,17 @@ export default function (state = initialState, action) {
         toiletDualFlush: payload.toiletDualFlush,
       };
     }
-    case INCREASE_COUNT_PEOPLE:{
-      return{
+    case INCREASE_COUNT_PEOPLE: {
+      return {
         ...state,
-        countPeople: payload
-      }
+        countPeople: payload,
+      };
+    }
+    case GET_HOUSEHOLD_SUCCESS: {
+      return {
+        ...state,
+        formCompleted: true, // needs to be completed with all household 
+      };
     }
     default:
       return state;

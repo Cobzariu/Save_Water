@@ -1,6 +1,8 @@
 import householdApi from '../api/householdApi';
 import {
   FIRST_HOUSEHOLD_SAVE,
+  GET_HOUSEHOLD_FAIL,
+  GET_HOUSEHOLD_SUCCESS,
   INCREASE_COUNT_PEOPLE,
   SAVE_HOUSEHOLD_FAIL,
   SAVE_HOUSEHOLD_SUCCESS,
@@ -79,6 +81,32 @@ export const firstHouseholdSave = (
     },
   });
 };
+
+export const getHousehold = () => (dispatch) =>{
+  return householdApi.getHousehold().then(
+    (data) => {
+      if (data)
+      {
+        console.log("VALID");
+        dispatch({
+          type: GET_HOUSEHOLD_SUCCESS,
+          payload: data,
+        });
+      }
+      else {
+        
+      }
+      
+    },
+    (error) => {
+      console.log(error);
+      dispatch({
+        type: GET_HOUSEHOLD_FAIL,
+        payload: error,
+      });
+    },
+  );
+}
 
 export const increaseCountPeople = (newCountPeople) => (dispatch) => {
   dispatch({

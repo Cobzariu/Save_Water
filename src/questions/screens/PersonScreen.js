@@ -100,7 +100,7 @@ const PersonScreen = ({
                   increaseCountPeople(countPeople + 1);
                   navigation.navigate('Person');
                 } else {
-                  navigation.navigate('Home');
+                  navigation.navigate({screen: 'Home'});
                 }
               },
               (error) => {

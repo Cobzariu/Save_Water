@@ -47,6 +47,25 @@ const saveHousehold = async (
     );
 };
 
+const getHousehold = async () => {
+  return await axios
+    .get(
+      API_BASE + '/household',
+      {
+        headers: await authHeader(),
+      },
+    )
+    .then(
+      async (response) => {
+        return response.data.household;
+      },
+      (error) => {
+        throw error.response.data.error;
+      },
+    );
+};
+
 export default {
   saveHousehold,
+  getHousehold,
 };
