@@ -46,7 +46,6 @@ export const saveHousehold = (
         return Promise.resolve();
       },
       (error) => {
-        console.log(error);
         dispatch({
           type: SAVE_HOUSEHOLD_FAIL,
           payload: error,
