@@ -5,6 +5,7 @@ import {
   INCREASE_COUNT_PEOPLE,
   SAVE_HOUSEHOLD_FAIL,
   SAVE_HOUSEHOLD_SUCCESS,
+  GET_USAGES_SUCCESS,
 } from '../constants';
 
 const initialState = {
@@ -23,6 +24,7 @@ const initialState = {
   waterGardenNumberWeek: 0,
   waterGardenLength: 0,
   collectRainwater: false,
+  usages: [],
 };
 
 export default function (state = initialState, action) {
@@ -78,7 +80,13 @@ export default function (state = initialState, action) {
     case GET_HOUSEHOLD_SUCCESS: {
       return {
         ...state,
-        formCompleted: true, // needs to be completed with all household 
+        //formCompleted: true, // needs to be completed with all household
+      };
+    }
+    case GET_USAGES_SUCCESS: {
+      return {
+        ...state,
+        usages: payload,
       };
     }
     default:

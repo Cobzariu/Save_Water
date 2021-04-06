@@ -21,6 +21,8 @@
     "react-native-dropdown-picker": "^4.0.2",
     "react-native-elements": "^3.3.2",
     "react-native-gesture-handler": "^1.10.3",
+    "react-native-input-spinner": "^1.7.9",
+    "react-native-modal-dropdown": "^1.0.0",
     "react-native-numeric-input": "^1.8.3",
     "react-native-reanimated": "^2.0.0",
     "react-native-safe-area-context": "^3.2.0",

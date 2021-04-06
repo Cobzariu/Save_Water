@@ -1,11 +1,9 @@
 import React, {useEffect} from 'react';
-import {getHousehold} from '../actions/household';
+import {getHousehold, getUsages} from '../actions/household';
 import {connect} from 'react-redux';
-import Entypo from 'react-native-vector-icons/Entypo';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {
   AccountScreen,
@@ -13,12 +11,14 @@ import {
   ConsumptionScreen,
   HouseholdScreen,
 } from '../home/screens';
+import UsageList from '../home/screens/UsageList';
 
 const Tab = createBottomTabNavigator();
 
-const TabBar = ({getHousehold}) => {
+const TabBar = ({getHousehold, getUsages}) => {
   useEffect(() => {
     getHousehold();
+    getUsages();
   }, []);
 
   return (
@@ -43,7 +43,7 @@ const TabBar = ({getHousehold}) => {
         }}
       />
       <Tab.Screen
-        component={ConsumptionScreen}
+        component={UsageList}
         name="Consumption"
         options={{
           tabBarIcon: ({size, color}) => (
@@ -73,4 +73,4 @@ const TabBar = ({getHousehold}) => {
   );
 };
 
-export default connect(null, {getHousehold})(TabBar);
+export default connect(null, {getHousehold, getUsages})(TabBar);

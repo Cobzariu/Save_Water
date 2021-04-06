@@ -1,8 +1,11 @@
 import householdApi from '../api/householdApi';
+import usageApi from '../api/usageApi';
 import {
   FIRST_HOUSEHOLD_SAVE,
   GET_HOUSEHOLD_FAIL,
   GET_HOUSEHOLD_SUCCESS,
+  GET_USAGES_FAIL,
+  GET_USAGES_SUCCESS,
   INCREASE_COUNT_PEOPLE,
   SAVE_HOUSEHOLD_FAIL,
   SAVE_HOUSEHOLD_SUCCESS,
@@ -82,21 +85,17 @@ export const firstHouseholdSave = (
   });
 };
 
-export const getHousehold = () => (dispatch) =>{
+export const getHousehold = () => (dispatch) => {
   return householdApi.getHousehold().then(
     (data) => {
-      if (data)
-      {
-        console.log("VALID");
+      if (data) {
+        console.log('VALID');
         dispatch({
           type: GET_HOUSEHOLD_SUCCESS,
           payload: data,
         });
+      } else {
       }
-      else {
-        
-      }
-      
     },
     (error) => {
       console.log(error);
@@ -106,11 +105,28 @@ export const getHousehold = () => (dispatch) =>{
       });
     },
   );
-}
+};
 
 export const increaseCountPeople = (newCountPeople) => (dispatch) => {
   dispatch({
     type: INCREASE_COUNT_PEOPLE,
     payload: newCountPeople,
   });
+};
+
+export const getUsages = () => (dispatch) => {
+  return usageApi.getUsages().then(
+    (data) => {
+      dispatch({
+        type: GET_USAGES_SUCCESS,
+        payload: data,
+      });
+    },
+    (error) => {
+      dispatch({
+        type: GET_USAGES_FAIL,
+        payload: error,
+      });
+    },
+  );
 };
