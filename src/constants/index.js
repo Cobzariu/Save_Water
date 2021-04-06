@@ -3,6 +3,8 @@ export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const LOGOUT = 'LOGOUT';
 export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
 export const SIGNUP_FAIL = 'SIGNUP_FAIL';
+export const SIGNUP_COMPLETE = 'SIGNUP_COMPLETE';
+export const CLEAR_USER_MESSAGE= 'CLEAR_USER_MESSAGE';
 
 export const LOCAL_LOGIN = 'LOCAL_LOGIN';
 

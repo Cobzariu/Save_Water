@@ -4,7 +4,9 @@ import {
   LOGOUT,
   SIGNUP_FAIL,
   SIGNUP_SUCCESS,
-  LOCAL_LOGIN
+  LOCAL_LOGIN,
+  SIGNUP_COMPLETE,
+  CLEAR_USER_MESSAGE,
 } from '../constants';
 
 const initialState = {
@@ -47,14 +49,26 @@ export default function (state = initialState, action) {
     case SIGNUP_SUCCESS: {
       return {
         ...state,
-        loggedIn: true,
         token: payload,
+      };
+    }
+    case SIGNUP_COMPLETE: {
+      return {
+        ...state,
+        loggedIn: true,
+        message: '',
       };
     }
     case SIGNUP_FAIL: {
       return {
         ...state,
         message: payload,
+      };
+    }
+    case CLEAR_USER_MESSAGE: {
+      return {
+        ...state,
+        message: '',
       };
     }
     default:

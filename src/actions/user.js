@@ -2,10 +2,12 @@ import userApi from '../api/userApi';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {
+  CLEAR_USER_MESSAGE,
   LOCAL_LOGIN,
   LOGIN_FAIL,
   LOGIN_SUCCESS,
   LOGOUT,
+  SIGNUP_COMPLETE,
   SIGNUP_FAIL,
   SIGNUP_SUCCESS,
 } from '../constants';
@@ -50,7 +52,7 @@ export const signup = (username, password) => (dispatch) => {
 
 export const tryLocalSignIn = () => async (dispatch) => {
   const token = await AsyncStorage.getItem('accessToken');
-  const loggedStatus = token.length > 0 ? true : false;
+  const loggedStatus = token > 0 ? true : false;
   dispatch({
     type: LOCAL_LOGIN,
     payload: {token, loggedStatus},
@@ -61,5 +63,17 @@ export const logout = () => async (dispatch) => {
   await AsyncStorage.removeItem('accessToken');
   dispatch({
     type: LOGOUT,
+  });
+};
+
+export const signupComplete = () => (dispatch) => {
+  dispatch({
+    type: SIGNUP_COMPLETE,
+  });
+};
+
+export const clearUserMessage = () => (dispatch) => {
+  dispatch({
+    type: CLEAR_USER_MESSAGE,
   });
 };

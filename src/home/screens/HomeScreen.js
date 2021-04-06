@@ -16,7 +16,7 @@ const HomeScreen = ({navigation, logout}) => {
       <Button
         title="Add household"
         onPress={() => {
-          navigation.navigate('Form', {screen: 'FirstHousehold'});
+          navigation.navigate('FirstHousehold');
         }}
       />
     </View>

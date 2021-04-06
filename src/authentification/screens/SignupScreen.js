@@ -1,11 +1,14 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View} from 'react-native';
 import {Text, Button, Input} from 'react-native-elements';
 import {connect} from 'react-redux';
-import {signup} from '../../actions/user';
+import {signup, clearUserMessage} from '../../actions/user';
 import {signupScreenStyles} from './styles';
 
-const SignupScreen = ({navigation, signup, message}) => {
+const SignupScreen = ({navigation, signup, message, clearUserMessage}) => {
+  useEffect(() => {
+    clearUserMessage();
+  }, []);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   return (
@@ -31,11 +34,11 @@ const SignupScreen = ({navigation, signup, message}) => {
         onPress={() => {
           signup(email, password).then(
             (success) => {
-              console.log('SUCCESS');
-              navigation.navigate('Home');
+              console.log('SUCCESS in Sign up');
+              navigation.navigate('FirstHousehold');
             },
             (error) => {
-              console.log('INSUCCESS');
+              console.log('INSUCCESS in Sign up');
             },
           );
         }}
@@ -54,4 +57,5 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {
   signup,
+  clearUserMessage,
 })(SignupScreen);

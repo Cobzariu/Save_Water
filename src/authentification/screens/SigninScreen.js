@@ -1,12 +1,16 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View} from 'react-native';
 import {Text, Button, Input} from 'react-native-elements';
 import {connect} from 'react-redux';
-import {login} from '../../actions/user';
+import {login, clearUserMessage} from '../../actions/user';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {signinScreenStyles} from './styles';
 
-const SigninScreen = ({navigation, message, login}) => {
+const SigninScreen = ({navigation, message, login, clearUserMessage}) => {
+  useEffect(() => {
+    clearUserMessage();
+  }, []);
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   return (
@@ -63,4 +67,5 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {
   login,
+  clearUserMessage,
 })(SigninScreen);

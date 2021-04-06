@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {increaseCountPeople} from '../../actions/household';
 import {savePerson} from '../../actions/person';
+import {signupComplete} from '../../actions/user';
 import NumericInput from 'react-native-numeric-input';
 import RadioForm from 'react-native-simple-radio-button';
 import {View, Text} from 'react-native';
@@ -14,6 +15,7 @@ const PersonScreen = ({
   increaseCountPeople,
   personNumber,
   savePerson,
+  signupComplete,
 }) => {
   const [name, setName] = useState('');
   const [bathsWeek, setBathsWeek] = useState(1);
@@ -94,13 +96,20 @@ const PersonScreen = ({
           title="Next"
           style={personScreenStyles.buttonStyle}
           onPress={() => {
-            savePerson(name, showersWeek, showerLength, leaveTap).then(
+            savePerson(
+              name,
+              showersWeek,
+              bathsWeek,
+              showerLength,
+              leaveTap,
+            ).then(
               (success) => {
                 if (countPeople < personNumber) {
                   increaseCountPeople(countPeople + 1);
                   navigation.navigate('Person');
                 } else {
-                  navigation.navigate({screen: 'Home'});
+                  signupComplete();
+                  navigation.navigate('Home', {screen: 'Home'});
                 }
               },
               (error) => {
@@ -119,6 +128,8 @@ const mapStateToProps = (state) => {
     personNumber: state.household.personNumber,
   };
 };
-export default connect(mapStateToProps, {increaseCountPeople, savePerson})(
-  PersonScreen,
-);
+export default connect(mapStateToProps, {
+  increaseCountPeople,
+  savePerson,
+  signupComplete,
+})(PersonScreen);
