@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {connect} from 'react-redux';
-import HomeStack from './HomeStack';
+import TabBar from './TabBar';
 import AuthStack from './AuthStack';
 import {tryLocalSignIn} from '../actions/user';
 
@@ -11,7 +11,7 @@ const AppNavigator = ({loggedIn, tryLocalSignIn}) => {
   }, []);
   return (
     <NavigationContainer>
-      {loggedIn ? <HomeStack /> : <AuthStack />}
+      {loggedIn ? <TabBar /> : <AuthStack />}
     </NavigationContainer>
   );
 };

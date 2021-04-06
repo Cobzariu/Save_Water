@@ -37,7 +37,6 @@ const SigninScreen = ({navigation, message, login, clearUserMessage}) => {
           login(email, password).then(
             (success) => {
               console.log('SUCCESS');
-              navigation.navigate('Home', {screen: 'Home'});
             },
             (error) => {
               console.log('INSUCCESS');
