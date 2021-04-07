@@ -6,6 +6,9 @@ import {
   SAVE_HOUSEHOLD_FAIL,
   SAVE_HOUSEHOLD_SUCCESS,
   GET_USAGES_SUCCESS,
+  SAVE_USAGE_SUCCESS,
+  SAVE_USAGE_FAIL,
+  CLEAR_HOUSEHOLD_MESSAGE,
 } from '../constants';
 
 const initialState = {
@@ -87,6 +90,18 @@ export default function (state = initialState, action) {
       return {
         ...state,
         usages: payload,
+      };
+    }
+    case SAVE_USAGE_FAIL: {
+      return {
+        ...state,
+        error_message: payload,
+      };
+    }
+    case CLEAR_HOUSEHOLD_MESSAGE: {
+      return {
+        ...state,
+        error_message: '',
       };
     }
     default:

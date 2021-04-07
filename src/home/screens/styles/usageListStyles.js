@@ -46,6 +46,11 @@ const usageListStyles = StyleSheet.create({
   buttonViewStyle: {
     marginTop: 40,
   },
+  errorMessage: {
+    fontSize: 13,
+    marginTop: 10,
+    color: 'red',
+  },
 });
 
 export default usageListStyles;

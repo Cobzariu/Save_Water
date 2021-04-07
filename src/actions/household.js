@@ -1,6 +1,7 @@
 import householdApi from '../api/householdApi';
 import usageApi from '../api/usageApi';
 import {
+  CLEAR_HOUSEHOLD_MESSAGE,
   FIRST_HOUSEHOLD_SAVE,
   GET_HOUSEHOLD_FAIL,
   GET_HOUSEHOLD_SUCCESS,
@@ -9,6 +10,9 @@ import {
   INCREASE_COUNT_PEOPLE,
   SAVE_HOUSEHOLD_FAIL,
   SAVE_HOUSEHOLD_SUCCESS,
+  SAVE_PERSON_FAIL,
+  SAVE_USAGE_FAIL,
+  SAVE_USAGE_SUCCESS,
 } from '../constants';
 
 export const saveHousehold = (
@@ -89,7 +93,6 @@ export const getHousehold = () => (dispatch) => {
   return householdApi.getHousehold().then(
     (data) => {
       if (data) {
-        console.log('VALID');
         dispatch({
           type: GET_HOUSEHOLD_SUCCESS,
           payload: data,
@@ -98,7 +101,6 @@ export const getHousehold = () => (dispatch) => {
       }
     },
     (error) => {
-      console.log(error);
       dispatch({
         type: GET_HOUSEHOLD_FAIL,
         payload: error,
@@ -129,4 +131,29 @@ export const getUsages = () => (dispatch) => {
       });
     },
   );
+};
+
+export const saveUsage = (amount, month, year) => (dispatch) => {
+  return usageApi.saveUsage(amount, month, year).then(
+    (data) => {
+      dispatch({
+        type: SAVE_USAGE_SUCCESS,
+        payload: data,
+      });
+      return Promise.resolve();
+    },
+    (error) => {
+      dispatch({
+        type: SAVE_USAGE_FAIL,
+        payload: error,
+      });
+      return Promise.reject();
+    },
+  );
+};
+
+export const clearHouseholdMessage = () => (dispatch) => {
+  dispatch({
+    type: CLEAR_HOUSEHOLD_MESSAGE,
+  });
 };
