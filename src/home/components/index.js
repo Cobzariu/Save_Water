@@ -1,1 +1,1 @@
-export { default as UsageItem } from "./UsageItem";
+export {default as UsageItem} from './UsageItem';
