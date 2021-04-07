@@ -6,6 +6,7 @@ import {Button, Overlay, Input} from 'react-native-elements';
 import {
   getUsages,
   saveUsage,
+  deleteUsage,
   clearHouseholdMessage,
 } from '../../actions/household';
 import {connect} from 'react-redux';
@@ -18,6 +19,7 @@ const UsageList = ({
   error_message,
   getUsages,
   saveUsage,
+  deleteUsage,
   clearHouseholdMessage,
 }) => {
   const currentYear = new Date().getFullYear();
@@ -99,7 +101,19 @@ const UsageList = ({
         data={usages}
         showsVerticalScrollIndicator={false}
         keyExtractor={(item) => item._id}
-        renderItem={({item}) => <UsageItem data={item} />}
+        renderItem={({item}) => (
+          <UsageItem
+            data={item}
+            onPress={() => {
+              deleteUsage(item._id).then(
+                (succ) => {
+                  getUsages();
+                },
+                (fail) => {},
+              );
+            }}
+          />
+        )}
         ListHeaderComponent={
           <View style={usageListStyles.headerMainView}>
             <Text style={usageListStyles.titleText}>
@@ -129,5 +143,6 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
   getUsages,
   saveUsage,
+  deleteUsage,
   clearHouseholdMessage,
 })(UsageList);

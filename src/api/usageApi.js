@@ -23,6 +23,21 @@ const saveUsage = async (amount, month, year) => {
     );
 };
 
+const deleteUsage = async (usage_id) => {
+  return await axios
+    .delete(API_BASE + '/usage/'+usage_id, {
+      headers: await authHeader(),
+    })
+    .then(
+      async (response) => {
+        return response;
+      },
+      async (error) => {
+        throw error.response.data.error;
+      },
+    );
+};
+
 const getUsages = async () => {
   return axios.get(API_BASE + '/usage', {headers: await authHeader()}).then(
     async (response) => {
@@ -34,4 +49,4 @@ const getUsages = async () => {
   );
 };
 
-export default {getUsages, saveUsage};
+export default {getUsages, saveUsage, deleteUsage};

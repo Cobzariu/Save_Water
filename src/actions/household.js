@@ -2,6 +2,8 @@ import householdApi from '../api/householdApi';
 import usageApi from '../api/usageApi';
 import {
   CLEAR_HOUSEHOLD_MESSAGE,
+  DELETE_USAGE_FAIL,
+  DELETE_USAGE_SUCCESS,
   FIRST_HOUSEHOLD_SAVE,
   GET_HOUSEHOLD_FAIL,
   GET_HOUSEHOLD_SUCCESS,
@@ -145,6 +147,25 @@ export const saveUsage = (amount, month, year) => (dispatch) => {
     (error) => {
       dispatch({
         type: SAVE_USAGE_FAIL,
+        payload: error,
+      });
+      return Promise.reject();
+    },
+  );
+};
+
+export const deleteUsage = (usage_id) => (dispatch) => {
+  return usageApi.deleteUsage(usage_id).then(
+    (data) => {
+      dispatch({
+        type: DELETE_USAGE_SUCCESS,
+        payload: data,
+      });
+      return Promise.resolve();
+    },
+    (error) => {
+      dispatch({
+        type: DELETE_USAGE_FAIL,
         payload: error,
       });
       return Promise.reject();

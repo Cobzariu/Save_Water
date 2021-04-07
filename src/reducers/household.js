@@ -6,7 +6,7 @@ import {
   SAVE_HOUSEHOLD_FAIL,
   SAVE_HOUSEHOLD_SUCCESS,
   GET_USAGES_SUCCESS,
-  SAVE_USAGE_SUCCESS,
+  DELETE_USAGE_FAIL,
   SAVE_USAGE_FAIL,
   CLEAR_HOUSEHOLD_MESSAGE,
 } from '../constants';
@@ -93,6 +93,12 @@ export default function (state = initialState, action) {
       };
     }
     case SAVE_USAGE_FAIL: {
+      return {
+        ...state,
+        error_message: payload,
+      };
+    }
+    case DELETE_USAGE_FAIL:{
       return {
         ...state,
         error_message: payload,
