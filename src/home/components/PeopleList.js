@@ -1,6 +1,6 @@
 import React from 'react';
 import {FlatList} from 'react-native';
-import {PeopleItem} from '.';
+import PeopleItem from './PeopleItem';
 
 const PeopleList = ({people}) => {
   return (
