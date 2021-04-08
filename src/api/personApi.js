@@ -33,6 +33,22 @@ const savePerson = async (
     );
 };
 
+const getPeople = async () => {
+  return await axios
+    .get(API_BASE + '/person', {
+      headers: await authHeader(),
+    })
+    .then(
+      async (response) => {
+        return response.data.people;
+      },
+      (error) => {
+        throw error.response.data.error;
+      },
+    );
+};
+
 export default {
   savePerson,
+  getPeople
 };

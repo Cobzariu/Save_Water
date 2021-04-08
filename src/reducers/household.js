@@ -28,6 +28,7 @@ const initialState = {
   waterGardenLength: 0,
   collectRainwater: false,
   usages: [],
+  householdBackend: null,
 };
 
 export default function (state = initialState, action) {
@@ -83,7 +84,7 @@ export default function (state = initialState, action) {
     case GET_HOUSEHOLD_SUCCESS: {
       return {
         ...state,
-        //formCompleted: true, // needs to be completed with all household
+        householdBackend: payload,
       };
     }
     case GET_USAGES_SUCCESS: {
@@ -98,7 +99,7 @@ export default function (state = initialState, action) {
         error_message: payload,
       };
     }
-    case DELETE_USAGE_FAIL:{
+    case DELETE_USAGE_FAIL: {
       return {
         ...state,
         error_message: payload,

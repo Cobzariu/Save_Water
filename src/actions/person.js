@@ -1,5 +1,10 @@
 import personApi from '../api/personApi';
-import {SAVE_PERSON_FAIL, SAVE_PERSON_SUCCESS} from '../constants';
+import {
+  GET_PEOPLE_FAIL,
+  GET_PEOPLE_SUCCESS,
+  SAVE_PERSON_FAIL,
+  SAVE_PERSON_SUCCESS,
+} from '../constants';
 
 export const savePerson = (
   name,
@@ -32,4 +37,21 @@ export const savePerson = (
         return Promise.reject();
       },
     );
+};
+
+export const getPeople = () => (dispatch) => {
+  return personApi.getPeople().then(
+    (data) => {
+      dispatch({
+        type: GET_PEOPLE_SUCCESS,
+        payload: data,
+      });
+    },
+    (error) => {
+      dispatch({
+        type: GET_PEOPLE_FAIL,
+        payload: error,
+      });
+    },
+  );
 };

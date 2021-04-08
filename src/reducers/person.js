@@ -1,4 +1,9 @@
-import {SAVE_PERSON_FAIL, SAVE_PERSON_SUCCESS} from '../constants';
+import {
+  GET_PEOPLE_FAIL,
+  GET_PEOPLE_SUCCESS,
+  SAVE_PERSON_FAIL,
+  SAVE_PERSON_SUCCESS,
+} from '../constants';
 
 const initialState = {
   error_message: '',
@@ -14,6 +19,18 @@ export default function (state = initialState, action) {
       };
     }
     case SAVE_PERSON_FAIL: {
+      return {
+        ...state,
+        error_message: payload,
+      };
+    }
+    case GET_PEOPLE_SUCCESS: {
+      return {
+        ...state,
+        people: payload,
+      };
+    }
+    case GET_PEOPLE_FAIL: {
       return {
         ...state,
         error_message: payload,

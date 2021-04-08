@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import {getHousehold, getUsages} from '../actions/household';
+import {getPeople} from '../actions/person';
 import {connect} from 'react-redux';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
@@ -8,17 +9,17 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {
   AccountScreen,
   AdviceScreen,
-  ConsumptionScreen,
   HouseholdScreen,
+  UsageList
 } from '../home/screens';
-import UsageList from '../home/screens/UsageList';
 
 const Tab = createBottomTabNavigator();
 
-const TabBar = ({getHousehold, getUsages}) => {
+const TabBar = ({getHousehold, getUsages,getPeople}) => {
   useEffect(() => {
     getHousehold();
     getUsages();
+    getPeople();
   }, []);
 
   return (
@@ -73,4 +74,4 @@ const TabBar = ({getHousehold, getUsages}) => {
   );
 };
 
-export default connect(null, {getHousehold, getUsages})(TabBar);
+export default connect(null, {getHousehold, getUsages,getPeople})(TabBar);
