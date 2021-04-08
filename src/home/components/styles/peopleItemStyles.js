@@ -7,6 +7,7 @@ const peopleItemStyles = StyleSheet.create({
   subView: {
     flexDirection: 'row',
     alignItems: 'center',
+    marginTop: 5,
   },
   titleText: {
     fontSize: 16,

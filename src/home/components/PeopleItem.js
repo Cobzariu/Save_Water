@@ -12,13 +12,11 @@ const PeopleItem = ({data}) => {
         <Text style={peopleItemStyles.valueText}>{data.name}</Text>
       </View>
       <View style={peopleItemStyles.subView}>
-        <Text style={peopleItemStyles.titleText}>
-          Number of showers per week
-        </Text>
+        <Text style={peopleItemStyles.titleText}>Showers per week</Text>
         <Text style={peopleItemStyles.valueText}>{data.showerNumberWeek}</Text>
       </View>
       <View style={peopleItemStyles.subView}>
-        <Text style={peopleItemStyles.titleText}>Number of baths per week</Text>
+        <Text style={peopleItemStyles.titleText}>Baths per week</Text>
         <Text style={peopleItemStyles.valueText}>{data.bathNumberWeek}</Text>
       </View>
       <View style={peopleItemStyles.subView}>
