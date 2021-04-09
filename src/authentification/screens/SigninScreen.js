@@ -36,10 +36,10 @@ const SigninScreen = ({navigation, message, login, clearUserMessage}) => {
         onPress={() => {
           login(email, password).then(
             (success) => {
-              console.log('SUCCESS');
+              //console.log('SUCCESS');
             },
             (error) => {
-              console.log('INSUCCESS');
+              //console.log('INSUCCESS');
             },
           );
         }}

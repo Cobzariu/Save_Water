@@ -8,7 +8,11 @@ const householdScreenStyles = StyleSheet.create({
   titleText: {
     fontSize: 18,
   },
-  
+  addView: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginRight: 5,
+  },
 });
 
 export default householdScreenStyles;

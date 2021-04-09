@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {View, Text} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import {HouseholdComponent, PeopleList} from '../components';
 import {householdScreenStyles} from './styles';
 
@@ -8,7 +9,15 @@ const HouseholdScreen = ({householdBackend, people}) => {
   return (
     <View style={householdScreenStyles.mainView}>
       <HouseholdComponent data={householdBackend} />
-      <Text style={householdScreenStyles.titleText}>Details about people</Text>
+      <View style={householdScreenStyles.addView}>
+        <Text style={householdScreenStyles.titleText}>
+          Details about people
+        </Text>
+        <TouchableOpacity>
+          <Ionicons name="person-add-outline" size={25} />
+        </TouchableOpacity>
+      </View>
+
       <PeopleList people={people} />
     </View>
   );

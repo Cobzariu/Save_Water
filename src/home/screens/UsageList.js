@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
-import {View, FlatList, Text} from 'react-native';
+import {View, FlatList, Text, TouchableOpacity} from 'react-native';
 import InputSpinner from 'react-native-input-spinner';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import ModalDropdown from 'react-native-modal-dropdown';
 import {Button, Overlay, Input} from 'react-native-elements';
 import {
@@ -119,13 +120,16 @@ const UsageList = ({
             <Text style={usageListStyles.titleText}>
               Your household consumption
             </Text>
-            <Button
-              title="Add new usage"
-              onPress={() => {
-                clearHouseholdMessage();
-                setVisible(!visible);
-              }}
-            />
+            <TouchableOpacity>
+              <MaterialIcons
+                name="add"
+                size={30}
+                onPress={() => {
+                  clearHouseholdMessage();
+                  setVisible(!visible);
+                }}
+              />
+            </TouchableOpacity>
           </View>
         }
       />
