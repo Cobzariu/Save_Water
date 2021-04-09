@@ -5,12 +5,14 @@ const firstHouseholdScreenStyles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     marginBottom: 15,
+    color: 'white',
   },
   qustionTextStyle: {
     fontSize: 15,
+    marginBottom: 10,
+    color: 'white',
   },
   locationTypeView: {
-    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     marginTop: 30,
@@ -18,24 +20,23 @@ const firstHouseholdScreenStyles = StyleSheet.create({
   questionsView: {
     marginLeft: 5,
     marginRight: 5,
-    //justifyContent: "space-evenly",
-    flex: 1,
   },
   dropViewContainerStyle: {
     height: 40,
     marginLeft: 20,
   },
-  numericInputContainerStyle: {
-    //marginLeft: 20,
-  },
+
   mainViewStyle: {
     flex: 1,
+    backgroundColor: '#003f5c',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   buttonStyle: {
     position: 'absolute',
     bottom: 20,
     left: 0,
-    marginBottom:20,
+    marginBottom: 20,
     height: 20,
   },
 });

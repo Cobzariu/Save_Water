@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
-import NumericInput from 'react-native-numeric-input';
 import RadioForm from 'react-native-simple-radio-button';
+import InputSpinner from 'react-native-input-spinner';
 import {View, Text} from 'react-native';
 import {firstHouseholdSave, saveHousehold} from '../../actions/household';
 import {firstHouseholdScreenStyles} from './styles';
-import {Button} from 'react-native-elements';
+import {GeneralButton} from '../../authentification/components';
+import {ScrollView} from 'react-native';
 
 const FirstHouseholdScreen = ({
   navigation,
@@ -32,122 +33,126 @@ const FirstHouseholdScreen = ({
   ];
 
   return (
-    <View style={firstHouseholdScreenStyles.mainViewStyle}>
-      <Text style={firstHouseholdScreenStyles.titleStyle}>
-        Enter your households details
-      </Text>
-      <View style={firstHouseholdScreenStyles.questionsView}>
-        <View style={firstHouseholdScreenStyles.locationTypeView}>
-          <Text style={firstHouseholdScreenStyles.qustionTextStyle}>
-            Choose your location type
-          </Text>
-          <RadioForm
-            radio_props={radio_props_location}
-            initial={locationType}
-            formHorizontal={true}
-            onPress={(value) => {
-              setLocationType(value);
-            }}
-          />
+    <ScrollView>
+      <View style={firstHouseholdScreenStyles.mainViewStyle}>
+        <Text style={firstHouseholdScreenStyles.titleStyle}>
+          Enter your households details
+        </Text>
+        <View style={firstHouseholdScreenStyles.questionsView}>
+          <View style={firstHouseholdScreenStyles.locationTypeView}>
+            <Text style={firstHouseholdScreenStyles.qustionTextStyle}>
+              Choose your location type
+            </Text>
+            <RadioForm
+              radio_props={radio_props_location}
+              initial={locationType}
+              formHorizontal={true}
+              onPress={(value) => {
+                setLocationType(value);
+              }}
+              buttonColor="white"
+              labelColor="white"
+            />
+          </View>
+          <View style={firstHouseholdScreenStyles.locationTypeView}>
+            <Text style={firstHouseholdScreenStyles.qustionTextStyle}>
+              People living in your home
+            </Text>
+            <InputSpinner
+              onChange={(item) => setNumberPeople(item)}
+              value={numberPeople}
+              initialValue={numberPeople}
+              min={1}
+              width={130}
+              textColor="white"
+              color="#fb5b5a"
+            />
+          </View>
+          <View style={firstHouseholdScreenStyles.locationTypeView}>
+            <Text style={firstHouseholdScreenStyles.qustionTextStyle}>
+              Washing machine per week?
+            </Text>
+            <InputSpinner
+              onChange={(item) => setWashingMachineNumber(item)}
+              value={washingMachineNumber}
+              initialValue={washingMachineNumber}
+              min={1}
+              width={130}
+              textColor="white"
+              color="#fb5b5a"
+            />
+          </View>
+          <View style={firstHouseholdScreenStyles.locationTypeView}>
+            <Text style={firstHouseholdScreenStyles.qustionTextStyle}>
+              Fully load the washing machine
+            </Text>
+            <RadioForm
+              radio_props={radio_props}
+              initial={fullyLoad}
+              formHorizontal={true}
+              onPress={(value) => {
+                setFullyLoad(value);
+              }}
+            />
+          </View>
+          <View style={firstHouseholdScreenStyles.locationTypeView}>
+            <Text style={firstHouseholdScreenStyles.qustionTextStyle}>
+              Household wash by hand per week
+            </Text>
+            <InputSpinner
+              onChange={(item) => setHandWashingNumber(item)}
+              value={handWashingNumber}
+              initialValue={handWashingNumber}
+              min={1}
+              width={130}
+              textColor="white"
+              color="#fb5b5a"
+            />
+          </View>
+          <View style={firstHouseholdScreenStyles.locationTypeView}>
+            <Text style={firstHouseholdScreenStyles.qustionTextStyle}>
+              Use dishwasher per week
+            </Text>
+            <InputSpinner
+              onChange={(item) => setDishWasherNumber(item)}
+              value={dishWasherNumber}
+              initialValue={dishWasherNumber}
+              width={130}
+              min={0}
+              max={100}
+              textColor="white"
+              color="#fb5b5a"
+            />
+          </View>
+          <View style={firstHouseholdScreenStyles.locationTypeView}>
+            <Text style={firstHouseholdScreenStyles.qustionTextStyle}>
+              Do you use a bowl for washing up?
+            </Text>
+            <RadioForm
+              radio_props={radio_props}
+              initial={useBowl}
+              formHorizontal={true}
+              onPress={(value) => {
+                setUseBowl(value);
+              }}
+            />
+          </View>
+          <View style={firstHouseholdScreenStyles.locationTypeView}>
+            <Text style={firstHouseholdScreenStyles.qustionTextStyle}>
+              Toilet have a dual flush mechanism?
+            </Text>
+            <RadioForm
+              radio_props={radio_props}
+              initial={dualFlush}
+              formHorizontal={true}
+              onPress={(value) => {
+                setDualFlush(value);
+              }}
+            />
+          </View>
         </View>
-        <View style={firstHouseholdScreenStyles.locationTypeView}>
-          <Text style={firstHouseholdScreenStyles.qustionTextStyle}>
-            How many people live in your home?
-          </Text>
-          <NumericInput
-            onChange={(item) => setNumberPeople(item)}
-            value={numberPeople}
-            initValue={numberPeople}
-            minValue={1}
-            containerStyle={
-              firstHouseholdScreenStyles.numericInputContainerStyle
-            }
-          />
-        </View>
-        <View style={firstHouseholdScreenStyles.locationTypeView}>
-          <Text style={firstHouseholdScreenStyles.qustionTextStyle}>
-            Washing machine per week?
-          </Text>
-          <NumericInput
-            onChange={(item) => setWashingMachineNumber(item)}
-            value={washingMachineNumber}
-            initValue={washingMachineNumber}
-            minValue={1}
-            containerStyle={
-              firstHouseholdScreenStyles.numericInputContainerStyle
-            }
-          />
-        </View>
-        <View style={firstHouseholdScreenStyles.locationTypeView}>
-          <Text style={firstHouseholdScreenStyles.qustionTextStyle}>
-            Fully load the washing machine
-          </Text>
-          <RadioForm
-            radio_props={radio_props}
-            initial={fullyLoad}
-            formHorizontal={true}
-            onPress={(value) => {
-              setFullyLoad(value);
-            }}
-          />
-        </View>
-        <View style={firstHouseholdScreenStyles.locationTypeView}>
-          <Text style={firstHouseholdScreenStyles.qustionTextStyle}>
-            Household wash up by hand each week
-          </Text>
-          <NumericInput
-            onChange={(item) => setHandWashingNumber(item)}
-            value={handWashingNumber}
-            initValue={handWashingNumber}
-            minValue={1}
-            containerStyle={
-              firstHouseholdScreenStyles.numericInputContainerStyle
-            }
-          />
-        </View>
-        <View style={firstHouseholdScreenStyles.locationTypeView}>
-          <Text style={firstHouseholdScreenStyles.qustionTextStyle}>
-            Use dishwasher each week
-          </Text>
-          <NumericInput
-            onChange={(item) => setDishWasherNumber(item)}
-            value={dishWasherNumber}
-            initValue={dishWasherNumber}
-            minValue={0}
-            containerStyle={
-              firstHouseholdScreenStyles.numericInputContainerStyle
-            }
-          />
-        </View>
-        <View style={firstHouseholdScreenStyles.locationTypeView}>
-          <Text style={firstHouseholdScreenStyles.qustionTextStyle}>
-            Do you use a bowl for washing up?
-          </Text>
-          <RadioForm
-            radio_props={radio_props}
-            initial={useBowl}
-            formHorizontal={true}
-            onPress={(value) => {
-              setUseBowl(value);
-            }}
-          />
-        </View>
-        <View style={firstHouseholdScreenStyles.locationTypeView}>
-          <Text style={firstHouseholdScreenStyles.qustionTextStyle}>
-            Toilet have a dual flush mechanism?
-          </Text>
-          <RadioForm
-            radio_props={radio_props}
-            initial={dualFlush}
-            formHorizontal={true}
-            onPress={(value) => {
-              setDualFlush(value);
-            }}
-          />
-        </View>
-        <Button
+        <GeneralButton
           title="Next"
-          style={firstHouseholdScreenStyles.buttonStyle}
           onPress={() => {
             firstHouseholdSave(
               locationType,
@@ -175,7 +180,7 @@ const FirstHouseholdScreen = ({
           }}
         />
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
