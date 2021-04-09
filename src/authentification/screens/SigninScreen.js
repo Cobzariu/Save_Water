@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import {View} from 'react-native';
-import {Text, Button, Input} from 'react-native-elements';
+import {View, TouchableOpacity, Text} from 'react-native';
 import {connect} from 'react-redux';
 import {login, clearUserMessage} from '../../actions/user';
-import {TouchableOpacity} from 'react-native-gesture-handler';
 import {signinScreenStyles} from './styles';
+import {GeneralButton, InputField} from '../components';
 
 const SigninScreen = ({navigation, message, login, clearUserMessage}) => {
   useEffect(() => {
@@ -15,24 +14,23 @@ const SigninScreen = ({navigation, message, login, clearUserMessage}) => {
   const [password, setPassword] = useState('');
   return (
     <View style={signinScreenStyles.container}>
-      <Text h3>Sign in</Text>
-      <Input
-        label="Email"
+      <Text style={signinScreenStyles.logo}>Welcome</Text>
+      <InputField
+        onChangeText={(e) => setEmail(e)}
+        placeholder="Email"
         value={email}
-        onChangeText={setEmail}
-        autoCapitalize="none"
-        autoCorrect={false}
       />
-      <Input
+      <InputField
+        onChangeText={(e) => setPassword(e)}
+        placeholder="Password"
         secureTextEntry
-        label="Password"
         value={password}
-        onChangeText={setPassword}
-        autoCapitalize="none"
-        autoCorrect={false}
       />
-      <Button
-        title={'Login'}
+      {message ? (
+        <Text style={signinScreenStyles.errorMessage}>{message}</Text>
+      ) : null}
+      <GeneralButton
+        title="LOGIN"
         onPress={() => {
           login(email, password).then(
             (success) => {
@@ -44,14 +42,12 @@ const SigninScreen = ({navigation, message, login, clearUserMessage}) => {
           );
         }}
       />
-      {message ? (
-        <Text style={signinScreenStyles.errorMessage}>{message}</Text>
-      ) : null}
       <TouchableOpacity
         onPress={() => {
+          clearUserMessage();
           navigation.navigate('Signup');
         }}>
-        <Text>Dont have an account? Sign up instead</Text>
+        <Text style={signinScreenStyles.signupText}>Signup</Text>
       </TouchableOpacity>
     </View>
   );
@@ -59,7 +55,6 @@ const SigninScreen = ({navigation, message, login, clearUserMessage}) => {
 
 const mapStateToProps = (state) => {
   return {
-    loggedIn: state.user.loggedIn,
     message: state.user.message,
   };
 };

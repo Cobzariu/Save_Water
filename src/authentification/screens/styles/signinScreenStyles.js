@@ -3,16 +3,25 @@ import {StyleSheet} from 'react-native';
 const siginScreenStyles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#003f5c',
+    alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 250,
-    marginLeft:5
+  },
+  logo:{
+    fontWeight:"bold",
+    fontSize:50,
+    color:"#fb5b5a",
+    marginBottom:40
   },
   errorMessage: {
     fontSize: 16,
-    color: 'red',
+    color: '#fb5b5a',
+    fontWeight: 'bold',
     marginTop: 15,
-    textAlign: 'center'
   },
+  signupText:{
+    color:"white"
+  }
 });
 
 export default siginScreenStyles;

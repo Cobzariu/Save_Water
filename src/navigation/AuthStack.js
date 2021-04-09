@@ -15,7 +15,7 @@ const AuthStack = () => {
       screenOptions={{
         headerShown: false,
       }}>
-      <Stack.Screen component={SigninScreen} name="Sigin" />
+      <Stack.Screen component={SigninScreen} name="Signin" />
       <Stack.Screen component={SignupScreen} name="Signup" />
       <Stack.Screen component={FirstHouseholdScreen} name="FirstHousehold" />
       <Stack.Screen component={SecondHouseholdScreen} name="SecondHousehold" />
