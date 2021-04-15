@@ -5,6 +5,7 @@ const firstHouseholdScreenStyles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     marginBottom: 15,
+    marginTop: 15,
     color: 'white',
   },
   qustionTextStyle: {

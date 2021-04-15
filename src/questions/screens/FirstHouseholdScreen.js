@@ -1,19 +1,19 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
-import RadioForm from 'react-native-simple-radio-button';
 import InputSpinner from 'react-native-input-spinner';
 import {View, Text} from 'react-native';
 import {firstHouseholdSave, saveHousehold} from '../../actions/household';
 import {firstHouseholdScreenStyles} from './styles';
 import {GeneralButton} from '../../authentification/components';
 import {ScrollView} from 'react-native';
+import {RadioButton} from '../components';
 
 const FirstHouseholdScreen = ({
   navigation,
   firstHouseholdSave,
   saveHousehold,
 }) => {
-  const [locationType, setLocationType] = useState(true);
+  const [locationType, setLocationType] = useState(false);
   const [numberPeople, setNumberPeople] = useState(1);
   const [washingMachineNumber, setWashingMachineNumber] = useState(1);
   const [fullyLoad, setFullyLoad] = useState(true);
@@ -41,17 +41,12 @@ const FirstHouseholdScreen = ({
         <View style={firstHouseholdScreenStyles.questionsView}>
           <View style={firstHouseholdScreenStyles.locationTypeView}>
             <Text style={firstHouseholdScreenStyles.qustionTextStyle}>
-              Choose your location type
+              Select location type
             </Text>
-            <RadioForm
-              radio_props={radio_props_location}
-              initial={locationType}
-              formHorizontal={true}
-              onPress={(value) => {
-                setLocationType(value);
-              }}
-              buttonColor="white"
-              labelColor="white"
+            <RadioButton
+              selectedValue={locationType}
+              props={radio_props_location}
+              setSelectedValue={setLocationType}
             />
           </View>
           <View style={firstHouseholdScreenStyles.locationTypeView}>
@@ -86,13 +81,10 @@ const FirstHouseholdScreen = ({
             <Text style={firstHouseholdScreenStyles.qustionTextStyle}>
               Fully load the washing machine
             </Text>
-            <RadioForm
-              radio_props={radio_props}
-              initial={fullyLoad}
-              formHorizontal={true}
-              onPress={(value) => {
-                setFullyLoad(value);
-              }}
+            <RadioButton
+              selectedValue={fullyLoad}
+              props={radio_props}
+              setSelectedValue={setFullyLoad}
             />
           </View>
           <View style={firstHouseholdScreenStyles.locationTypeView}>
@@ -128,26 +120,20 @@ const FirstHouseholdScreen = ({
             <Text style={firstHouseholdScreenStyles.qustionTextStyle}>
               Do you use a bowl for washing up?
             </Text>
-            <RadioForm
-              radio_props={radio_props}
-              initial={useBowl}
-              formHorizontal={true}
-              onPress={(value) => {
-                setUseBowl(value);
-              }}
+            <RadioButton
+              selectedValue={useBowl}
+              props={radio_props}
+              setSelectedValue={setUseBowl}
             />
           </View>
           <View style={firstHouseholdScreenStyles.locationTypeView}>
             <Text style={firstHouseholdScreenStyles.qustionTextStyle}>
               Toilet have a dual flush mechanism?
             </Text>
-            <RadioForm
-              radio_props={radio_props}
-              initial={dualFlush}
-              formHorizontal={true}
-              onPress={(value) => {
-                setDualFlush(value);
-              }}
+            <RadioButton
+              selectedValue={dualFlush}
+              props={radio_props}
+              setSelectedValue={setDualFlush}
             />
           </View>
         </View>
