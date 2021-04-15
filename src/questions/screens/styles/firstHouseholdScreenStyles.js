@@ -33,13 +33,6 @@ const firstHouseholdScreenStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  buttonStyle: {
-    position: 'absolute',
-    bottom: 20,
-    left: 0,
-    marginBottom: 20,
-    height: 20,
-  },
 });
 
 export default firstHouseholdScreenStyles;

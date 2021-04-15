@@ -8,6 +8,9 @@ import RadioForm from 'react-native-simple-radio-button';
 import {View, Text} from 'react-native';
 import {personScreenStyles} from './styles';
 import {Button, Input} from 'react-native-elements';
+import {GeneralButton, InputField} from '../../authentification/components';
+import InputSpinner from 'react-native-input-spinner';
+import {RadioButton} from '../components';
 
 const PersonScreen = ({
   countPeople,
@@ -33,11 +36,10 @@ const PersonScreen = ({
       <Text style={personScreenStyles.titleStyle}>
         Enter some details person #{countPeople}
       </Text>
-
       <View style={personScreenStyles.questionsView}>
         <View style={personScreenStyles.locationTypeView}>
-          <Input
-            label="Name"
+          <InputField
+            placeholder="Name"
             value={name}
             onChangeText={setName}
             autoCorrect={false}
@@ -47,78 +49,84 @@ const PersonScreen = ({
           <Text style={personScreenStyles.qustionTextStyle}>
             Baths do you take per week
           </Text>
-          <NumericInput
+          <InputSpinner
             onChange={(item) => setBathsWeek(item)}
             value={bathsWeek}
-            initValue={bathsWeek}
-            minValue={0}
-            containerStyle={personScreenStyles.numericInputContainerStyle}
+            initialValue={bathsWeek}
+            width={130}
+            min={0}
+            max={100}
+            textColor="white"
+            color="#fb5b5a"
           />
         </View>
         <View style={personScreenStyles.locationTypeView}>
           <Text style={personScreenStyles.qustionTextStyle}>
             Showers per week
           </Text>
-          <NumericInput
+          <InputSpinner
             onChange={(item) => setShowersWeek(item)}
             value={showersWeek}
-            initValue={showersWeek}
-            minValue={0}
-            containerStyle={personScreenStyles.numericInputContainerStyle}
+            initialValue={showersWeek}
+            width={130}
+            min={0}
+            max={100}
+            textColor="white"
+            color="#fb5b5a"
           />
         </View>
         <View style={personScreenStyles.locationTypeView}>
           <Text style={personScreenStyles.qustionTextStyle}>
             Shower length in minutes
           </Text>
-          <NumericInput
+          <InputSpinner
             onChange={(item) => setShowerLength(item)}
             value={showerLength}
-            initValue={showerLength}
-            minValue={0}
-            containerStyle={personScreenStyles.numericInputContainerStyle}
+            initialValue={showerLength}
+            width={130}
+            min={0}
+            max={100}
+            textColor="white"
+            color="#fb5b5a"
           />
         </View>
-        <View style={personScreenStyles.specialQustionView}>
+        <View style={personScreenStyles.locationTypeView}>
           <Text style={personScreenStyles.qustionTextStyle}>
             Water running when you clean your teeth
           </Text>
-          <RadioForm
-            radio_props={radio_props}
-            initial={leaveTap}
-            formHorizontal={true}
-            onPress={(value) => {
-              setLeaveTap(value);
-            }}
+          <RadioButton
+            selectedValue={leaveTap}
+            setSelectedValue={setLeaveTap}
+            props={radio_props}
           />
         </View>
-        <Button
-          title="Next"
-          style={personScreenStyles.buttonStyle}
-          onPress={() => {
-            savePerson(
-              name,
-              showersWeek,
-              bathsWeek,
-              showerLength,
-              leaveTap,
-            ).then(
-              (success) => {
-                if (countPeople < personNumber) {
-                  increaseCountPeople(countPeople + 1);
-                  navigation.navigate('Person');
-                } else {
-                  signupComplete();
-                  navigation.navigate('Home', {screen: 'Home'});
-                }
-              },
-              (error) => {
-                console.log(error);
-              },
-            );
-          }}
-        />
       </View>
+      <View style={personScreenStyles.buttonView}>
+      <GeneralButton
+        title="Next"
+        onPress={() => {
+          savePerson(name, showersWeek, bathsWeek, showerLength, leaveTap).then(
+            (success) => {
+              if (countPeople < personNumber) {
+                increaseCountPeople(countPeople + 1);
+                navigation.navigate('Person');
+                setName('');
+                setBathsWeek(1);
+                setShowersWeek(1);
+                setShowerLength(1);
+                setLeaveTap(false);
+              } else {
+                signupComplete();
+              }
+            },
+            (error) => {
+              console.log(error);
+            },
+          );
+        }}
+      />
+      </View>
+      
     </View>
   );
 };

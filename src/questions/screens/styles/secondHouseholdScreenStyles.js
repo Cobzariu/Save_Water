@@ -5,12 +5,15 @@ const secondHouseholdScreenStyles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     marginBottom: 15,
+    marginTop: 15,
+    color: 'white',
   },
   qustionTextStyle: {
     fontSize: 15,
+    marginBottom: 10,
+    color: 'white',
   },
   locationTypeView: {
-    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     marginTop: 30,
@@ -30,6 +33,9 @@ const secondHouseholdScreenStyles = StyleSheet.create({
   },
   mainViewStyle: {
     flex: 1,
+    backgroundColor: '#003f5c',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   buttonStyle: {
     position: 'absolute',

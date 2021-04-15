@@ -7,7 +7,7 @@ import { FirstHouseholdScreen, PersonScreen, SecondHouseholdScreen } from './src
 const App = () => {
   return (
     <Provider store={configureStore}>
-      <FirstHouseholdScreen />
+      <PersonScreen />
     </Provider>
   );
 };
