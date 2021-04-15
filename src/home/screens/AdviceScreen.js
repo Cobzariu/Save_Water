@@ -1,12 +1,26 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import {View, Text, Button} from 'react-native';
+import {FlatList} from 'react-native';
+import {AdviceItem} from '../components';
+import { adviceScreenStyles } from './styles';
 
-const AdviceScreen = ({navigation}) => {
+const AdviceScreen = ({advices, statistics}) => {
   return (
-    <View>
-      <Text>Advice Screen</Text>
+    <View style={adviceScreenStyles.mainView}>
+      <FlatList
+        style={adviceScreenStyles.listStyle}
+        data={advices}
+        keyExtractor={(item, index) => index}
+        renderItem={({item}) => <AdviceItem data={item} />}
+      />
     </View>
   );
 };
-
-export default AdviceScreen;
+const mapStateToProps = (state) => {
+  return {
+    advices: state.household.advices,
+    statistics: state.household.statistics,
+  };
+};
+export default connect(mapStateToProps, null)(AdviceScreen);

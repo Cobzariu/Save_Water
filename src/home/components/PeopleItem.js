@@ -1,6 +1,5 @@
 import React from 'react';
 import {View, Text} from 'react-native';
-import {CheckBox} from 'react-native-elements';
 import {peopleItemStyles} from './styles';
 
 const PeopleItem = ({data}) => {

@@ -9,6 +9,8 @@ import {
   DELETE_USAGE_FAIL,
   SAVE_USAGE_FAIL,
   CLEAR_HOUSEHOLD_MESSAGE,
+  GET_ADVICES_SUCCESS,
+  GET_ADVICES_FAIL,
 } from '../constants';
 
 const initialState = {
@@ -29,6 +31,8 @@ const initialState = {
   collectRainwater: false,
   usages: [],
   householdBackend: null,
+  advices: null,
+  statistics: null,
 };
 
 export default function (state = initialState, action) {
@@ -109,6 +113,19 @@ export default function (state = initialState, action) {
       return {
         ...state,
         error_message: '',
+      };
+    }
+    case GET_ADVICES_SUCCESS: {
+      return {
+        ...state,
+        advices: payload.advices,
+        statistics: payload.statistics,
+      };
+    }
+    case GET_ADVICES_FAIL: {
+      return {
+        ...state,
+        error_message: payload,
       };
     }
     default:

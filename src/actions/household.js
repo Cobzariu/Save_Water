@@ -1,3 +1,4 @@
+import adviceApi from '../api/adviceApi';
 import householdApi from '../api/householdApi';
 import usageApi from '../api/usageApi';
 import {
@@ -5,6 +6,8 @@ import {
   DELETE_USAGE_FAIL,
   DELETE_USAGE_SUCCESS,
   FIRST_HOUSEHOLD_SAVE,
+  GET_ADVICES_FAIL,
+  GET_ADVICES_SUCCESS,
   GET_HOUSEHOLD_FAIL,
   GET_HOUSEHOLD_SUCCESS,
   GET_USAGES_FAIL,
@@ -177,4 +180,21 @@ export const clearHouseholdMessage = () => (dispatch) => {
   dispatch({
     type: CLEAR_HOUSEHOLD_MESSAGE,
   });
+};
+
+export const getAdvices = () => (dispatch) => {
+  return adviceApi.getAdvices().then(
+    (data) => {
+      dispatch({
+        type: GET_ADVICES_SUCCESS,
+        payload: data,
+      });
+    },
+    (error) => {
+      dispatch({
+        type: GET_ADVICES_FAIL,
+        payload: error,
+      });
+    },
+  );
 };

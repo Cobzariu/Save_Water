@@ -7,11 +7,11 @@ const siginScreenStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  logo:{
-    fontWeight:"bold",
-    fontSize:50,
-    color:"#fb5b5a",
-    marginBottom:40
+  logo: {
+    fontWeight: 'bold',
+    fontSize: 50,
+    color: '#fb5b5a',
+    marginBottom: 40,
   },
   errorMessage: {
     fontSize: 16,
@@ -19,9 +19,9 @@ const siginScreenStyles = StyleSheet.create({
     fontWeight: 'bold',
     marginTop: 15,
   },
-  signupText:{
-    color:"white"
-  }
+  signupText: {
+    color: 'white',
+  },
 });
 
 export default siginScreenStyles;
