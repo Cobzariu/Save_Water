@@ -12,6 +12,7 @@ import {
   HouseholdScreen,
   UsageList,
 } from '../home/screens';
+import PersonStack from './PersonStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -54,7 +55,7 @@ const TabBar = ({getHousehold, getUsages, getPeople, getAdvices}) => {
         }}
       />
       <Tab.Screen
-        component={HouseholdScreen}
+        component={PersonStack}
         name="Household"
         options={{
           tabBarIcon: ({size, color}) => (

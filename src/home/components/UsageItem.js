@@ -2,7 +2,6 @@ import React from 'react';
 import {months} from '../../utils/variables';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {View, Text} from 'react-native';
-import {Button} from 'react-native-elements';
 import {usageItemStyles} from './styles';
 import {TouchableOpacity} from 'react-native';
 

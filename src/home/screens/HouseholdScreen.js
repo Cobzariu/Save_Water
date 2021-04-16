@@ -5,7 +5,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {HouseholdComponent, PeopleList} from '../components';
 import {householdScreenStyles} from './styles';
 
-const HouseholdScreen = ({householdBackend, people}) => {
+const HouseholdScreen = ({householdBackend, people, navigation}) => {
   return (
     <View style={householdScreenStyles.mainView}>
       <HouseholdComponent data={householdBackend} />
@@ -13,7 +13,10 @@ const HouseholdScreen = ({householdBackend, people}) => {
         <Text style={householdScreenStyles.titleText}>
           Details about people
         </Text>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate('ManagePerson');
+          }}>
           <Ionicons name="person-add-outline" size={25} />
         </TouchableOpacity>
       </View>

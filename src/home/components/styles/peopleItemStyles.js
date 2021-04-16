@@ -3,6 +3,9 @@ import {StyleSheet} from 'react-native';
 const peopleItemStyles = StyleSheet.create({
   mainView: {
     margin: 5,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
   subView: {
     flexDirection: 'row',
