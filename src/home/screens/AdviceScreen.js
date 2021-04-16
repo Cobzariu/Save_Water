@@ -2,8 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {View, Text, Button} from 'react-native';
 import {FlatList} from 'react-native';
-import {AdviceItem} from '../components';
-import { adviceScreenStyles } from './styles';
+import {AdviceItem, StatsDetails} from '../components';
+import {adviceScreenStyles} from './styles';
 
 const AdviceScreen = ({advices, statistics}) => {
   return (
@@ -13,6 +13,9 @@ const AdviceScreen = ({advices, statistics}) => {
         data={advices}
         keyExtractor={(item, index) => index}
         renderItem={({item}) => <AdviceItem data={item} />}
+        ListHeaderComponent={
+          statistics ? <StatsDetails statistics={statistics} /> : null
+        }
       />
     </View>
   );
