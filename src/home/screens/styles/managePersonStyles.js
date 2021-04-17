@@ -28,10 +28,10 @@ const managePersonStyles = StyleSheet.create({
     alignItems: 'center',
   },
   buttonView: {
-    width: '100%',
     alignItems: 'center',
-    bottom: 0,
-    position: 'absolute',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginHorizontal: 20,
   },
 });
 

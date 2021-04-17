@@ -15,7 +15,7 @@ const HouseholdScreen = ({householdBackend, people, navigation}) => {
         </Text>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('ManagePerson');
+            navigation.navigate('ManagePerson', {type: 'add'});
           }}>
           <Ionicons name="person-add-outline" size={25} />
         </TouchableOpacity>

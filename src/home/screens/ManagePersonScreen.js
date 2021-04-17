@@ -1,28 +1,56 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
+import {addNewPerson, getPeople} from '../../actions/person';
+import {getHousehold} from '../../actions/household';
 import {View, Text} from 'react-native';
 import InputSpinner from 'react-native-input-spinner';
 import {managePersonStyles} from './styles';
-import { GeneralButton, InputField } from '../../authentification/components';
-import { RadioButton } from '../../questions/components';
+import {GeneralButton, InputField} from '../../authentification/components';
+import {RadioButton} from '../../questions/components';
 
-const ManagePersonScreen = () => {
+const ManagePersonScreen = ({
+  route,
+  navigation,
+  addNewPerson,
+  getHousehold,
+  getPeople,
+}) => {
+  const actionType = route.params.type;
+  const titleText =
+    actionType === 'add'
+      ? 'Enter some details about a new person'
+      : 'Update some details about a person';
+  const buttonText = actionType === 'add' ? 'Save' : 'Update';
+  const onPressHandler = () => {
+    if (actionType === 'add') save();
+    else update();
+  };
   const [name, setName] = useState('');
   const [bathsWeek, setBathsWeek] = useState(1);
   const [showersWeek, setShowersWeek] = useState(1);
   const [showerLength, setShowerLength] = useState(1);
   const [leaveTap, setLeaveTap] = useState(false);
-
   const radio_props = [
     {label: 'Yes', value: true},
     {label: 'No', value: false},
   ];
 
+  function save() {
+    addNewPerson(name, showersWeek, bathsWeek, showerLength, leaveTap).then(
+      (succ) => {
+        getHousehold();
+        getPeople();
+        navigation.goBack();
+      },
+      (fail) => {
+        console.log(fail);
+      },
+    );
+  }
+  function update() {}
   return (
     <View style={managePersonStyles.mainViewStyle}>
-      <Text style={managePersonStyles.titleStyle}>
-        Enter some details person
-      </Text>
+      <Text style={managePersonStyles.titleStyle}>{titleText}</Text>
       <View style={managePersonStyles.questionsView}>
         <View style={managePersonStyles.locationTypeView}>
           <InputField
@@ -89,9 +117,23 @@ const ManagePersonScreen = () => {
         </View>
       </View>
       <View style={managePersonStyles.buttonView}>
-        <GeneralButton title="Next" />
+        <GeneralButton
+          title={buttonText}
+          width="50%"
+          onPress={onPressHandler}
+        />
+        <GeneralButton
+          title="Cancel"
+          width="50%"
+          marginLeft={5}
+          onPress={() => {
+            navigation.goBack();
+          }}
+        />
       </View>
     </View>
   );
 };
-export default connect(null, null)(ManagePersonScreen);
+export default connect(null, {addNewPerson, getHousehold, getPeople})(
+  ManagePersonScreen,
+);

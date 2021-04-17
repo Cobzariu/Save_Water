@@ -33,6 +33,37 @@ const savePerson = async (
     );
 };
 
+const addNewPerson = async (
+  name,
+  showerNumberWeek,
+  bathNumberWeek,
+  showerLengthMinutes,
+  waterRunningBrushingTeeth,
+) => {
+  return axios
+    .post(
+      API_BASE + '/person/new',
+      {
+        name,
+        showerNumberWeek,
+        bathNumberWeek,
+        showerLengthMinutes,
+        waterRunningBrushingTeeth,
+      },
+      {
+        headers: await authHeader(),
+      },
+    )
+    .then(
+      async (response) => {
+        return response.data.person;
+      },
+      (error) => {
+        throw error.response.data.error;
+      },
+    );
+};
+
 const getPeople = async () => {
   return await axios
     .get(API_BASE + '/person', {
@@ -50,5 +81,6 @@ const getPeople = async () => {
 
 export default {
   savePerson,
-  getPeople
+  getPeople,
+  addNewPerson,
 };
