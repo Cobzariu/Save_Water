@@ -1,6 +1,6 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {HouseholdScreen, ManagePersonScreen} from '../home/screens';
+import {ManagePersonScreen, PeopleScreen} from '../home/screens';
 
 const Stack = createStackNavigator();
 
@@ -10,7 +10,7 @@ const PersonStack = () => {
       screenOptions={{
         headerShown: false,
       }}>
-      <Stack.Screen component={HouseholdScreen} name="Household" />
+      <Stack.Screen component={PeopleScreen} name="People" />
       <Stack.Screen component={ManagePersonScreen} name="ManagePerson" />
     </Stack.Navigator>
   );

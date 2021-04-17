@@ -2,8 +2,11 @@ import {StyleSheet} from 'react-native';
 
 const usageListStyles = StyleSheet.create({
   mainView: {
-    margin: 5,
+    backgroundColor: 'white',
     flex: 1,
+  },
+  subView: {
+    margin: 5,
   },
   headerMainView: {
     flexDirection: 'row',

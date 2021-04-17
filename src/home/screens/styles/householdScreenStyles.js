@@ -1,24 +1,16 @@
-import {StyleSheet, Dimensions} from 'react-native';
-const window = Dimensions.get('window');
+import {StyleSheet} from 'react-native';
 
 const householdScreenStyles = StyleSheet.create({
   mainView: {
     flex: 1,
     backgroundColor: 'white',
+    justifyContent: 'space-between',
   },
   subView: {
     margin: 5,
   },
-  titleText: {
-    fontSize: 18,
-  },
-  addView: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginRight: 5,
-  },
-  listView: {
-   
+  buttonView: {
+    alignItems: 'center',
   },
 });
 

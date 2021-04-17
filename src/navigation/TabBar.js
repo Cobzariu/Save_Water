@@ -2,12 +2,11 @@ import React, {useEffect} from 'react';
 import {getHousehold, getUsages, getAdvices} from '../actions/household';
 import {getPeople} from '../actions/person';
 import {connect} from 'react-redux';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {
-  AccountScreen,
   AdviceScreen,
   HouseholdScreen,
   UsageList,
@@ -30,8 +29,8 @@ const TabBar = ({getHousehold, getUsages, getPeople, getAdvices}) => {
         headerShown: false,
       }}
       tabBarOptions={{
-        activeTintColor: '#1f55de',
-        inactiveTintColor: 'grey',
+        activeTintColor: '#fb5b5a',
+        inactiveTintColor: '#003f5c',
         labelStyle: {
           fontSize: 12,
         },
@@ -56,19 +55,19 @@ const TabBar = ({getHousehold, getUsages, getPeople, getAdvices}) => {
       />
       <Tab.Screen
         component={PersonStack}
-        name="Household"
+        name="People"
         options={{
           tabBarIcon: ({size, color}) => (
-            <FontAwesome5 name="house-user" size={size} color={color} />
+            <Ionicons name="people" size={size} color={color} />
           ),
         }}
       />
       <Tab.Screen
-        component={AccountScreen}
-        name="Account"
+        component={HouseholdScreen}
+        name="Household"
         options={{
           tabBarIcon: ({size, color}) => (
-            <MaterialCommunityIcons name="account" size={size} color={color} />
+            <FontAwesome5 name="house-user" size={size} color={color} />
           ),
         }}
       />

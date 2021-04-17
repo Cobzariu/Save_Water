@@ -35,104 +35,106 @@ const UsageList = ({
 
   return (
     <View style={usageListStyles.mainView}>
-      <Overlay isVisible={visible} onBackdropPress={toggleOverlay}>
-        <View style={usageListStyles.amountView}>
-          <Text>Enter Amount</Text>
-          <Input
-            containerStyle={usageListStyles.inputStyle}
-            onChangeText={setAmount}
-            value={amount}
-            keyboardType="numeric"
-            placeholder="3.32"
-          />
-        </View>
-        <View style={usageListStyles.amountView}>
-          <Text>Year</Text>
-          <InputSpinner
-            max={currentYear}
-            min={2000}
-            step={1}
-            colorMax={'#f04048'}
-            colorMin={'#40c5f4'}
-            value={year}
-            onChange={(num) => {
-              setYear(num);
-            }}
-            width={150}
-            style={usageListStyles.inputSpinnerStyle}
-          />
-        </View>
-        <View style={usageListStyles.amountView}>
-          <Text>Month</Text>
-          <ModalDropdown
-            defaultValue={months[currentMonth]}
-            options={months}
-            textStyle={usageListStyles.dropDownTextStyle}
-            style={usageListStyles.dropDownMainStyle}
-            dropdownStyle={usageListStyles.dropDownStyle}
-            dropdownTextStyle={usageListStyles.dropDownDropTextStyle}
-            onSelect={(index) => {
-              setMonth(index);
-            }}
-          />
-        </View>
-        {error_message ? (
-          <Text style={usageListStyles.errorMessage}>{error_message}</Text>
-        ) : null}
-        <View style={usageListStyles.buttonViewStyle}>
-          <Button
-            title="Save"
-            onPress={() => {
-              saveUsage(amount, month, year).then(
-                (succ) => {
-                  getUsages();
-                  clearHouseholdMessage();
-                  setVisible(!visible);
-                  setAmount('');
-                  setMonth(currentMonth);
-                  setYear(currentYear);
-                },
-                (fail) => {},
-              );
-            }}
-          />
-        </View>
-      </Overlay>
-      <FlatList
-        data={usages}
-        showsVerticalScrollIndicator={false}
-        keyExtractor={(item) => item._id}
-        renderItem={({item}) => (
-          <UsageItem
-            data={item}
-            onPress={() => {
-              deleteUsage(item._id).then(
-                (succ) => {
-                  getUsages();
-                },
-                (fail) => {},
-              );
-            }}
-          />
-        )}
-        ListHeaderComponent={
-          <View style={usageListStyles.headerMainView}>
-            <Text style={usageListStyles.titleText}>
-              Your household consumption
-            </Text>
-            <TouchableOpacity>
-              <MaterialIcons
-                name="add"
-                size={30}
-                onPress={() => {
-                  clearHouseholdMessage();
-                  setVisible(!visible);
-                }}
-              />
-            </TouchableOpacity>
+      <View style={usageListStyles.subView}>
+        <Overlay isVisible={visible} onBackdropPress={toggleOverlay}>
+          <View style={usageListStyles.amountView}>
+            <Text>Enter Amount</Text>
+            <Input
+              containerStyle={usageListStyles.inputStyle}
+              onChangeText={setAmount}
+              value={amount}
+              keyboardType="numeric"
+              placeholder="3.32"
+            />
           </View>
-        }
-      />
+          <View style={usageListStyles.amountView}>
+            <Text>Year</Text>
+            <InputSpinner
+              max={currentYear}
+              min={2000}
+              step={1}
+              colorMax={'#f04048'}
+              colorMin={'#40c5f4'}
+              value={year}
+              onChange={(num) => {
+                setYear(num);
+              }}
+              width={150}
+              style={usageListStyles.inputSpinnerStyle}
+            />
+          </View>
+          <View style={usageListStyles.amountView}>
+            <Text>Month</Text>
+            <ModalDropdown
+              defaultValue={months[currentMonth]}
+              options={months}
+              textStyle={usageListStyles.dropDownTextStyle}
+              style={usageListStyles.dropDownMainStyle}
+              dropdownStyle={usageListStyles.dropDownStyle}
+              dropdownTextStyle={usageListStyles.dropDownDropTextStyle}
+              onSelect={(index) => {
+                setMonth(index);
+              }}
+            />
+          </View>
+          {error_message ? (
+            <Text style={usageListStyles.errorMessage}>{error_message}</Text>
+          ) : null}
+          <View style={usageListStyles.buttonViewStyle}>
+            <Button
+              title="Save"
+              onPress={() => {
+                saveUsage(amount, month, year).then(
+                  (succ) => {
+                    getUsages();
+                    clearHouseholdMessage();
+                    setVisible(!visible);
+                    setAmount('');
+                    setMonth(currentMonth);
+                    setYear(currentYear);
+                  },
+                  (fail) => {},
+                );
+              }}
+            />
+          </View>
+        </Overlay>
+        <FlatList
+          data={usages}
+          showsVerticalScrollIndicator={false}
+          keyExtractor={(item) => item._id}
+          renderItem={({item}) => (
+            <UsageItem
+              data={item}
+              onPress={() => {
+                deleteUsage(item._id).then(
+                  (succ) => {
+                    getUsages();
+                  },
+                  (fail) => {},
+                );
+              }}
+            />
+          )}
+          ListHeaderComponent={
+            <View style={usageListStyles.headerMainView}>
+              <Text style={usageListStyles.titleText}>
+                Your household consumption
+              </Text>
+              <TouchableOpacity>
+                <MaterialIcons
+                  name="add"
+                  size={30}
+                  onPress={() => {
+                    clearHouseholdMessage();
+                    setVisible(!visible);
+                  }}
+                />
+              </TouchableOpacity>
+            </View>
+          }
+        />
+      </View>
     </View>
   );
 };
