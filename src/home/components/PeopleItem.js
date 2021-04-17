@@ -3,10 +3,10 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import {peopleItemStyles} from './styles';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const PeopleItem = ({data}) => {
+const PeopleItem = ({data, onPress,onPressDelete}) => {
   const waterRunninMessage = data.waterRunningBrushingTeeth ? 'Yes' : 'No';
   return (
-    <View style={peopleItemStyles.mainView}>
+    <TouchableOpacity style={peopleItemStyles.mainView} onPress={onPress}>
       <View>
         <View style={peopleItemStyles.subView}>
           <Text style={peopleItemStyles.titleText}>Name</Text>
@@ -34,11 +34,11 @@ const PeopleItem = ({data}) => {
         </View>
       </View>
       <View>
-        <TouchableOpacity>
-          <MaterialCommunityIcons name="delete" size={25} />
+        <TouchableOpacity onPress={onPressDelete}>
+          <MaterialCommunityIcons name="delete" size={27} />
         </TouchableOpacity>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

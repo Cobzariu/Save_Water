@@ -1,4 +1,5 @@
 import {
+  DELETE_PERSON_FAIL,
   GET_PEOPLE_FAIL,
   GET_PEOPLE_SUCCESS,
   SAVE_PERSON_FAIL,
@@ -31,6 +32,12 @@ export default function (state = initialState, action) {
       };
     }
     case GET_PEOPLE_FAIL: {
+      return {
+        ...state,
+        error_message: payload,
+      };
+    }
+    case DELETE_PERSON_FAIL: {
       return {
         ...state,
         error_message: payload,

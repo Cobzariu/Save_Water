@@ -16,25 +16,35 @@ const ManagePersonScreen = ({
   getPeople,
 }) => {
   const actionType = route.params.type;
+  const personItem = route.params.person;
   const titleText =
     actionType === 'add'
       ? 'Enter some details about a new person'
       : 'Update some details about a person';
   const buttonText = actionType === 'add' ? 'Save' : 'Update';
-  const onPressHandler = () => {
-    if (actionType === 'add') save();
-    else update();
-  };
-  const [name, setName] = useState('');
-  const [bathsWeek, setBathsWeek] = useState(1);
-  const [showersWeek, setShowersWeek] = useState(1);
-  const [showerLength, setShowerLength] = useState(1);
-  const [leaveTap, setLeaveTap] = useState(false);
+
+  const defaultName = personItem ? personItem.name : '';
+  const defaultBathsWeek = personItem ? personItem.bathNumberWeek : 1;
+  const defaultShowersWeek = personItem ? personItem.showerNumberWeek : 1;
+  const defaultShowerLength = personItem ? personItem.showerLengthMinutes : 1;
+  const defaultLeaveTap = personItem
+    ? personItem.waterRunningBrushingTeeth
+    : false;
+
+  const [name, setName] = useState(defaultName);
+  const [bathsWeek, setBathsWeek] = useState(defaultBathsWeek);
+  const [showersWeek, setShowersWeek] = useState(defaultShowersWeek);
+  const [showerLength, setShowerLength] = useState(defaultShowerLength);
+  const [leaveTap, setLeaveTap] = useState(defaultLeaveTap);
   const radio_props = [
     {label: 'Yes', value: true},
     {label: 'No', value: false},
   ];
 
+  const onPressHandler = () => {
+    if (actionType === 'add') save();
+    else update();
+  };
   function save() {
     addNewPerson(name, showersWeek, bathsWeek, showerLength, leaveTap).then(
       (succ) => {

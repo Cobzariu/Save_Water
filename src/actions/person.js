@@ -1,5 +1,7 @@
 import personApi from '../api/personApi';
 import {
+  DELETE_PERSON_FAIL,
+  DELETE_PERSON_SUCCESS,
   GET_PEOPLE_FAIL,
   GET_PEOPLE_SUCCESS,
   SAVE_NEW_PERSON_FAIL,
@@ -71,6 +73,25 @@ export const addNewPerson = (
         return Promise.reject();
       },
     );
+};
+
+export const deletePerson = (person_id) => (dispatch) => {
+  return personApi.deletePerson(person_id).then(
+    (data) => {
+      dispatch({
+        type: DELETE_PERSON_SUCCESS,
+        payload: data,
+      });
+      return Promise.resolve();
+    },
+    (error) => {
+      dispatch({
+        type: DELETE_PERSON_FAIL,
+        payload: error,
+      });
+      return Promise.reject();
+    },
+  );
 };
 
 export const getPeople = () => (dispatch) => {

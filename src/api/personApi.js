@@ -64,6 +64,21 @@ const addNewPerson = async (
     );
 };
 
+const deletePerson = async (person_id) => {
+  return await axios
+    .delete(API_BASE + '/person/' + person_id, {
+      headers: await authHeader(),
+    })
+    .then(
+      async (response) => {
+        return response;
+      },
+      async (error) => {
+        throw error.response.data.error;
+      },
+    );
+};
+
 const getPeople = async () => {
   return await axios
     .get(API_BASE + '/person', {
@@ -83,4 +98,5 @@ export default {
   savePerson,
   getPeople,
   addNewPerson,
+  deletePerson,
 };
