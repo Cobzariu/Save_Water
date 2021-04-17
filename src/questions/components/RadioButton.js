@@ -12,7 +12,6 @@ const RadioButton = ({props, selectedValue, setSelectedValue}) => {
             <TouchableOpacity
               style={radioButtonStyles.radioCircle}
               onPress={() => {
-                console.log(res.value);
                 setSelectedValue(res.value);
               }}>
               {selectedValue === res.value && (

@@ -63,6 +63,37 @@ const addNewPerson = async (
       },
     );
 };
+const updatePerson = async (
+  person_id,
+  name,
+  showerNumberWeek,
+  bathNumberWeek,
+  showerLengthMinutes,
+  waterRunningBrushingTeeth,
+) => {
+  return axios
+    .put(
+      API_BASE + '/person/' + person_id,
+      {
+        name,
+        showerNumberWeek,
+        bathNumberWeek,
+        showerLengthMinutes,
+        waterRunningBrushingTeeth,
+      },
+      {
+        headers: await authHeader(),
+      },
+    )
+    .then(
+      async (response) => {
+        return response;
+      },
+      (error) => {
+        throw error.response.data.error;
+      },
+    );
+};
 
 const deletePerson = async (person_id) => {
   return await axios
@@ -99,4 +130,5 @@ export default {
   getPeople,
   addNewPerson,
   deletePerson,
+  updatePerson,
 };

@@ -4,6 +4,7 @@ import {
   GET_PEOPLE_SUCCESS,
   SAVE_PERSON_FAIL,
   SAVE_PERSON_SUCCESS,
+  UPDATE_PERSON_FAIL,
 } from '../constants';
 
 const initialState = {
@@ -38,6 +39,12 @@ export default function (state = initialState, action) {
       };
     }
     case DELETE_PERSON_FAIL: {
+      return {
+        ...state,
+        error_message: payload,
+      };
+    }
+    case UPDATE_PERSON_FAIL: {
       return {
         ...state,
         error_message: payload,

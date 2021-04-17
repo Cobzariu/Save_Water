@@ -8,6 +8,8 @@ import {
   SAVE_NEW_PERSON_SUCCESS,
   SAVE_PERSON_FAIL,
   SAVE_PERSON_SUCCESS,
+  UPDATE_PERSON_FAIL,
+  UPDATE_PERSON_SUCCESS,
 } from '../constants';
 
 export const savePerson = (
@@ -68,6 +70,41 @@ export const addNewPerson = (
       (error) => {
         dispatch({
           type: SAVE_NEW_PERSON_FAIL,
+          payload: error,
+        });
+        return Promise.reject();
+      },
+    );
+};
+
+export const updatePerson = (
+  person_id,
+  name,
+  showerNumberWeek,
+  bathNumberWeek,
+  showerLengthMinutes,
+  waterRunningBrushingTeeth,
+) => (dispatch) => {
+  return personApi
+    .updatePerson(
+      person_id,
+      name,
+      showerNumberWeek,
+      bathNumberWeek,
+      showerLengthMinutes,
+      waterRunningBrushingTeeth,
+    )
+    .then(
+      (data) => {
+        dispatch({
+          type: UPDATE_PERSON_SUCCESS,
+          payload: data,
+        });
+        return Promise.resolve();
+      },
+      (error) => {
+        dispatch({
+          type: UPDATE_PERSON_FAIL,
           payload: error,
         });
         return Promise.reject();

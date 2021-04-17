@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
-import {addNewPerson, getPeople} from '../../actions/person';
+import {addNewPerson, getPeople, updatePerson} from '../../actions/person';
 import {getHousehold} from '../../actions/household';
 import {View, Text} from 'react-native';
 import InputSpinner from 'react-native-input-spinner';
@@ -14,6 +14,7 @@ const ManagePersonScreen = ({
   addNewPerson,
   getHousehold,
   getPeople,
+  updatePerson,
 }) => {
   const actionType = route.params.type;
   const personItem = route.params.person;
@@ -52,12 +53,25 @@ const ManagePersonScreen = ({
         getPeople();
         navigation.goBack();
       },
-      (fail) => {
-        console.log(fail);
-      },
+      (fail) => {},
     );
   }
-  function update() {}
+  function update() {
+    updatePerson(
+      personItem._id,
+      name,
+      showersWeek,
+      bathsWeek,
+      showerLength,
+      leaveTap,
+    ).then(
+      (succ) => {
+        getPeople();
+        navigation.goBack();
+      },
+      (fail) => {},
+    );
+  }
   return (
     <View style={managePersonStyles.mainViewStyle}>
       <Text style={managePersonStyles.titleStyle}>{titleText}</Text>
@@ -144,6 +158,9 @@ const ManagePersonScreen = ({
     </View>
   );
 };
-export default connect(null, {addNewPerson, getHousehold, getPeople})(
-  ManagePersonScreen,
-);
+export default connect(null, {
+  addNewPerson,
+  getHousehold,
+  getPeople,
+  updatePerson,
+})(ManagePersonScreen);
