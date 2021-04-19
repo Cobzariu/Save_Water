@@ -1,4 +1,6 @@
 import {
+  CHANGE_LOADING_PERSON_TRUE,
+  CHANGE_LOADING_TRUE,
   DELETE_PERSON_FAIL,
   GET_PEOPLE_FAIL,
   GET_PEOPLE_SUCCESS,
@@ -10,6 +12,7 @@ import {
 const initialState = {
   error_message: '',
   people: [],
+  isLoading: false,
 };
 
 export default function (state = initialState, action) {
@@ -18,6 +21,12 @@ export default function (state = initialState, action) {
     case SAVE_PERSON_SUCCESS: {
       return {
         ...state,
+      };
+    }
+    case CHANGE_LOADING_PERSON_TRUE: {
+      return {
+        ...state,
+        isLoading: true,
       };
     }
     case SAVE_PERSON_FAIL: {
@@ -30,12 +39,14 @@ export default function (state = initialState, action) {
       return {
         ...state,
         people: payload,
+        isLoading: false,
       };
     }
     case GET_PEOPLE_FAIL: {
       return {
         ...state,
         error_message: payload,
+        isLoading: false,
       };
     }
     case DELETE_PERSON_FAIL: {

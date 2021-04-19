@@ -1,20 +1,23 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
+import {getPeople} from '../../actions/person';
 import {View, Text, TouchableOpacity} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {HouseholdComponent, PeopleList} from '../components';
+import {PeopleList} from '../components';
 import {peopleScreenStyles} from './styles';
-import { ScrollView } from 'react-native';
+import {ScrollView} from 'react-native';
+import {Spinner} from '../../authentification/components';
 
-const PeopleScreen = ({people, navigation}) => {
+const PeopleScreen = ({people, navigation, getPeople, isLoading}) => {
+  useEffect(() => {
+    getPeople();
+  }, []);
   return (
     <ScrollView style={peopleScreenStyles.mainView}>
+      <Spinner loading={isLoading} />
       <View style={peopleScreenStyles.subView}>
-        {/* <HouseholdComponent data={householdBackend} /> */}
         <View style={peopleScreenStyles.addView}>
-          <Text style={peopleScreenStyles.titleText}>
-            Details about people
-          </Text>
+          <Text style={peopleScreenStyles.titleText}>Details about people</Text>
           <TouchableOpacity
             onPress={() => {
               navigation.navigate('ManagePerson', {type: 'add'});
@@ -31,9 +34,9 @@ const PeopleScreen = ({people, navigation}) => {
 };
 const mapStateToProps = (state) => {
   return {
-    //householdBackend: state.household.householdBackend,
     people: state.person.people,
+    isLoading: state.person.isLoading,
   };
 };
 
-export default connect(mapStateToProps, null)(PeopleScreen);
+export default connect(mapStateToProps, {getPeople})(PeopleScreen);

@@ -1,5 +1,7 @@
 import personApi from '../api/personApi';
 import {
+  CHANGE_LOADING_PERSON_TRUE,
+  CHANGE_LOADING_TRUE,
   DELETE_PERSON_FAIL,
   DELETE_PERSON_SUCCESS,
   GET_PEOPLE_FAIL,
@@ -132,6 +134,9 @@ export const deletePerson = (person_id) => (dispatch) => {
 };
 
 export const getPeople = () => (dispatch) => {
+  dispatch({
+    type: CHANGE_LOADING_PERSON_TRUE,
+  });
   return personApi.getPeople().then(
     (data) => {
       dispatch({

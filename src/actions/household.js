@@ -142,6 +142,9 @@ export const updateHousehold = (
 };
 
 export const getHousehold = () => (dispatch) => {
+  dispatch({
+    type: CHANGE_LOADING_TRUE,
+  });
   return householdApi.getHousehold().then(
     (data) => {
       if (data) {
@@ -169,6 +172,9 @@ export const increaseCountPeople = (newCountPeople) => (dispatch) => {
 };
 
 export const getUsages = () => (dispatch) => {
+  dispatch({
+    type: CHANGE_LOADING_TRUE,
+  });
   return usageApi.getUsages().then(
     (data) => {
       dispatch({

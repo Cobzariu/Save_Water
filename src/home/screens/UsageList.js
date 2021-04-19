@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, FlatList, Text, TouchableOpacity} from 'react-native';
 import InputSpinner from 'react-native-input-spinner';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -14,6 +14,7 @@ import {connect} from 'react-redux';
 import {UsageItem} from '../components';
 import {usageListStyles} from './styles';
 import {months} from '../../utils/variables';
+import {Spinner} from '../../authentification/components';
 
 const UsageList = ({
   usages,
@@ -22,7 +23,11 @@ const UsageList = ({
   saveUsage,
   deleteUsage,
   clearHouseholdMessage,
+  isLoading,
 }) => {
+  useEffect(() => {
+    getUsages();
+  }, []);
   const currentYear = new Date().getFullYear();
   const currentMonth = new Date().getMonth();
   const [visible, setVisible] = useState(false);
@@ -35,6 +40,7 @@ const UsageList = ({
 
   return (
     <View style={usageListStyles.mainView}>
+      <Spinner loading={isLoading} />
       <View style={usageListStyles.subView}>
         <Overlay isVisible={visible} onBackdropPress={toggleOverlay}>
           <View style={usageListStyles.amountView}>
@@ -143,6 +149,7 @@ const mapStateToProps = (state) => {
   return {
     usages: state.household.usages,
     error_message: state.household.error_message,
+    isLoading: state.household.isLoading,
   };
 };
 

@@ -1,6 +1,4 @@
-import React, {useEffect} from 'react';
-import {getHousehold, getUsages, getAdvices} from '../actions/household';
-import {getPeople} from '../actions/person';
+import React from 'react';
 import {connect} from 'react-redux';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
@@ -12,14 +10,7 @@ import HouseholdStack from './HouseholdStack';
 
 const Tab = createBottomTabNavigator();
 
-const TabBar = ({getHousehold, getUsages, getPeople, getAdvices}) => {
-  useEffect(() => {
-    getHousehold();
-    getUsages();
-    getPeople();
-    getAdvices();
-  }, []);
-
+const TabBar = () => {
   return (
     <Tab.Navigator
       screenOptions={{
@@ -72,6 +63,4 @@ const TabBar = ({getHousehold, getUsages, getPeople, getAdvices}) => {
   );
 };
 
-export default connect(null, {getHousehold, getUsages, getPeople, getAdvices})(
-  TabBar,
-);
+export default TabBar;

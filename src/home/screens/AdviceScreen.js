@@ -1,12 +1,16 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
-import {View, Text, Button} from 'react-native';
+import {View} from 'react-native';
+import {getAdvices} from '../../actions/household';
 import {FlatList} from 'react-native';
 import {AdviceItem, StatsDetails} from '../components';
 import {adviceScreenStyles} from './styles';
 import {Spinner} from '../../authentification/components';
 
-const AdviceScreen = ({advices, statistics,isLoading}) => {
+const AdviceScreen = ({advices, statistics, isLoading, getAdvices}) => {
+  useEffect(() => {
+    getAdvices();
+  }, []);
   return (
     <View style={adviceScreenStyles.mainView}>
       <Spinner loading={isLoading} />
@@ -29,4 +33,4 @@ const mapStateToProps = (state) => {
     isLoading: state.household.isLoading,
   };
 };
-export default connect(mapStateToProps, null)(AdviceScreen);
+export default connect(mapStateToProps, {getAdvices})(AdviceScreen);

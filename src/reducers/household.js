@@ -104,12 +104,14 @@ export default function (state = initialState, action) {
       return {
         ...state,
         householdBackend: payload,
+        isLoading: false,
       };
     }
     case GET_USAGES_SUCCESS: {
       return {
         ...state,
         usages: payload,
+        isLoading: false,
       };
     }
     case SAVE_USAGE_FAIL: {
