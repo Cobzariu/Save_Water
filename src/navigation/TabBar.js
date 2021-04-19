@@ -6,12 +6,9 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {
-  AdviceScreen,
-  HouseholdScreen,
-  UsageList,
-} from '../home/screens';
+import {AdviceScreen, HouseholdScreen, UsageList} from '../home/screens';
 import PersonStack from './PersonStack';
+import HouseholdStack from './HouseholdStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -63,7 +60,7 @@ const TabBar = ({getHousehold, getUsages, getPeople, getAdvices}) => {
         }}
       />
       <Tab.Screen
-        component={HouseholdScreen}
+        component={HouseholdStack}
         name="Household"
         options={{
           tabBarIcon: ({size, color}) => (

@@ -46,15 +46,54 @@ const saveHousehold = async (
       },
     );
 };
-
-const getHousehold = async () => {
+const updateHousehold = async (
+  locationTypeHouse,
+  washingMachineNumberWeek,
+  washingMachineFullLoad,
+  washHandNumberWeek,
+  bowlWashing,
+  dishwasherNumberWeek,
+  toiletDualFlush,
+  washCarNumberWeek,
+  waterGardenNumberWeek,
+  waterGardenLength,
+  collectRainwater,
+) => {
   return await axios
-    .get(
+    .put(
       API_BASE + '/household',
+      {
+        locationTypeHouse,
+        washingMachineNumberWeek,
+        washingMachineFullLoad,
+        washHandNumberWeek,
+        bowlWashing,
+        dishwasherNumberWeek,
+        toiletDualFlush,
+        washCarNumberWeek,
+        waterGardenNumberWeek,
+        waterGardenLength,
+        collectRainwater,
+      },
       {
         headers: await authHeader(),
       },
     )
+    .then(
+      async (response) => {
+        return response;
+      },
+      (error) => {
+        throw error.response.data.error;
+      },
+    );
+};
+
+const getHousehold = async () => {
+  return await axios
+    .get(API_BASE + '/household', {
+      headers: await authHeader(),
+    })
     .then(
       async (response) => {
         return response.data.household;
@@ -68,4 +107,5 @@ const getHousehold = async () => {
 export default {
   saveHousehold,
   getHousehold,
+  updateHousehold,
 };

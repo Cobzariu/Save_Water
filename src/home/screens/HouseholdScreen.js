@@ -1,17 +1,21 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {logout} from '../../actions/user';
-import {View, Text} from 'react-native';
-import {Button} from 'react-native-elements';
+import {View} from 'react-native';
 import {householdScreenStyles} from './styles';
 import {HouseholdComponent} from '../components';
 import {GeneralButton} from '../../authentification/components';
 
-const HouseholdScreen = ({householdBackend, logout}) => {
+const HouseholdScreen = ({householdBackend, logout, navigation}) => {
   return (
     <View style={householdScreenStyles.mainView}>
       <View style={householdScreenStyles.subView}>
-        <HouseholdComponent data={householdBackend} />
+        <HouseholdComponent
+          data={householdBackend}
+          onPress={() => {
+            navigation.navigate('EditHousehold', {household: householdBackend});
+          }}
+        />
       </View>
       <View style={householdScreenStyles.buttonView}>
         <GeneralButton

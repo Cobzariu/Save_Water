@@ -18,6 +18,8 @@ import {
   SAVE_PERSON_FAIL,
   SAVE_USAGE_FAIL,
   SAVE_USAGE_SUCCESS,
+  UPDATE_HOUSEHOLD_SUCCESS,
+  UPDATE_PERSON_FAIL,
 } from '../constants';
 
 export const saveHousehold = (
@@ -92,6 +94,49 @@ export const firstHouseholdSave = (
       toiletDualFlush,
     },
   });
+};
+
+export const updateHousehold = (
+  locationTypeHouse,
+  washingMachineNumberWeek,
+  washingMachineFullLoad,
+  washHandNumberWeek,
+  bowlWashing,
+  dishwasherNumberWeek,
+  toiletDualFlush,
+  washCarNumberWeek,
+  waterGardenNumberWeek,
+  waterGardenLength,
+  collectRainwater,
+) => (dispatch) => {
+  return householdApi.updateHousehold(
+    locationTypeHouse,
+    washingMachineNumberWeek,
+    washingMachineFullLoad,
+    washHandNumberWeek,
+    bowlWashing,
+    dishwasherNumberWeek,
+    toiletDualFlush,
+    washCarNumberWeek,
+    waterGardenNumberWeek,
+    waterGardenLength,
+    collectRainwater,
+  ).then(
+    (data) => {
+      dispatch({
+        type: UPDATE_HOUSEHOLD_SUCCESS,
+        payload: data,
+      });
+      return Promise.resolve();
+    },
+    (error) => {
+      dispatch({
+        type: UPDATE_PERSON_FAIL,
+        payload: error,
+      });
+      return Promise.reject();
+    },
+  );
 };
 
 export const getHousehold = () => (dispatch) => {

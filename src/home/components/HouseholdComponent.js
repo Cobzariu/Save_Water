@@ -1,9 +1,11 @@
 import React from 'react';
 import {View, Text} from 'react-native';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 import {householdComponentStyle} from './styles';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import {TouchableOpacity} from 'react-native';
 
-const HouseholdComponent = ({data}) => {
+const HouseholdComponent = ({data, onPress}) => {
   const iconName = data.locationTypeHouse ? 'house' : 'apartment';
   const fullyLoad = data.washingMachineFullLoad ? 'Yes' : 'No';
   const bowlWashing = data.bowlWashing ? 'Yes' : 'No';
@@ -14,7 +16,12 @@ const HouseholdComponent = ({data}) => {
       <Text style={householdComponentStyle.mainTitleText}>
         Household details
       </Text>
-      <Text style={householdComponentStyle.subTitleText}>Indoors</Text>
+      <View style={householdComponentStyle.editView}>
+        <Text style={householdComponentStyle.subTitleText}>Indoors</Text>
+        <TouchableOpacity onPress={onPress}>
+          <AntDesign name="edit" size={35} />
+        </TouchableOpacity>
+      </View>
       <View style={householdComponentStyle.subView}>
         <Text style={householdComponentStyle.titleText}>Location type</Text>
         <MaterialIcons name={iconName} size={25} />

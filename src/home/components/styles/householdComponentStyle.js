@@ -27,6 +27,10 @@ const householdComponentStyle = StyleSheet.create({
     marginTop: 20,
     marginBottom: 10,
   },
+  editView: {
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
 });
 
 export default householdComponentStyle;
