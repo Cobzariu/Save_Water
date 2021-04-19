@@ -11,6 +11,8 @@ import {
   CLEAR_HOUSEHOLD_MESSAGE,
   GET_ADVICES_SUCCESS,
   GET_ADVICES_FAIL,
+  CHANGE_LOADING_TRUE,
+  CHANGE_LOADING_FALSE,
 } from '../constants';
 
 const initialState = {
@@ -33,6 +35,7 @@ const initialState = {
   householdBackend: null,
   advices: null,
   statistics: null,
+  isLoading: false,
 };
 
 export default function (state = initialState, action) {
@@ -42,6 +45,18 @@ export default function (state = initialState, action) {
       return {
         ...state,
         countPeople: payload,
+      };
+    }
+    case CHANGE_LOADING_TRUE: {
+      return {
+        ...state,
+        isLoading: true,
+      };
+    }
+    case CHANGE_LOADING_FALSE: {
+      return {
+        ...state,
+        isLoading: false,
       };
     }
     case SAVE_HOUSEHOLD_SUCCESS: {
@@ -120,6 +135,7 @@ export default function (state = initialState, action) {
         ...state,
         advices: payload.advices,
         statistics: payload.statistics,
+        isLoading: false,
       };
     }
     case GET_ADVICES_FAIL: {

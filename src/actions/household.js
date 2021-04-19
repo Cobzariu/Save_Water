@@ -2,6 +2,7 @@ import adviceApi from '../api/adviceApi';
 import householdApi from '../api/householdApi';
 import usageApi from '../api/usageApi';
 import {
+  CHANGE_LOADING_TRUE,
   CLEAR_HOUSEHOLD_MESSAGE,
   DELETE_USAGE_FAIL,
   DELETE_USAGE_SUCCESS,
@@ -15,7 +16,6 @@ import {
   INCREASE_COUNT_PEOPLE,
   SAVE_HOUSEHOLD_FAIL,
   SAVE_HOUSEHOLD_SUCCESS,
-  SAVE_PERSON_FAIL,
   SAVE_USAGE_FAIL,
   SAVE_USAGE_SUCCESS,
   UPDATE_HOUSEHOLD_SUCCESS,
@@ -109,34 +109,36 @@ export const updateHousehold = (
   waterGardenLength,
   collectRainwater,
 ) => (dispatch) => {
-  return householdApi.updateHousehold(
-    locationTypeHouse,
-    washingMachineNumberWeek,
-    washingMachineFullLoad,
-    washHandNumberWeek,
-    bowlWashing,
-    dishwasherNumberWeek,
-    toiletDualFlush,
-    washCarNumberWeek,
-    waterGardenNumberWeek,
-    waterGardenLength,
-    collectRainwater,
-  ).then(
-    (data) => {
-      dispatch({
-        type: UPDATE_HOUSEHOLD_SUCCESS,
-        payload: data,
-      });
-      return Promise.resolve();
-    },
-    (error) => {
-      dispatch({
-        type: UPDATE_PERSON_FAIL,
-        payload: error,
-      });
-      return Promise.reject();
-    },
-  );
+  return householdApi
+    .updateHousehold(
+      locationTypeHouse,
+      washingMachineNumberWeek,
+      washingMachineFullLoad,
+      washHandNumberWeek,
+      bowlWashing,
+      dishwasherNumberWeek,
+      toiletDualFlush,
+      washCarNumberWeek,
+      waterGardenNumberWeek,
+      waterGardenLength,
+      collectRainwater,
+    )
+    .then(
+      (data) => {
+        dispatch({
+          type: UPDATE_HOUSEHOLD_SUCCESS,
+          payload: data,
+        });
+        return Promise.resolve();
+      },
+      (error) => {
+        dispatch({
+          type: UPDATE_PERSON_FAIL,
+          payload: error,
+        });
+        return Promise.reject();
+      },
+    );
 };
 
 export const getHousehold = () => (dispatch) => {
@@ -228,6 +230,9 @@ export const clearHouseholdMessage = () => (dispatch) => {
 };
 
 export const getAdvices = () => (dispatch) => {
+  dispatch({
+    type: CHANGE_LOADING_TRUE,
+  });
   return adviceApi.getAdvices().then(
     (data) => {
       dispatch({

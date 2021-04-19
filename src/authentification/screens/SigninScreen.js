@@ -3,17 +3,24 @@ import {View, TouchableOpacity, Text} from 'react-native';
 import {connect} from 'react-redux';
 import {login, clearUserMessage} from '../../actions/user';
 import {signinScreenStyles} from './styles';
-import {GeneralButton, InputField} from '../components';
+import {GeneralButton, InputField, Spinner} from '../components';
 
 const SigninScreen = ({navigation, message, login, clearUserMessage}) => {
   useEffect(() => {
     clearUserMessage();
   }, []);
+  useEffect(() => {
+    return () => {
+      setLoading(false);
+    };
+  }, []);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
   return (
     <View style={signinScreenStyles.container}>
+      <Spinner loading={loading} />
       <Text style={signinScreenStyles.logo}>Welcome</Text>
       <InputField
         onChangeText={(e) => setEmail(e)}
@@ -32,12 +39,13 @@ const SigninScreen = ({navigation, message, login, clearUserMessage}) => {
       <GeneralButton
         title="LOGIN"
         onPress={() => {
+          setLoading(true);
           login(email, password).then(
             (success) => {
-              //console.log('SUCCESS');
+              setLoading(false);
             },
             (error) => {
-              //console.log('INSUCCESS');
+              setLoading(false);
             },
           );
         }}

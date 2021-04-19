@@ -4,10 +4,12 @@ import {View, Text, Button} from 'react-native';
 import {FlatList} from 'react-native';
 import {AdviceItem, StatsDetails} from '../components';
 import {adviceScreenStyles} from './styles';
+import {Spinner} from '../../authentification/components';
 
-const AdviceScreen = ({advices, statistics}) => {
+const AdviceScreen = ({advices, statistics,isLoading}) => {
   return (
     <View style={adviceScreenStyles.mainView}>
+      <Spinner loading={isLoading} />
       <FlatList
         style={adviceScreenStyles.listStyle}
         data={advices}
@@ -24,6 +26,7 @@ const mapStateToProps = (state) => {
   return {
     advices: state.household.advices,
     statistics: state.household.statistics,
+    isLoading: state.household.isLoading,
   };
 };
 export default connect(mapStateToProps, null)(AdviceScreen);
