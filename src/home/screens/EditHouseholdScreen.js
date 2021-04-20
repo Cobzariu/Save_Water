@@ -212,30 +212,41 @@ const EditHouseholdScreen = ({
           </View>
         </View>
         {outdoorsQuestions}
-        <GeneralButton
-          title="Update"
-          onPress={() => {
-            updateHousehold(
-              locationType,
-              washingMachineNumber,
-              fullyLoad,
-              handWashingNumber,
-              useBowl,
-              dishWasherNumber,
-              dualFlush,
-              washCarNumber,
-              waterGarden,
-              wateringLength,
-              collectWater,
-            ).then(
-              (succ) => {
-                getHousehold();
-                navigation.goBack();
-              },
-              (fail) => {},
-            );
-          }}
-        />
+        <View style={editHouseholdScreenStyles.buttonView}>
+          <GeneralButton
+            title="Update"
+            width="50%"
+            onPress={() => {
+              updateHousehold(
+                locationType,
+                washingMachineNumber,
+                fullyLoad,
+                handWashingNumber,
+                useBowl,
+                dishWasherNumber,
+                dualFlush,
+                washCarNumber,
+                waterGarden,
+                wateringLength,
+                collectWater,
+              ).then(
+                (succ) => {
+                  getHousehold();
+                  navigation.goBack();
+                },
+                (fail) => {},
+              );
+            }}
+          />
+          <GeneralButton
+            title="Cancel"
+            width="50%"
+            marginLeft={5}
+            onPress={() => {
+              navigation.goBack();
+            }}
+          />
+        </View>
       </View>
     </ScrollView>
   );

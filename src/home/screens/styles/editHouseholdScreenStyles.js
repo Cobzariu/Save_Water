@@ -43,6 +43,12 @@ const editHouseholdScreenStyles = StyleSheet.create({
     width: '100%',
     marginLeft: 20,
   },
+  buttonView: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginHorizontal: 20,
+  },
 });
 
 export default editHouseholdScreenStyles;

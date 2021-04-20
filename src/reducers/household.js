@@ -33,7 +33,7 @@ const initialState = {
   collectRainwater: false,
   usages: [],
   householdBackend: null,
-  advices: null,
+  advices: [],
   statistics: null,
   isLoading: false,
 };

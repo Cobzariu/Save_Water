@@ -1,13 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import {View, FlatList, Text, TouchableOpacity, Dimensions} from 'react-native';
-import {
-  LineChart,
-  BarChart,
-  PieChart,
-  ProgressChart,
-  ContributionGraph,
-  StackedBarChart,
-} from 'react-native-chart-kit';
 import InputSpinner from 'react-native-input-spinner';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import ModalDropdown from 'react-native-modal-dropdown';
@@ -19,7 +11,7 @@ import {
   clearHouseholdMessage,
 } from '../../actions/household';
 import {connect} from 'react-redux';
-import {UsageItem} from '../components';
+import {ChartCompnent, UsageItem} from '../components';
 import {usageListStyles} from './styles';
 import {months} from '../../utils/variables';
 import {Spinner} from '../../authentification/components';
@@ -45,13 +37,6 @@ const UsageList = ({
   const toggleOverlay = () => {
     setVisible(!visible);
   };
-
-  const charData = usages
-    .filter((cons) => cons.year === currentYear)
-    .map((x) => x.amount);
-  const charLabels = usages
-    .filter((cons) => cons.year === currentYear)
-    .map((x) => months[x.month]);
   return (
     <View style={usageListStyles.mainView}>
       <Spinner loading={isLoading} />
@@ -138,37 +123,7 @@ const UsageList = ({
           )}
           ListHeaderComponent={
             <View>
-              {usages.length > 0 ? (
-                <LineChart
-                  data={{
-                    labels: charLabels,
-                    datasets: [
-                      {
-                        data: charData,
-                      },
-                    ],
-                  }}
-                  width={Dimensions.get('window').width} // from react-native
-                  height={220}
-                  chartConfig={{
-                    backgroundColor: '#fb5b5a',
-                    backgroundGradientFrom: '#ff8685',
-                    backgroundGradientTo: '#ff6261',
-                    decimalPlaces: 2, // optional, defaults to 2dp
-                    color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-                    labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
-                    style: {
-                      borderRadius: 16,
-                    },
-                    propsForDots: {
-                      r: '6',
-                      strokeWidth: '2',
-                      stroke: '#fb5b5a',
-                    },
-                  }}
-                />
-              ) : null}
-
+              <ChartCompnent usages={usages} />
               <View style={usageListStyles.headerMainView}>
                 <Text style={usageListStyles.titleText}>
                   Your household consumption
