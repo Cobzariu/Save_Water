@@ -1,5 +1,13 @@
 import React, {useEffect, useState} from 'react';
-import {View, FlatList, Text, TouchableOpacity} from 'react-native';
+import {View, FlatList, Text, TouchableOpacity, Dimensions} from 'react-native';
+import {
+  LineChart,
+  BarChart,
+  PieChart,
+  ProgressChart,
+  ContributionGraph,
+  StackedBarChart,
+} from 'react-native-chart-kit';
 import InputSpinner from 'react-native-input-spinner';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import ModalDropdown from 'react-native-modal-dropdown';
@@ -38,6 +46,25 @@ const UsageList = ({
     setVisible(!visible);
   };
 
+  const charData = usages
+    .filter((cons) => cons.year === currentYear)
+    .map((x) => x.amount);
+  const charLabels = usages
+    .filter((cons) => cons.year === currentYear)
+    .map((x) => months[x.month]);
+  console.log(charData);
+  console.log(charLabels);
+
+  const chartConfig = {
+    backgroundGradientFrom: '#1E2923',
+    backgroundGradientFromOpacity: 0,
+    backgroundGradientTo: '#08130D',
+    backgroundGradientToOpacity: 0.5,
+    color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
+    strokeWidth: 2, // optional, default 3
+    barPercentage: 0.5,
+    useShadowColorFromDataset: false, // optional
+  };
   return (
     <View style={usageListStyles.mainView}>
       <Spinner loading={isLoading} />
@@ -123,20 +150,54 @@ const UsageList = ({
             />
           )}
           ListHeaderComponent={
-            <View style={usageListStyles.headerMainView}>
-              <Text style={usageListStyles.titleText}>
-                Your household consumption
-              </Text>
-              <TouchableOpacity>
-                <MaterialIcons
-                  name="add"
-                  size={30}
-                  onPress={() => {
-                    clearHouseholdMessage();
-                    setVisible(!visible);
+            <View>
+              {usages !== null ? (
+                <LineChart
+                  data={{
+                    labels: charLabels,
+                    datasets: [
+                      {
+                        data: charData,
+                      },
+                    ],
+                  }}
+                  width={Dimensions.get('window').width} // from react-native
+                  height={220}
+                  chartConfig={{
+                    backgroundColor: '#fb5b5a',
+                    backgroundGradientFrom: '#ff8685',
+                    backgroundGradientTo: '#ff6261',
+                    decimalPlaces: 2, // optional, defaults to 2dp
+                    color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                    labelColor: (opacity = 1) =>
+                      `rgba(0, 0, 0, ${opacity})`,
+                    style: {
+                      borderRadius: 16,
+                    },
+                    propsForDots: {
+                      r: '6',
+                      strokeWidth: '2',
+                      stroke: '#fb5b5a',
+                    },
                   }}
                 />
-              </TouchableOpacity>
+              ) : null}
+
+              <View style={usageListStyles.headerMainView}>
+                <Text style={usageListStyles.titleText}>
+                  Your household consumption
+                </Text>
+                <TouchableOpacity>
+                  <MaterialIcons
+                    name="add"
+                    size={30}
+                    onPress={() => {
+                      clearHouseholdMessage();
+                      setVisible(!visible);
+                    }}
+                  />
+                </TouchableOpacity>
+              </View>
             </View>
           }
         />
