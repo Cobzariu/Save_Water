@@ -3,7 +3,7 @@ import {View, FlatList, Text, TouchableOpacity, Dimensions} from 'react-native';
 import InputSpinner from 'react-native-input-spinner';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import ModalDropdown from 'react-native-modal-dropdown';
-import {Button, Overlay, Input} from 'react-native-elements';
+import {Overlay} from 'react-native-elements';
 import {
   getUsages,
   saveUsage,
@@ -14,7 +14,11 @@ import {connect} from 'react-redux';
 import {ChartCompnent, UsageItem} from '../components';
 import {usageListStyles} from './styles';
 import {months} from '../../utils/variables';
-import {Spinner} from '../../authentification/components';
+import {
+  GeneralButton,
+  InputField,
+  Spinner,
+} from '../../authentification/components';
 
 const UsageList = ({
   usages,
@@ -31,7 +35,7 @@ const UsageList = ({
   const currentYear = new Date().getFullYear();
   const currentMonth = new Date().getMonth();
   const [visible, setVisible] = useState(false);
-  const [amount, setAmount] = useState('');
+  const [amount, setAmount] = useState(1);
   const [year, setYear] = useState(currentYear);
   const [month, setMonth] = useState(currentMonth);
   const toggleOverlay = () => {
@@ -41,67 +45,80 @@ const UsageList = ({
     <View style={usageListStyles.mainView}>
       <Spinner loading={isLoading} />
       <View style={usageListStyles.subView}>
-        <Overlay isVisible={visible} onBackdropPress={toggleOverlay}>
-          <View style={usageListStyles.amountView}>
-            <Text>Enter Amount</Text>
-            <Input
-              containerStyle={usageListStyles.inputStyle}
-              onChangeText={setAmount}
-              value={amount}
-              keyboardType="numeric"
-              placeholder="3.32"
-            />
-          </View>
-          <View style={usageListStyles.amountView}>
-            <Text>Year</Text>
-            <InputSpinner
-              max={currentYear}
-              min={2000}
-              step={1}
-              colorMax={'#f04048'}
-              colorMin={'#40c5f4'}
-              value={year}
-              onChange={(num) => {
-                setYear(num);
-              }}
-              width={150}
-              style={usageListStyles.inputSpinnerStyle}
-            />
-          </View>
-          <View style={usageListStyles.amountView}>
-            <Text>Month</Text>
-            <ModalDropdown
-              defaultValue={months[currentMonth]}
-              options={months}
-              textStyle={usageListStyles.dropDownTextStyle}
-              style={usageListStyles.dropDownMainStyle}
-              dropdownStyle={usageListStyles.dropDownStyle}
-              dropdownTextStyle={usageListStyles.dropDownDropTextStyle}
-              onSelect={(index) => {
-                setMonth(index);
-              }}
-            />
-          </View>
-          {error_message ? (
-            <Text style={usageListStyles.errorMessage}>{error_message}</Text>
-          ) : null}
-          <View style={usageListStyles.buttonViewStyle}>
-            <Button
-              title="Save"
-              onPress={() => {
-                saveUsage(amount, month, year).then(
-                  (succ) => {
-                    getUsages();
-                    clearHouseholdMessage();
-                    setVisible(!visible);
-                    setAmount('');
-                    setMonth(currentMonth);
-                    setYear(currentYear);
-                  },
-                  (fail) => {},
-                );
-              }}
-            />
+        <Overlay
+          isVisible={visible}
+          onBackdropPress={toggleOverlay}
+          overlayStyle={usageListStyles.overlayView}>
+          <View style={usageListStyles.overlayView}>
+            <View style={usageListStyles.amountView}>
+              <Text style={usageListStyles.overlayTextStyle}>Amount</Text>
+              <InputSpinner
+                max={amount}
+                min={1}
+                max={100}
+                step={1}
+                value={amount}
+                onChange={(num) => {
+                  setAmount(num);
+                }}
+                width={150}
+                style={usageListStyles.inputSpinnerStyle}
+                textColor="white"
+                color="#fb5b5a"
+              />
+            </View>
+            <View style={usageListStyles.amountView}>
+              <Text style={usageListStyles.overlayTextStyle}>Year</Text>
+              <InputSpinner
+                max={currentYear}
+                min={2000}
+                step={1}
+                value={year}
+                onChange={(num) => {
+                  setYear(num);
+                }}
+                width={150}
+                style={usageListStyles.inputSpinnerStyle}
+                textColor="white"
+                color="#fb5b5a"
+              />
+            </View>
+            <View style={usageListStyles.amountView}>
+              <Text style={usageListStyles.overlayTextStyle}>Month</Text>
+              <ModalDropdown
+                defaultValue={months[currentMonth]}
+                options={months}
+                textStyle={usageListStyles.dropDownTextStyle}
+                style={usageListStyles.dropDownMainStyle}
+                dropdownStyle={usageListStyles.dropDownStyle}
+                dropdownTextStyle={usageListStyles.dropDownDropTextStyle}
+                onSelect={(index) => {
+                  setMonth(index);
+                }}
+                renderSeparator={()=><View style={{borderColor: '#fb5b5a',borderWidth:1}}/>}
+              />
+            </View>
+            {error_message ? (
+              <Text style={usageListStyles.errorMessage}>{error_message}</Text>
+            ) : null}
+            <View style={usageListStyles.buttonViewStyle}>
+              <GeneralButton
+                title="Save"
+                onPress={() => {
+                  saveUsage(amount, month, year).then(
+                    (succ) => {
+                      getUsages();
+                      clearHouseholdMessage();
+                      setVisible(!visible);
+                      setAmount('');
+                      setMonth(currentMonth);
+                      setYear(currentYear);
+                    },
+                    (fail) => {},
+                  );
+                }}
+              />
+            </View>
           </View>
         </Overlay>
         <FlatList

@@ -20,6 +20,7 @@ const usageListStyles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 10,
+    justifyContent: 'space-between',
   },
   inputStyle: {
     width: 100,
@@ -34,25 +35,40 @@ const usageListStyles = StyleSheet.create({
     borderWidth: 1,
     width: 150,
     borderRadius: 10,
+    borderColor: 'white',
     justifyContent: 'center',
   },
   dropDownStyle: {
     width: 150,
+    height: 200,
+    backgroundColor: '#fb5b5a',
   },
   dropDownTextStyle: {
-    fontSize: 14,
+    fontSize: 15,
     margin: 5,
+    color: 'white',
   },
   dropDownDropTextStyle: {
-    fontSize: 14,
+    fontSize: 15,
+    color: 'white',
+    backgroundColor: '#003f5c',
   },
   buttonViewStyle: {
-    marginTop: 40,
+    alignItems: 'center',
   },
   errorMessage: {
     fontSize: 13,
+    fontWeight: 'bold',
     marginTop: 10,
-    color: 'red',
+    color: '#fb5b5a',
+  },
+  overlayView: {
+    backgroundColor: '#003f5c',
+    borderRadius: 10,
+  },
+  overlayTextStyle: {
+    color: 'white',
+    fontSize: 15,
   },
 });
 
