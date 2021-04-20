@@ -52,19 +52,6 @@ const UsageList = ({
   const charLabels = usages
     .filter((cons) => cons.year === currentYear)
     .map((x) => months[x.month]);
-  console.log(charData);
-  console.log(charLabels);
-
-  const chartConfig = {
-    backgroundGradientFrom: '#1E2923',
-    backgroundGradientFromOpacity: 0,
-    backgroundGradientTo: '#08130D',
-    backgroundGradientToOpacity: 0.5,
-    color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
-    strokeWidth: 2, // optional, default 3
-    barPercentage: 0.5,
-    useShadowColorFromDataset: false, // optional
-  };
   return (
     <View style={usageListStyles.mainView}>
       <Spinner loading={isLoading} />
@@ -151,7 +138,7 @@ const UsageList = ({
           )}
           ListHeaderComponent={
             <View>
-              {usages !== null ? (
+              {usages.length > 0 ? (
                 <LineChart
                   data={{
                     labels: charLabels,
@@ -169,8 +156,7 @@ const UsageList = ({
                     backgroundGradientTo: '#ff6261',
                     decimalPlaces: 2, // optional, defaults to 2dp
                     color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-                    labelColor: (opacity = 1) =>
-                      `rgba(0, 0, 0, ${opacity})`,
+                    labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
                     style: {
                       borderRadius: 16,
                     },
