@@ -12,6 +12,11 @@ const PeopleScreen = ({people, navigation, getPeople, isLoading}) => {
   useEffect(() => {
     getPeople();
   }, []);
+  useEffect (()=>{
+    return () =>{
+      console.log("PeopleScreen unmount");
+    }
+  },[])
   return (
     <ScrollView style={peopleScreenStyles.mainView}>
       <Spinner loading={isLoading} />

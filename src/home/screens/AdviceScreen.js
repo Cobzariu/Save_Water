@@ -1,19 +1,29 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
-import {View} from 'react-native';
+import {View, RefreshControl, FlatList} from 'react-native';
 import {getAdvices} from '../../actions/household';
-import {FlatList} from 'react-native';
 import {AdviceItem, StatsDetails} from '../components';
 import {adviceScreenStyles} from './styles';
 import {Spinner} from '../../authentification/components';
 
 const AdviceScreen = ({advices, statistics, isLoading, getAdvices}) => {
+  const [loadingType, setLoadingType] = useState('');
   useEffect(() => {
-    getAdvices();
+    setLoadingType('fetch');
+    getAdvices().then(
+      (succ) => {
+        setLoadingType('');
+      },
+      (err) => {
+        setLoadingType('');
+      },
+    );
   }, []);
   return (
     <View style={adviceScreenStyles.mainView}>
-      <Spinner loading={isLoading} />
+      <Spinner
+        loading={loadingType === 'fetch'}
+      />
       <FlatList
         style={adviceScreenStyles.listStyle}
         data={advices}
@@ -21,6 +31,23 @@ const AdviceScreen = ({advices, statistics, isLoading, getAdvices}) => {
         renderItem={({item}) => <AdviceItem data={item} />}
         ListHeaderComponent={
           statistics ? <StatsDetails statistics={statistics} /> : null
+        }
+        refreshControl={
+          <RefreshControl
+            colors={['#f35588']}
+            refreshing={loadingType === 'refresh'}
+            onRefresh={() => {
+              setLoadingType('refresh');
+              getAdvices().then(
+                (succ) => {
+                  setLoadingType('');
+                },
+                (error) => {
+                  setLoadingType('');
+                },
+              );
+            }}
+          />
         }
       />
     </View>

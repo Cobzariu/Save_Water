@@ -144,6 +144,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         error_message: payload,
+        isLoading: false,
       };
     }
     default:

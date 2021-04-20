@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {increaseCountPeople} from '../../actions/household';
-import {savePerson} from '../../actions/person';
+import {savePerson, clearPersonMessage} from '../../actions/person';
 import {signupComplete} from '../../actions/user';
 import {View, Text} from 'react-native';
 import {personScreenStyles} from './styles';
@@ -16,6 +16,8 @@ const PersonScreen = ({
   personNumber,
   savePerson,
   signupComplete,
+  clearPersonMessage,
+  message,
 }) => {
   const [name, setName] = useState('');
   const [bathsWeek, setBathsWeek] = useState(1);
@@ -98,32 +100,42 @@ const PersonScreen = ({
           />
         </View>
       </View>
+      {message ? (
+        <Text style={personScreenStyles.errorMessage}>{message}</Text>
+      ) : null}
       <View style={personScreenStyles.buttonView}>
-      <GeneralButton
-        title="Next"
-        onPress={() => {
-          savePerson(name, showersWeek, bathsWeek, showerLength, leaveTap).then(
-            (success) => {
-              if (countPeople < personNumber) {
-                increaseCountPeople(countPeople + 1);
-                navigation.navigate('Person');
-                setName('');
-                setBathsWeek(1);
-                setShowersWeek(1);
-                setShowerLength(1);
-                setLeaveTap(false);
-              } else {
-                signupComplete();
-              }
-            },
-            (error) => {
-              //console.log(error);
-            },
-          );
-        }}
-      />
+        <GeneralButton
+          title="Next"
+          onPress={() => {
+            savePerson(
+              name,
+              showersWeek,
+              bathsWeek,
+              showerLength,
+              leaveTap,
+            ).then(
+              (success) => {
+                if (countPeople < personNumber) {
+                  increaseCountPeople(countPeople + 1);
+                  navigation.navigate('Person');
+                  setName('');
+                  setBathsWeek(1);
+                  setShowersWeek(1);
+                  setShowerLength(1);
+                  setLeaveTap(false);
+                  clearPersonMessage();
+                } else {
+                  signupComplete();
+                  clearPersonMessage();
+                }
+              },
+              (error) => {
+                //console.log(error);
+              },
+            );
+          }}
+        />
       </View>
-      
     </View>
   );
 };
@@ -131,10 +143,12 @@ const mapStateToProps = (state) => {
   return {
     countPeople: state.household.countPeople,
     personNumber: state.household.personNumber,
+    message: state.person.message,
   };
 };
 export default connect(mapStateToProps, {
   increaseCountPeople,
   savePerson,
   signupComplete,
+  clearPersonMessage,
 })(PersonScreen);

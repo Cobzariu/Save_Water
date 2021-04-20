@@ -3,6 +3,17 @@ import {View, Text} from 'react-native';
 import {statsDetailsStyles} from './styles';
 
 const StatsDetails = ({statistics}) => {
+  const waterUsage =
+    statistics.waterUsedPerCapitaLiters === -1 ? (
+      <Text style={statsDetailsStyles.textStyleError}>You need to enter consumption data</Text>
+    ) : (
+      <>
+        <Text style={statsDetailsStyles.textStyle}>Water usage</Text>
+        <Text style={statsDetailsStyles.textStyleValue}>
+          {statistics.waterUsedPerCapitaLiters} liters/person/day
+        </Text>
+      </>
+    );
   return (
     <View style={statsDetailsStyles.mainView}>
       <View style={statsDetailsStyles.secondView}>
@@ -29,10 +40,7 @@ const StatsDetails = ({statistics}) => {
           </Text>
         </View>
         <View style={statsDetailsStyles.item}>
-          <Text style={statsDetailsStyles.textStyle}>Water usage</Text>
-          <Text style={statsDetailsStyles.textStyleValue}>
-            {statistics.waterUsedPerCapitaLiters} liters/person/day
-          </Text>
+          {waterUsage}
         </View>
       </View>
     </View>

@@ -1,6 +1,11 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
-import {addNewPerson, getPeople, updatePerson} from '../../actions/person';
+import {
+  addNewPerson,
+  getPeople,
+  updatePerson,
+  clearPersonMessage,
+} from '../../actions/person';
 import {getHousehold} from '../../actions/household';
 import {View, Text} from 'react-native';
 import InputSpinner from 'react-native-input-spinner';
@@ -15,6 +20,8 @@ const ManagePersonScreen = ({
   getHousehold,
   getPeople,
   updatePerson,
+  clearPersonMessage,
+  message,
 }) => {
   const actionType = route.params.type;
   const personItem = route.params.person;
@@ -41,7 +48,6 @@ const ManagePersonScreen = ({
     {label: 'Yes', value: true},
     {label: 'No', value: false},
   ];
-
   const onPressHandler = () => {
     if (actionType === 'add') save();
     else update();
@@ -140,6 +146,9 @@ const ManagePersonScreen = ({
           />
         </View>
       </View>
+      {message ? (
+        <Text style={managePersonStyles.errorMessage}>{message}</Text>
+      ) : null}
       <View style={managePersonStyles.buttonView}>
         <GeneralButton
           title={buttonText}
@@ -151,6 +160,7 @@ const ManagePersonScreen = ({
           width="50%"
           marginLeft={5}
           onPress={() => {
+            clearPersonMessage();
             navigation.goBack();
           }}
         />
@@ -158,9 +168,15 @@ const ManagePersonScreen = ({
     </View>
   );
 };
-export default connect(null, {
+const mapStateToProps = (state) => {
+  return {
+    message: state.person.message,
+  };
+};
+export default connect(mapStateToProps, {
   addNewPerson,
   getHousehold,
   getPeople,
   updatePerson,
+  clearPersonMessage,
 })(ManagePersonScreen);

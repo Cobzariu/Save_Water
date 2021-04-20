@@ -245,12 +245,14 @@ export const getAdvices = () => (dispatch) => {
         type: GET_ADVICES_SUCCESS,
         payload: data,
       });
+      return Promise.resolve();
     },
     (error) => {
       dispatch({
         type: GET_ADVICES_FAIL,
         payload: error,
       });
+      return Promise.reject();
     },
   );
 };

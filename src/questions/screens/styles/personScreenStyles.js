@@ -33,6 +33,11 @@ const personScreenStyles = StyleSheet.create({
     bottom: 0,
     position: 'absolute',
   },
+  errorMessage: {
+    fontSize: 16,
+    color: '#fb5b5a',
+    fontWeight: 'bold',
+  },
 });
 
 export default personScreenStyles;

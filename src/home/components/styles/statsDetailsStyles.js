@@ -14,6 +14,11 @@ const statsDetailsStyles = StyleSheet.create({
     fontSize: 16,
     color: 'white',
   },
+  textStyleError: {
+    color: '#fb5b5a',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
   textStyleValue: {
     fontSize: 16,
     marginTop: 5,

@@ -43,7 +43,7 @@ export const signup = (username, password) => (dispatch) => {
     (error) => {
       dispatch({
         type: SIGNUP_FAIL,
-        payload: 'Something went wrong',
+        payload: error,
       });
       return Promise.reject();
     },

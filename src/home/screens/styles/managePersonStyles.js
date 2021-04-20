@@ -33,6 +33,11 @@ const managePersonStyles = StyleSheet.create({
     justifyContent: 'space-between',
     marginHorizontal: 20,
   },
+  errorMessage: {
+    fontSize: 16,
+    color: '#fb5b5a',
+    fontWeight: 'bold',
+  },
 });
 
 export default managePersonStyles;

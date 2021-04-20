@@ -2,6 +2,7 @@ import personApi from '../api/personApi';
 import {
   CHANGE_LOADING_PERSON_TRUE,
   CHANGE_LOADING_TRUE,
+  CLEAR_PERSON_MESSAGE,
   DELETE_PERSON_FAIL,
   DELETE_PERSON_SUCCESS,
   GET_PEOPLE_FAIL,
@@ -151,4 +152,9 @@ export const getPeople = () => (dispatch) => {
       });
     },
   );
+};
+export const clearPersonMessage = () => (dispatch) => {
+  dispatch({
+    type: CLEAR_PERSON_MESSAGE,
+  });
 };
