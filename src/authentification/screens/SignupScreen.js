@@ -33,12 +33,9 @@ const SignupScreen = ({navigation, signup, message, clearUserMessage}) => {
         onPress={() => {
           signup(email, password).then(
             (success) => {
-              //console.log('SUCCESS');
               navigation.navigate('FirstHousehold');
             },
-            (error) => {
-              //console.log(error);
-            },
+            (error) => {},
           );
         }}
       />
@@ -50,41 +47,6 @@ const SignupScreen = ({navigation, signup, message, clearUserMessage}) => {
         <Text style={signupScreenStyles.signupText}>Signin</Text>
       </TouchableOpacity>
     </View>
-    // <View style={signupScreenStyles.container}>
-    //   <Text h3>Sign up</Text>
-    //   <Input
-    //     label="Email"
-    //     value={email}
-    //     onChangeText={setEmail}
-    //     autoCapitalize="none"
-    //     autoCorrect={false}
-    //   />
-    //   <Input
-    //     secureTextEntry
-    //     label="Password"
-    //     value={password}
-    //     onChangeText={setPassword}
-    //     autoCapitalize="none"
-    //     autoCorrect={false}
-    //   />
-    //   <Button
-    //     title={'Sign up'}
-    //     onPress={() => {
-    //       signup(email, password).then(
-    //         (success) => {
-    //           console.log('SUCCESS in Sign up');
-    //           navigation.navigate('FirstHousehold');
-    //         },
-    //         (error) => {
-    //           console.log('INSUCCESS in Sign up');
-    //         },
-    //       );
-    //     }}
-    //   />
-    //   {message ? (
-    //     <Text style={signupScreenStyles.errorMessage}>{message}</Text>
-    //   ) : null}
-    // </View>
   );
 };
 const mapStateToProps = (state) => {

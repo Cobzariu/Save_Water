@@ -28,29 +28,31 @@ const ChartCompnent = ({usages}) => {
             },
           ],
         }}
-        width={Dimensions.get('window').width} // from react-native
+        width={Dimensions.get('screen').width + 1}
         height={220}
         yAxisSuffix="m3"
         chartConfig={{
           backgroundColor: '#fb5b5a',
           backgroundGradientFrom: '#ff8685',
           backgroundGradientTo: '#ff6261',
-          decimalPlaces: 2, // optional, defaults to 2dp
+          decimalPlaces: 0,
           color: (opacity = 1) => `rgba(0, 63, 92, ${opacity})`,
           labelColor: (opacity = 1) => `rgba(0, 63, 92, ${opacity})`,
-          style: {
-            borderRadius: 16,
-          },
           propsForDots: {
-            r: '6',
+            r: '5',
             strokeWidth: '2',
             stroke: '#003f5c',
+          },
+          propsForLabels: {
+            fontSize: 14,
           },
         }}
         on
       />
     ) : (
-      <Text style={chartComponentStyles.noDataTextStyle}>No data available for this year</Text>
+      <Text style={chartComponentStyles.noDataTextStyle}>
+        No data available for this year
+      </Text>
     );
   function computeData(yearCalculated) {
     setChartData(
@@ -61,7 +63,7 @@ const ChartCompnent = ({usages}) => {
     setChartLabels(
       usages
         .filter((cons) => cons.year === yearCalculated)
-        .map((x) => months[x.month]),
+        .map((x) => months[x.month].substr(0, 3)),
     );
   }
   useEffect(() => {

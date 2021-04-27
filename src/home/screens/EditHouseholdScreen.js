@@ -63,7 +63,7 @@ const EditHouseholdScreen = ({
         <View style={editHouseholdScreenStyles.questionsView}>
           <View style={editHouseholdScreenStyles.locationTypeView}>
             <Text style={editHouseholdScreenStyles.qustionTextStyle}>
-              Wash your car at home each week?
+              Washing the car each week
             </Text>
             <InputSpinner
               onChange={(item) => setWashCarNumber(item)}
@@ -77,7 +77,7 @@ const EditHouseholdScreen = ({
           </View>
           <View style={editHouseholdScreenStyles.locationTypeView}>
             <Text style={editHouseholdScreenStyles.qustionTextStyle}>
-              Water garden every week
+              Watering the garden each week
             </Text>
             <InputSpinner
               onChange={(item) => setWaterGarden(item)}
@@ -91,7 +91,7 @@ const EditHouseholdScreen = ({
           </View>
           <View style={editHouseholdScreenStyles.locationTypeView}>
             <Text style={editHouseholdScreenStyles.qustionTextStyle}>
-              Watering lenght
+              Length of the watering in minutes
             </Text>
             <InputSpinner
               onChange={(item) => setWateringLength(item)}
@@ -105,7 +105,7 @@ const EditHouseholdScreen = ({
           </View>
           <View style={editHouseholdScreenStyles.locationTypeView}>
             <Text style={editHouseholdScreenStyles.qustionTextStyle}>
-              Collect and use rainwater
+              Collect rainwater
             </Text>
             <RadioButton
               selectedValue={collectWater}
@@ -139,7 +139,7 @@ const EditHouseholdScreen = ({
           </View>
           <View style={editHouseholdScreenStyles.locationTypeView}>
             <Text style={editHouseholdScreenStyles.qustionTextStyle}>
-              Washing machine per week?
+              Using the washing machine each week
             </Text>
             <InputSpinner
               onChange={(item) => setWashingMachineNumber(item)}
@@ -163,7 +163,7 @@ const EditHouseholdScreen = ({
           </View>
           <View style={editHouseholdScreenStyles.locationTypeView}>
             <Text style={editHouseholdScreenStyles.qustionTextStyle}>
-              Household wash by hand per week
+              Washing the dishes by hand each week
             </Text>
             <InputSpinner
               onChange={(item) => setHandWashingNumber(item)}
@@ -177,7 +177,7 @@ const EditHouseholdScreen = ({
           </View>
           <View style={editHouseholdScreenStyles.locationTypeView}>
             <Text style={editHouseholdScreenStyles.qustionTextStyle}>
-              Use dishwasher per week
+              Using the dishwasher each week
             </Text>
             <InputSpinner
               onChange={(item) => setDishWasherNumber(item)}
@@ -192,7 +192,7 @@ const EditHouseholdScreen = ({
           </View>
           <View style={editHouseholdScreenStyles.locationTypeView}>
             <Text style={editHouseholdScreenStyles.qustionTextStyle}>
-              Do you use a bowl for washing up?
+              Using a bowl for cleaning dishes
             </Text>
             <RadioButton
               selectedValue={useBowl}
@@ -202,7 +202,7 @@ const EditHouseholdScreen = ({
           </View>
           <View style={editHouseholdScreenStyles.locationTypeView}>
             <Text style={editHouseholdScreenStyles.qustionTextStyle}>
-              Toilet have a dual flush mechanism?
+              Owning dual flush toilets
             </Text>
             <RadioButton
               selectedValue={dualFlush}

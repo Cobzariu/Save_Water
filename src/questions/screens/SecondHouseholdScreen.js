@@ -26,7 +26,7 @@ const SecondHouseholdScreen = ({navigation, saveHousehold}) => {
       <View style={secondHouseholdScreenStyles.questionsView}>
         <View style={secondHouseholdScreenStyles.locationTypeView}>
           <Text style={secondHouseholdScreenStyles.qustionTextStyle}>
-            Wash your car at home each week?
+            Washing the car each week
           </Text>
           <InputSpinner
             onChange={(item) => setWashCarNumber(item)}
@@ -40,7 +40,7 @@ const SecondHouseholdScreen = ({navigation, saveHousehold}) => {
         </View>
         <View style={secondHouseholdScreenStyles.locationTypeView}>
           <Text style={secondHouseholdScreenStyles.qustionTextStyle}>
-            Water garden every week
+            Watering the garden each week
           </Text>
           <InputSpinner
             onChange={(item) => setWaterGarden(item)}
@@ -54,7 +54,7 @@ const SecondHouseholdScreen = ({navigation, saveHousehold}) => {
         </View>
         <View style={secondHouseholdScreenStyles.locationTypeView}>
           <Text style={secondHouseholdScreenStyles.qustionTextStyle}>
-            Watering lenght
+            Length of the watering in minutes
           </Text>
           <InputSpinner
             onChange={(item) => setWateringLength(item)}
@@ -68,7 +68,7 @@ const SecondHouseholdScreen = ({navigation, saveHousehold}) => {
         </View>
         <View style={secondHouseholdScreenStyles.locationTypeView}>
           <Text style={secondHouseholdScreenStyles.qustionTextStyle}>
-            Collect and use rainwater
+            Collect rainwater
           </Text>
           <RadioButton
             selectedValue={collectWater}
@@ -87,12 +87,9 @@ const SecondHouseholdScreen = ({navigation, saveHousehold}) => {
             collectWater,
           ).then(
             (succ) => {
-              console.log('Success');
               navigation.navigate('Person');
             },
-            (fail) => {
-              console.log('FAIL');
-            },
+            (fail) => {},
           );
         }}
       />

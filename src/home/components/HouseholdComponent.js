@@ -19,12 +19,12 @@ const HouseholdComponent = ({data, onPress}) => {
       <View style={householdComponentStyle.editView}>
         <Text style={householdComponentStyle.subTitleText}>Indoors</Text>
         <TouchableOpacity onPress={onPress}>
-          <AntDesign name="edit" size={35} />
+          <AntDesign name="edit" size={35} color="#fb5b5a" />
         </TouchableOpacity>
       </View>
       <View style={householdComponentStyle.subView}>
         <Text style={householdComponentStyle.titleText}>Location type</Text>
-        <MaterialIcons name={iconName} size={25} />
+        <MaterialIcons name={iconName} size={30} color="black" />
       </View>
       <View style={householdComponentStyle.subView}>
         <Text style={householdComponentStyle.titleText}>People</Text>
@@ -34,10 +34,10 @@ const HouseholdComponent = ({data, onPress}) => {
       </View>
       <View style={householdComponentStyle.subView}>
         <Text style={householdComponentStyle.titleText}>
-          Using the washing machine per week
+          Using the washing machine each week
         </Text>
         <Text style={householdComponentStyle.valueText}>
-          {data.washingMachineNumberWeek}
+          {data.washingMachineNumberWeek} times
         </Text>
       </View>
       <View style={householdComponentStyle.subView}>
@@ -48,10 +48,10 @@ const HouseholdComponent = ({data, onPress}) => {
       </View>
       <View style={householdComponentStyle.subView}>
         <Text style={householdComponentStyle.titleText}>
-          Wash the dishes by hand each week
+          Washing the dishes by hand each week
         </Text>
         <Text style={householdComponentStyle.valueText}>
-          {data.washHandNumberWeek}
+          {data.washHandNumberWeek} times
         </Text>
       </View>
       <View style={householdComponentStyle.subView}>
@@ -62,10 +62,10 @@ const HouseholdComponent = ({data, onPress}) => {
       </View>
       <View style={householdComponentStyle.subView}>
         <Text style={householdComponentStyle.titleText}>
-          Using the dishwasher per week
+          Using the dishwasher each week
         </Text>
         <Text style={householdComponentStyle.valueText}>
-          {data.dishwasherNumberWeek}
+          {data.dishwasherNumberWeek} times
         </Text>
       </View>
       <View style={householdComponentStyle.subView}>
@@ -79,18 +79,18 @@ const HouseholdComponent = ({data, onPress}) => {
           <Text style={householdComponentStyle.subTitleText}>Outdoors</Text>
           <View style={householdComponentStyle.subView}>
             <Text style={householdComponentStyle.titleText}>
-              Washing the car per week
+              Washing the car each week
             </Text>
             <Text style={householdComponentStyle.valueText}>
-              {data.washCarNumberWeek}
+              {data.washCarNumberWeek} times
             </Text>
           </View>
           <View style={householdComponentStyle.subView}>
             <Text style={householdComponentStyle.titleText}>
-              Watering the garden per week
+              Watering the garden each week
             </Text>
             <Text style={householdComponentStyle.valueText}>
-              {data.waterGardenNumberWeek}
+              {data.waterGardenNumberWeek} times
             </Text>
           </View>
           <View style={householdComponentStyle.subView}>

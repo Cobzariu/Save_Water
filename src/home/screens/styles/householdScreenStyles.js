@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native';
 const householdScreenStyles = StyleSheet.create({
   mainView: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: '#bedcfa',
     justifyContent: 'space-between',
   },
   subView: {

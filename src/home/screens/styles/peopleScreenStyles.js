@@ -4,13 +4,14 @@ const window = Dimensions.get('window');
 const peopleScreenStyles = StyleSheet.create({
   mainView: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: '#bedcfa',
   },
   subView: {
     margin: 5,
   },
   titleText: {
     fontSize: 18,
+    color: 'black',
   },
   addView: {
     flexDirection: 'row',

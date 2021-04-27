@@ -11,9 +11,9 @@ const peopleItemStyles = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 5,
     elevation: 5,
-    backgroundColor: '#dbdbdb',
-    borderRadius:15,
-    padding:10,
+    backgroundColor: '#003f5c',
+    borderRadius: 15,
+    padding: 10,
   },
   subView: {
     flexDirection: 'row',
@@ -23,9 +23,12 @@ const peopleItemStyles = StyleSheet.create({
   titleText: {
     fontSize: 16,
     marginRight: 20,
+    color: 'white',
   },
   valueText: {
     fontStyle: 'italic',
+    fontSize: 15,
+    color: '#fb5b5a',
   },
 });
 

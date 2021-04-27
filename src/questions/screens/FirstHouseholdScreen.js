@@ -65,7 +65,7 @@ const FirstHouseholdScreen = ({
           </View>
           <View style={firstHouseholdScreenStyles.locationTypeView}>
             <Text style={firstHouseholdScreenStyles.qustionTextStyle}>
-              Washing machine per week?
+              Using the washing machine each week
             </Text>
             <InputSpinner
               onChange={(item) => setWashingMachineNumber(item)}
@@ -89,7 +89,7 @@ const FirstHouseholdScreen = ({
           </View>
           <View style={firstHouseholdScreenStyles.locationTypeView}>
             <Text style={firstHouseholdScreenStyles.qustionTextStyle}>
-              Household wash by hand per week
+              Washing the dishes by hand each week
             </Text>
             <InputSpinner
               onChange={(item) => setHandWashingNumber(item)}
@@ -103,7 +103,7 @@ const FirstHouseholdScreen = ({
           </View>
           <View style={firstHouseholdScreenStyles.locationTypeView}>
             <Text style={firstHouseholdScreenStyles.qustionTextStyle}>
-              Use dishwasher per week
+              Using the dishwasher each week
             </Text>
             <InputSpinner
               onChange={(item) => setDishWasherNumber(item)}
@@ -118,7 +118,7 @@ const FirstHouseholdScreen = ({
           </View>
           <View style={firstHouseholdScreenStyles.locationTypeView}>
             <Text style={firstHouseholdScreenStyles.qustionTextStyle}>
-              Do you use a bowl for washing up?
+              Using a bowl for cleaning dishes
             </Text>
             <RadioButton
               selectedValue={useBowl}
@@ -128,7 +128,7 @@ const FirstHouseholdScreen = ({
           </View>
           <View style={firstHouseholdScreenStyles.locationTypeView}>
             <Text style={firstHouseholdScreenStyles.qustionTextStyle}>
-              Toilet have a dual flush mechanism?
+              Owning dual flush toilets
             </Text>
             <RadioButton
               selectedValue={dualFlush}
@@ -155,12 +155,9 @@ const FirstHouseholdScreen = ({
             } else {
               saveHousehold(0, 0, 0, false).then(
                 (succ) => {
-                  console.log('Success');
                   navigation.navigate('Person');
                 },
-                (fail) => {
-                  console.log('FAIL');
-                },
+                (fail) => {},
               );
             }
           }}

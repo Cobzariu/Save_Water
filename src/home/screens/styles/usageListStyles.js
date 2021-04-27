@@ -2,16 +2,17 @@ import {StyleSheet} from 'react-native';
 
 const usageListStyles = StyleSheet.create({
   mainView: {
-    backgroundColor: 'white',
+    backgroundColor: '#bedcfa',
     flex: 1,
   },
   subView: {
-    margin: 5,
+    marginHorizontal: 5,
   },
   headerMainView: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    marginHorizontal: 5
   },
   titleText: {
     fontSize: 18,

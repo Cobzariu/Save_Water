@@ -44,7 +44,7 @@ const UsageList = ({
   return (
     <View style={usageListStyles.mainView}>
       <Spinner loading={isLoading} />
-      <View style={usageListStyles.subView}>
+      <View>
         <Overlay
           isVisible={visible}
           onBackdropPress={toggleOverlay}
@@ -149,6 +149,7 @@ const UsageList = ({
                   <MaterialIcons
                     name="add"
                     size={30}
+                    color="#fb5b5a"
                     onPress={() => {
                       clearHouseholdMessage();
                       setVisible(!visible);

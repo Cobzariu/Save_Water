@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 
 const householdComponentStyle = StyleSheet.create({
   mainTitleText: {
-    fontSize: 20,
+    fontSize: 22,
     textAlign: 'center',
     marginBottom: 15,
   },
@@ -15,21 +15,24 @@ const householdComponentStyle = StyleSheet.create({
     marginTop: 5,
   },
   titleText: {
-    fontSize: 16,
+    fontSize: 17,
     marginRight: 20,
   },
   subTitleText: {
     fontSize: 18,
     fontWeight: 'bold',
   },
-  valueText: {},
+  valueText: {
+    fontStyle: 'italic',
+    fontSize: 15,
+  },
   outdoorView: {
     marginTop: 20,
     marginBottom: 10,
   },
   editView: {
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
 });
 

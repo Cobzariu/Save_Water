@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native';
 const adviceScreenStyles = StyleSheet.create({
   mainView: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: '#bedcfa',
   },
   listStyle: {
     marginHorizontal: 10,

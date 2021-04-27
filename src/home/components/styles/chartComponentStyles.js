@@ -6,10 +6,11 @@ const chartComponentStyles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   textStyle: {
-    fontSize: 18,
-    lineHeight: 18,
+    fontSize: 20,
+    lineHeight: 20,
     alignSelf: 'center',
-    color: '#fb5b5a'
+    color: '#fb5b5a',
+    fontWeight: 'bold',
   },
   noDataTextStyle: {
     marginVertical: 20,

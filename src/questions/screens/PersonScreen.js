@@ -130,7 +130,6 @@ const PersonScreen = ({
                 }
               },
               (error) => {
-                //console.log(error);
               },
             );
           }}

@@ -25,7 +25,7 @@ const UsageItem = ({data, onPress}) => {
       </View>
       <View>
         <TouchableOpacity onPress={onPress}>
-          <MaterialCommunityIcons name="delete" size={25} />
+          <MaterialCommunityIcons name="delete" size={25} color="#fb5b5a" />
         </TouchableOpacity>
       </View>
     </View>

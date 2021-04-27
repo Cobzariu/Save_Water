@@ -12,22 +12,17 @@ const PeopleScreen = ({people, navigation, getPeople, isLoading}) => {
   useEffect(() => {
     getPeople();
   }, []);
-  useEffect (()=>{
-    return () =>{
-      console.log("PeopleScreen unmount");
-    }
-  },[])
   return (
     <ScrollView style={peopleScreenStyles.mainView}>
       <Spinner loading={isLoading} />
       <View style={peopleScreenStyles.subView}>
         <View style={peopleScreenStyles.addView}>
-          <Text style={peopleScreenStyles.titleText}>Details about people</Text>
+          <Text style={peopleScreenStyles.titleText}>People in your household</Text>
           <TouchableOpacity
             onPress={() => {
               navigation.navigate('ManagePerson', {type: 'add'});
             }}>
-            <Ionicons name="person-add-outline" size={25} />
+            <Ionicons name="person-add-outline" size={25} color="#fb5b5a" />
           </TouchableOpacity>
         </View>
         <View style={peopleScreenStyles.listView}>
