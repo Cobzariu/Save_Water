@@ -194,10 +194,6 @@ export const getUsages = () => (dispatch) => {
 export const saveUsage = (amount, month, year) => (dispatch) => {
   return usageApi.saveUsage(amount, month, year).then(
     (data) => {
-      dispatch({
-        type: SAVE_USAGE_SUCCESS,
-        payload: data,
-      });
       return Promise.resolve();
     },
     (error) => {
