@@ -4,7 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {AdviceScreen, HouseholdScreen, UsageList} from '../home/screens';
+import {AdviceScreen, HouseholdScreen, PeopleScreen, UsageList} from '../home/screens';
 import PersonStack from './PersonStack';
 import HouseholdStack from './HouseholdStack';
 
@@ -42,7 +42,7 @@ const TabBar = () => {
         }}
       />
       <Tab.Screen
-        component={PersonStack}
+        component={PeopleScreen}
         name="People"
         options={{
           tabBarIcon: ({size, color}) => (
@@ -51,7 +51,7 @@ const TabBar = () => {
         }}
       />
       <Tab.Screen
-        component={HouseholdStack}
+        component={HouseholdScreen}
         name="Household"
         options={{
           tabBarIcon: ({size, color}) => (

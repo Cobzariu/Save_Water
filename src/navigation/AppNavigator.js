@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {connect} from 'react-redux';
-import TabBar from './TabBar';
 import AuthStack from './AuthStack';
 import {tryLocalSignIn} from '../actions/user';
+import AppStack from './AppStack';
 
 const AppNavigator = ({loggedIn, tryLocalSignIn}) => {
   useEffect(() => {
@@ -11,7 +11,7 @@ const AppNavigator = ({loggedIn, tryLocalSignIn}) => {
   }, []);
   return (
     <NavigationContainer>
-      {loggedIn ? <TabBar /> : <AuthStack />}
+      {loggedIn ? <AppStack /> : <AuthStack />}
     </NavigationContainer>
   );
 };
