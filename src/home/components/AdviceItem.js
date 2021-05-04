@@ -14,7 +14,11 @@ const AdviceItem = ({data}) => {
     }
   }
   return (
-    <View style={[adviceItemStyles.mainView, {backgroundColor: getColor(data.priority)}]}>
+    <View
+      style={[
+        adviceItemStyles.mainView,
+        {backgroundColor: getColor(data.priority)},
+      ]}>
       <Text style={adviceItemStyles.descriptionText}>{data.description}</Text>
     </View>
   );

@@ -26,6 +26,7 @@ const AdviceScreen = ({advices, statistics, isLoading, getAdvices}) => {
       />
       <FlatList
         style={adviceScreenStyles.listStyle}
+        showsVerticalScrollIndicator={false}
         data={advices}
         keyExtractor={(item, index) => index}
         renderItem={({item}) => <AdviceItem data={item} />}

@@ -5,7 +5,9 @@ import {statsDetailsStyles} from './styles';
 const StatsDetails = ({statistics}) => {
   const waterUsage =
     statistics.waterUsedPerCapitaLiters === -1 ? (
-      <Text style={statsDetailsStyles.textStyleError}>You need to enter consumption data</Text>
+      <Text style={statsDetailsStyles.textStyleError}>
+        You need to enter consumption data
+      </Text>
     ) : (
       <>
         <Text style={statsDetailsStyles.textStyle}>Water usage</Text>
@@ -14,6 +16,25 @@ const StatsDetails = ({statistics}) => {
         </Text>
       </>
     );
+  const carUsage =
+    statistics.carWashingLiters > 0 ? (
+      <View style={statsDetailsStyles.item}>
+        <Text style={statsDetailsStyles.textStyle}>Car washing</Text>
+        <Text style={statsDetailsStyles.textStyleValue}>
+          {statistics.carWashingLiters} liters/week
+        </Text>
+      </View>
+    ) : null;
+
+  const gardenUsage =
+    statistics.wateringLiters > 0 ? (
+      <View style={statsDetailsStyles.item}>
+        <Text style={statsDetailsStyles.textStyle}>Garden usage</Text>
+        <Text style={statsDetailsStyles.textStyleValue}>
+          {statistics.wateringLiters} liters/week
+        </Text>
+      </View>
+    ) : null;
   return (
     <View style={statsDetailsStyles.mainView}>
       <View style={statsDetailsStyles.secondView}>
@@ -39,9 +60,11 @@ const StatsDetails = ({statistics}) => {
             {statistics.averageBathFrequency} times a week
           </Text>
         </View>
-        <View style={statsDetailsStyles.item}>
-          {waterUsage}
-        </View>
+        <View style={statsDetailsStyles.item}>{waterUsage}</View>
+      </View>
+      <View style={statsDetailsStyles.secondView}>
+        {carUsage}
+        {gardenUsage}
       </View>
     </View>
   );
