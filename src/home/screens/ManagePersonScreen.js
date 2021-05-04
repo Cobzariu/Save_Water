@@ -7,7 +7,7 @@ import {
   clearPersonMessage,
 } from '../../actions/person';
 import {getHousehold} from '../../actions/household';
-import {View, Text} from 'react-native';
+import {View, Text, ScrollView} from 'react-native';
 import InputSpinner from 'react-native-input-spinner';
 import {managePersonStyles} from './styles';
 import {GeneralButton, InputField} from '../../authentification/components';
@@ -79,7 +79,9 @@ const ManagePersonScreen = ({
     );
   }
   return (
-    <View style={managePersonStyles.mainViewStyle}>
+    <ScrollView
+      style={managePersonStyles.mainViewStyle}
+      contentContainerStyle={managePersonStyles.contentContainerStyle}>
       <Text style={managePersonStyles.titleStyle}>{titleText}</Text>
       <View style={managePersonStyles.questionsView}>
         <View style={managePersonStyles.locationTypeView}>
@@ -165,7 +167,7 @@ const ManagePersonScreen = ({
           }}
         />
       </View>
-    </View>
+    </ScrollView>
   );
 };
 const mapStateToProps = (state) => {

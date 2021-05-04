@@ -25,6 +25,8 @@ const personScreenStyles = StyleSheet.create({
   mainViewStyle: {
     flex: 1,
     backgroundColor: '#003f5c',
+  },
+  contentContainerStyle:{
     alignItems: 'center',
   },
   buttonView: {
@@ -37,6 +39,7 @@ const personScreenStyles = StyleSheet.create({
     fontSize: 16,
     color: '#fb5b5a',
     fontWeight: 'bold',
+    fontFamily: 'Roboto',
   },
 });
 

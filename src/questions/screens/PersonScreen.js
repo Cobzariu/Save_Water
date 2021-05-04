@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {increaseCountPeople} from '../../actions/household';
 import {savePerson, clearPersonMessage} from '../../actions/person';
 import {signupComplete} from '../../actions/user';
-import {View, Text} from 'react-native';
+import {View, Text, ScrollView} from 'react-native';
 import {personScreenStyles} from './styles';
 import {GeneralButton, InputField} from '../../authentification/components';
 import InputSpinner from 'react-native-input-spinner';
@@ -31,7 +31,9 @@ const PersonScreen = ({
   ];
 
   return (
-    <View style={personScreenStyles.mainViewStyle}>
+    <ScrollView
+      style={personScreenStyles.mainViewStyle}
+      contentContainerStyle={personScreenStyles.contentContainerStyle}>
       <Text style={personScreenStyles.titleStyle}>
         Enter some details person #{countPeople}
       </Text>
@@ -103,39 +105,32 @@ const PersonScreen = ({
       {message ? (
         <Text style={personScreenStyles.errorMessage}>{message}</Text>
       ) : null}
-      <View style={personScreenStyles.buttonView}>
-        <GeneralButton
-          title="Next"
-          onPress={() => {
-            savePerson(
-              name,
-              showersWeek,
-              bathsWeek,
-              showerLength,
-              leaveTap,
-            ).then(
-              (success) => {
-                if (countPeople < personNumber) {
-                  increaseCountPeople(countPeople + 1);
-                  navigation.navigate('Person');
-                  setName('');
-                  setBathsWeek(1);
-                  setShowersWeek(1);
-                  setShowerLength(1);
-                  setLeaveTap(false);
-                  clearPersonMessage();
-                } else {
-                  signupComplete();
-                  clearPersonMessage();
-                }
-              },
-              (error) => {
-              },
-            );
-          }}
-        />
-      </View>
-    </View>
+      {/* <View style={personScreenStyles.buttonView}> */}
+      <GeneralButton
+        title="Next"
+        onPress={() => {
+          savePerson(name, showersWeek, bathsWeek, showerLength, leaveTap).then(
+            (success) => {
+              if (countPeople < personNumber) {
+                increaseCountPeople(countPeople + 1);
+                navigation.navigate('Person');
+                setName('');
+                setBathsWeek(1);
+                setShowersWeek(1);
+                setShowerLength(1);
+                setLeaveTap(false);
+                clearPersonMessage();
+              } else {
+                signupComplete();
+                clearPersonMessage();
+              }
+            },
+            (error) => {},
+          );
+        }}
+      />
+      {/* </View> */}
+    </ScrollView>
   );
 };
 const mapStateToProps = (state) => {

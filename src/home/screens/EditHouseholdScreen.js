@@ -169,7 +169,6 @@ const EditHouseholdScreen = ({
               onChange={(item) => setHandWashingNumber(item)}
               value={handWashingNumber}
               initialValue={handWashingNumber}
-              min={1}
               width={130}
               textColor="white"
               color="#fb5b5a"

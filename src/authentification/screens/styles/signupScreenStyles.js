@@ -17,6 +17,7 @@ const signupScreenStyles = StyleSheet.create({
     fontSize: 16,
     color: '#fb5b5a',
     fontWeight: 'bold',
+    fontFamily: 'Roboto',
     marginTop: 15,
   },
   signupText:{

@@ -12,7 +12,7 @@ const usageListStyles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginHorizontal: 5
+    margin: 5,
   },
   titleText: {
     fontSize: 18,
@@ -60,6 +60,7 @@ const usageListStyles = StyleSheet.create({
   errorMessage: {
     fontSize: 13,
     fontWeight: 'bold',
+    fontFamily: 'Roboto',
     marginTop: 10,
     color: '#fb5b5a',
   },

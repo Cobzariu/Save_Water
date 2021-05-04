@@ -9,6 +9,7 @@ const siginScreenStyles = StyleSheet.create({
   },
   logo: {
     fontWeight: 'bold',
+    fontFamily: 'Roboto',
     fontSize: 50,
     color: '#fb5b5a',
     marginBottom: 40,
@@ -17,6 +18,7 @@ const siginScreenStyles = StyleSheet.create({
     fontSize: 16,
     color: '#fb5b5a',
     fontWeight: 'bold',
+    fontFamily: 'Roboto',
     marginTop: 15,
   },
   signupText: {

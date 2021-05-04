@@ -21,6 +21,7 @@ const householdComponentStyle = StyleSheet.create({
   subTitleText: {
     fontSize: 18,
     fontWeight: 'bold',
+    fontFamily: 'Roboto',
   },
   valueText: {
     fontStyle: 'italic',

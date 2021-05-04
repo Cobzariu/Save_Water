@@ -18,12 +18,14 @@ const statsDetailsStyles = StyleSheet.create({
     color: '#fb5b5a',
     fontSize: 16,
     fontWeight: 'bold',
+    fontFamily: 'Roboto',
   },
   textStyleValue: {
     fontSize: 16,
     marginTop: 5,
     fontWeight: 'bold',
     color: 'white',
+    fontFamily: 'Roboto',
   },
   item: {
     height: 100,

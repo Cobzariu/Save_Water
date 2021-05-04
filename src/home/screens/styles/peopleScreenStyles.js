@@ -7,7 +7,7 @@ const peopleScreenStyles = StyleSheet.create({
     backgroundColor: '#bedcfa',
   },
   subView: {
-    margin: 5,
+    padding: 5,
   },
   titleText: {
     fontSize: 18,
@@ -17,10 +17,9 @@ const peopleScreenStyles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginRight: 5,
+    marginBottom: 5,
   },
-  listView: {
-   
-  },
+  listView: {},
 });
 
 export default peopleScreenStyles;
