@@ -1,16 +1,23 @@
 import React, {useEffect, useState} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {PersistGate} from 'redux-persist/integration/react';
 import {Provider} from 'react-redux';
-import configureStore from './src/configureStore';
 import AppNavigator from './src/navigation/AppNavigator';
+import configureStore from './src/configureStore';
+import {Spinner} from './src/authentification/components';
+import { SplashScreen } from './src/core/screens';
+
+const {persistor, store} = configureStore();
 
 const App = () => {
-  useEffect(()=> {
+  useEffect(() => {
     // /AsyncStorage.clear();
-  },[]);
+  }, []);
   return (
-    <Provider store={configureStore}>
-      <AppNavigator />
+    <Provider store={store}>
+      <PersistGate loading={<SplashScreen />} persistor={persistor}>
+        <AppNavigator />
+      </PersistGate>
     </Provider>
   );
 };
