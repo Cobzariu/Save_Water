@@ -6,10 +6,10 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {
   AdviceScreen,
   HouseholdScreen,
-  PeopleScreen,
   UsageList,
 } from '../home/screens';
 import {colors} from '../core/themes';
+import { PeopleList } from '../home/components';
 
 const Tab = createBottomTabNavigator();
 
@@ -45,7 +45,7 @@ const TabBar = () => {
         }}
       />
       <Tab.Screen
-        component={PeopleScreen}
+        component={PeopleList}
         name="People"
         options={{
           tabBarIcon: ({size, color}) => (

@@ -1,9 +1,10 @@
 import {StyleSheet} from 'react-native';
-import { colors } from '../../../core/themes';
+import {colors} from '../../../core/themes';
 
 const peopleItemStyles = StyleSheet.create({
   mainView: {
-    margin: 5,
+    marginHorizontal: 10,
+    marginVertical: 5,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',

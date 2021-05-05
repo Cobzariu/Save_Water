@@ -1,7 +1,7 @@
-import {StyleSheet, Dimensions} from 'react-native';
-import colors from '../../../core/themes/colors';
+import {StyleSheet} from 'react-native';
+import {colors} from '../../../core/themes';
 
-const peopleScreenStyles = StyleSheet.create({
+const peopleListStyles = StyleSheet.create({
   mainView: {
     flex: 1,
     backgroundColor: colors.backgroundBlue,
@@ -21,4 +21,4 @@ const peopleScreenStyles = StyleSheet.create({
   },
 });
 
-export default peopleScreenStyles;
+export default peopleListStyles;
