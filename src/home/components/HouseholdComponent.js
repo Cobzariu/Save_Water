@@ -4,6 +4,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import {householdComponentStyle} from './styles';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {TouchableOpacity} from 'react-native';
+import { colors } from '../../core/themes';
 
 const HouseholdComponent = ({data, onPress}) => {
   const iconName = data.locationTypeHouse ? 'house' : 'apartment';
@@ -19,7 +20,7 @@ const HouseholdComponent = ({data, onPress}) => {
       <View style={householdComponentStyle.editView}>
         <Text style={householdComponentStyle.subTitleText}>Indoors</Text>
         <TouchableOpacity onPress={onPress}>
-          <AntDesign name="edit" size={35} color="#fb5b5a" />
+          <AntDesign name="edit" size={35} color={colors.darkRed} />
         </TouchableOpacity>
       </View>
       <View style={householdComponentStyle.subView}>

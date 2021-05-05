@@ -1,4 +1,5 @@
 import {StyleSheet, Dimensions} from 'react-native';
+import {colors} from '../../../core/themes';
 
 const statsDetailsStyles = StyleSheet.create({
   mainView: {
@@ -15,7 +16,7 @@ const statsDetailsStyles = StyleSheet.create({
     color: 'white',
   },
   textStyleError: {
-    color: '#fb5b5a',
+    color: colors.darkRed,
     fontSize: 16,
     fontWeight: 'bold',
     fontFamily: 'Roboto',
@@ -36,7 +37,7 @@ const statsDetailsStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginHorizontal: 5,
-    backgroundColor: '#003f5c',
+    backgroundColor: colors.darkBlue,
   },
 });
 export default statsDetailsStyles;

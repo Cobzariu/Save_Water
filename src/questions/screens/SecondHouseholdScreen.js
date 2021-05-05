@@ -6,6 +6,7 @@ import {secondHouseholdScreenStyles} from './styles';
 import {GeneralButton, Spinner} from '../../authentification/components';
 import InputSpinner from 'react-native-input-spinner';
 import {RadioButton} from '../components';
+import { colors } from '../../core/themes';
 
 const SecondHouseholdScreen = ({navigation, saveHousehold}) => {
   const [washCarNumber, setWashCarNumber] = useState(0);
@@ -38,7 +39,7 @@ const SecondHouseholdScreen = ({navigation, saveHousehold}) => {
             minValue={0}
             width={130}
             textColor="white"
-            color="#fb5b5a"
+            color={colors.darkRed}
           />
         </View>
         <View style={secondHouseholdScreenStyles.locationTypeView}>
@@ -52,7 +53,7 @@ const SecondHouseholdScreen = ({navigation, saveHousehold}) => {
             minValue={0}
             width={130}
             textColor="white"
-            color="#fb5b5a"
+            color={colors.darkRed}
           />
         </View>
         <View style={secondHouseholdScreenStyles.locationTypeView}>
@@ -66,7 +67,7 @@ const SecondHouseholdScreen = ({navigation, saveHousehold}) => {
             minValue={1}
             width={130}
             textColor="white"
-            color="#fb5b5a"
+            color={colors.darkRed}
           />
         </View>
         <View style={secondHouseholdScreenStyles.locationTypeView}>

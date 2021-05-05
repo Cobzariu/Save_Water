@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import {colors} from '../../../core/themes';
 
 const usageItemStyles = StyleSheet.create({
   mainView: {
@@ -12,7 +13,7 @@ const usageItemStyles = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 5,
     elevation: 5,
-    backgroundColor: '#003f5c',
+    backgroundColor: colors.darkBlue,
     borderRadius: 15,
     padding: 10,
   },
@@ -29,13 +30,13 @@ const usageItemStyles = StyleSheet.create({
   valueText: {
     fontStyle: 'italic',
     fontSize: 15,
-    color: '#fb5b5a',
+    color: colors.darkRed,
   },
   superScriptText: {
     lineHeight: 18,
     fontStyle: 'italic',
     fontSize: 15,
-    color: '#fb5b5a',
+    color: colors.darkRed,
   },
 });
 

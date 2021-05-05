@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import { colors } from '../../../core/themes';
 
 const firstHouseholdScreenStyles = StyleSheet.create({
   titleStyle: {
@@ -29,7 +30,7 @@ const firstHouseholdScreenStyles = StyleSheet.create({
 
   mainViewStyle: {
     flex: 1,
-    backgroundColor: '#003f5c',
+    backgroundColor: colors.darkBlue,
     alignItems: 'center',
     justifyContent: 'center',
   },

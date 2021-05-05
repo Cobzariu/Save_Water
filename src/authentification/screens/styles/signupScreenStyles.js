@@ -1,28 +1,29 @@
 import {StyleSheet} from 'react-native';
+import {colors} from '../../../core/themes';
 
 const signupScreenStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#003f5c',
+    backgroundColor: colors.darkBlue,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  logo:{
-    fontWeight:"bold",
-    fontSize:50,
-    color:"#fb5b5a",
-    marginBottom:40
+  logo: {
+    fontWeight: 'bold',
+    fontSize: 50,
+    color: colors.darkRed,
+    marginBottom: 40,
   },
   errorMessage: {
     fontSize: 16,
-    color: '#fb5b5a',
+    color: colors.darkRed,
     fontWeight: 'bold',
     fontFamily: 'Roboto',
     marginTop: 15,
   },
-  signupText:{
-    color:"white"
-  }
+  signupText: {
+    color: 'white',
+  },
 });
 
 export default signupScreenStyles;

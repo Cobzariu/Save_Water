@@ -1,10 +1,10 @@
 import {StyleSheet, Dimensions} from 'react-native';
-const window = Dimensions.get('window');
+import colors from '../../../core/themes/colors';
 
 const peopleScreenStyles = StyleSheet.create({
   mainView: {
     flex: 1,
-    backgroundColor: '#bedcfa',
+    backgroundColor: colors.backgroundBlue,
   },
   subView: {
     padding: 5,

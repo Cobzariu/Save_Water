@@ -7,6 +7,7 @@ import {firstHouseholdScreenStyles} from './styles';
 import {GeneralButton, Spinner} from '../../authentification/components';
 import {ScrollView} from 'react-native';
 import {RadioButton} from '../components';
+import { colors } from '../../core/themes';
 
 const FirstHouseholdScreen = ({
   navigation,
@@ -63,7 +64,7 @@ const FirstHouseholdScreen = ({
               min={1}
               width={130}
               textColor="white"
-              color="#fb5b5a"
+              color={colors.darkRed}
             />
           </View>
           <View style={firstHouseholdScreenStyles.locationTypeView}>
@@ -77,7 +78,7 @@ const FirstHouseholdScreen = ({
               min={1}
               width={130}
               textColor="white"
-              color="#fb5b5a"
+              color={colors.darkRed}
             />
           </View>
           <View style={firstHouseholdScreenStyles.locationTypeView}>
@@ -100,7 +101,7 @@ const FirstHouseholdScreen = ({
               initialValue={handWashingNumber}
               width={130}
               textColor="white"
-              color="#fb5b5a"
+              color={colors.darkRed}
             />
           </View>
           <View style={firstHouseholdScreenStyles.locationTypeView}>
@@ -115,7 +116,7 @@ const FirstHouseholdScreen = ({
               min={0}
               max={100}
               textColor="white"
-              color="#fb5b5a"
+              color={colors.darkRed}
             />
           </View>
           <View style={firstHouseholdScreenStyles.locationTypeView}>

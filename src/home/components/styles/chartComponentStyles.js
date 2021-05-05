@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import { colors } from '../../../core/themes';
 
 const chartComponentStyles = StyleSheet.create({
   subViewStyle: {
@@ -10,7 +11,7 @@ const chartComponentStyles = StyleSheet.create({
     fontSize: 20,
     lineHeight: 20,
     alignSelf: 'center',
-    color: '#fb5b5a',
+    color: colors.darkRed,
     fontWeight: 'bold',
     fontFamily: 'Roboto',
   },
@@ -20,7 +21,7 @@ const chartComponentStyles = StyleSheet.create({
     lineHeight: 20,
     fontWeight: 'bold',
     alignSelf: 'center',
-    color: '#fb5b5a',
+    color: colors.darkRed,
   },
 });
 

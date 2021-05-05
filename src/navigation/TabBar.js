@@ -1,12 +1,15 @@
 import React from 'react';
-import {connect} from 'react-redux';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {AdviceScreen, HouseholdScreen, PeopleScreen, UsageList} from '../home/screens';
-import PersonStack from './PersonStack';
-import HouseholdStack from './HouseholdStack';
+import {
+  AdviceScreen,
+  HouseholdScreen,
+  PeopleScreen,
+  UsageList,
+} from '../home/screens';
+import {colors} from '../core/themes';
 
 const Tab = createBottomTabNavigator();
 
@@ -17,8 +20,8 @@ const TabBar = () => {
         headerShown: false,
       }}
       tabBarOptions={{
-        activeTintColor: '#fb5b5a',
-        inactiveTintColor: '#003f5c',
+        activeTintColor: colors.darkRed,
+        inactiveTintColor: colors.darkBlue,
         labelStyle: {
           fontSize: 12,
         },

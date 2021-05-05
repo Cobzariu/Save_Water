@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import {peopleItemStyles} from './styles';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { colors } from '../../core/themes';
 
 const PeopleItem = ({data, onPress, onPressDelete}) => {
   const waterRunninMessage = data.waterRunningBrushingTeeth ? 'Yes' : 'No';
@@ -35,7 +36,7 @@ const PeopleItem = ({data, onPress, onPressDelete}) => {
       </View>
       <View>
         <TouchableOpacity onPress={onPressDelete}>
-          <MaterialCommunityIcons name="delete" size={27} color="#fb5b5a" />
+          <MaterialCommunityIcons name="delete" size={27} color={colors.darkRed} />
         </TouchableOpacity>
       </View>
     </TouchableOpacity>

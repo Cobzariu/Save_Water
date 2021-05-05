@@ -1,9 +1,10 @@
 import {StyleSheet} from 'react-native';
+import {colors} from '../../../core/themes';
 
 const siginScreenStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#003f5c',
+    backgroundColor: colors.darkBlue,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -11,12 +12,12 @@ const siginScreenStyles = StyleSheet.create({
     fontWeight: 'bold',
     fontFamily: 'Roboto',
     fontSize: 50,
-    color: '#fb5b5a',
+    color: colors.darkRed,
     marginBottom: 40,
   },
   errorMessage: {
     fontSize: 16,
-    color: '#fb5b5a',
+    color: colors.darkRed,
     fontWeight: 'bold',
     fontFamily: 'Roboto',
     marginTop: 15,

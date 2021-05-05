@@ -1,9 +1,10 @@
 import {StyleSheet} from 'react-native';
+import colors from '../../../core/themes/colors';
 
 const generalButtonStyles = StyleSheet.create({
   buttonView: {
     width: '80%',
-    backgroundColor: '#fb5b5a',
+    backgroundColor: colors.darkRed,
     borderRadius: 25,
     height: 50,
     alignItems: 'center',

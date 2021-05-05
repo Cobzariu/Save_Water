@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import {colors} from '../../../core/themes';
 
 const managePersonStyles = StyleSheet.create({
   titleStyle: {
@@ -24,9 +25,9 @@ const managePersonStyles = StyleSheet.create({
   },
   mainViewStyle: {
     flex: 1,
-    backgroundColor: '#003f5c',
+    backgroundColor: colors.darkBlue,
   },
-  contentContainerStyle:{
+  contentContainerStyle: {
     alignItems: 'center',
   },
   buttonView: {
@@ -37,7 +38,7 @@ const managePersonStyles = StyleSheet.create({
   },
   errorMessage: {
     fontSize: 16,
-    color: '#fb5b5a',
+    color: colors.darkRed,
     fontWeight: 'bold',
     fontFamily: 'Roboto',
   },

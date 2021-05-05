@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import {colors} from '../../../core/themes';
 
 const secondHouseholdScreenStyles = StyleSheet.create({
   titleStyle: {
@@ -21,27 +22,23 @@ const secondHouseholdScreenStyles = StyleSheet.create({
   questionsView: {
     marginLeft: 5,
     marginRight: 5,
-    //justifyContent: "space-evenly",
     flex: 1,
   },
   dropViewContainerStyle: {
     height: 40,
     marginLeft: 20,
   },
-  numericInputContainerStyle: {
-    //marginLeft: 20,
-  },
   mainViewStyle: {
     flex: 1,
-    backgroundColor: '#003f5c',
+    backgroundColor: colors.darkBlue,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   buttonStyle: {
     position: 'absolute',
     bottom: 20,
     left: 0,
-    marginBottom:20,
+    marginBottom: 20,
     height: 20,
   },
 });

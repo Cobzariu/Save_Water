@@ -12,6 +12,7 @@ import InputSpinner from 'react-native-input-spinner';
 import {managePersonStyles} from './styles';
 import {GeneralButton, InputField} from '../../authentification/components';
 import {RadioButton} from '../../questions/components';
+import { colors } from '../../core/themes';
 
 const ManagePersonScreen = ({
   route,
@@ -104,7 +105,7 @@ const ManagePersonScreen = ({
             min={0}
             max={100}
             textColor="white"
-            color="#fb5b5a"
+            color={colors.darkRed}
           />
         </View>
         <View style={managePersonStyles.locationTypeView}>
@@ -119,7 +120,7 @@ const ManagePersonScreen = ({
             min={0}
             max={100}
             textColor="white"
-            color="#fb5b5a"
+            color={colors.darkRed}
           />
         </View>
         <View style={managePersonStyles.locationTypeView}>
@@ -134,7 +135,7 @@ const ManagePersonScreen = ({
             min={0}
             max={100}
             textColor="white"
-            color="#fb5b5a"
+            color={colors.darkRed}
           />
         </View>
         <View style={managePersonStyles.locationTypeView}>

@@ -1,9 +1,10 @@
 import {StyleSheet} from 'react-native';
+import colors from '../../../core/themes/colors';
 
 const householdScreenStyles = StyleSheet.create({
   mainView: {
     flex: 1,
-    backgroundColor: '#bedcfa',
+    backgroundColor: colors.backgroundBlue,
     justifyContent: 'space-between',
   },
   subView: {

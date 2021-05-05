@@ -4,6 +4,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import {View, Text} from 'react-native';
 import {usageItemStyles} from './styles';
 import {TouchableOpacity} from 'react-native';
+import { colors } from '../../core/themes';
 
 const UsageItem = ({data, onPress}) => {
   return (
@@ -25,7 +26,7 @@ const UsageItem = ({data, onPress}) => {
       </View>
       <View>
         <TouchableOpacity onPress={onPress}>
-          <MaterialCommunityIcons name="delete" size={25} color="#fb5b5a" />
+          <MaterialCommunityIcons name="delete" size={25} color={colors.darkRed} />
         </TouchableOpacity>
       </View>
     </View>

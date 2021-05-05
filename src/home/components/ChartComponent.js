@@ -11,6 +11,7 @@ import {
 } from 'react-native-chart-kit';
 import {months} from '../../utils/variables';
 import {chartComponentStyles} from './styles';
+import { colors } from '../../core/themes';
 
 const ChartCompnent = ({usages}) => {
   const currentYear = new Date().getFullYear();
@@ -32,7 +33,7 @@ const ChartCompnent = ({usages}) => {
         height={220}
         yAxisSuffix="m3"
         chartConfig={{
-          backgroundColor: '#fb5b5a',
+          backgroundColor: colors.darkRed,
           backgroundGradientFrom: '#ff8685',
           backgroundGradientTo: '#ff6261',
           decimalPlaces: 0,
@@ -41,7 +42,7 @@ const ChartCompnent = ({usages}) => {
           propsForDots: {
             r: '5',
             strokeWidth: '2',
-            stroke: '#003f5c',
+            stroke: colors.darkBlue,
           },
           propsForLabels: {
             fontSize: 14,

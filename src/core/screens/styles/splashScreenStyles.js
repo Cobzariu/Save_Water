@@ -1,15 +1,16 @@
 import {StyleSheet} from 'react-native';
+import colors from '../../themes/colors';
 
 const splashScreenStyles = StyleSheet.create({
   mainView: {
     flex: 1,
-    backgroundColor: '#bedcfa',
+    backgroundColor: colors.backgroundBlue,
     justifyContent: 'center',
     alignItems: 'center',
   },
   textStyle: {
     fontSize: 40,
-    color: '#003f5c',
+    color: colors.darkBlue,
     textAlign: 'center',
   },
   imageStyle: {

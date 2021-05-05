@@ -19,6 +19,7 @@ import {
   InputField,
   Spinner,
 } from '../../authentification/components';
+import {colors} from '../../core/themes';
 
 const UsageList = ({
   usages,
@@ -64,7 +65,7 @@ const UsageList = ({
                 width={150}
                 style={usageListStyles.inputSpinnerStyle}
                 textColor="white"
-                color="#fb5b5a"
+                color={colors.darkRed}
               />
             </View>
             <View style={usageListStyles.amountView}>
@@ -80,7 +81,7 @@ const UsageList = ({
                 width={150}
                 style={usageListStyles.inputSpinnerStyle}
                 textColor="white"
-                color="#fb5b5a"
+                color={colors.darkRed}
               />
             </View>
             <View style={usageListStyles.amountView}>
@@ -95,7 +96,9 @@ const UsageList = ({
                 onSelect={(index) => {
                   setMonth(index);
                 }}
-                renderSeparator={()=><View style={{borderColor: '#fb5b5a',borderWidth:1}}/>}
+                renderSeparator={() => (
+                  <View style={usageListStyles.renderView} />
+                )}
               />
             </View>
             {error_message ? (
@@ -149,7 +152,7 @@ const UsageList = ({
                   <MaterialIcons
                     name="add"
                     size={30}
-                    color="#fb5b5a"
+                    color={colors.darkRed}
                     onPress={() => {
                       clearHouseholdMessage();
                       setVisible(!visible);

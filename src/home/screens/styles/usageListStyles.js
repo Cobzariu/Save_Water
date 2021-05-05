@@ -1,8 +1,9 @@
 import {StyleSheet} from 'react-native';
+import colors from '../../../core/themes/colors';
 
 const usageListStyles = StyleSheet.create({
   mainView: {
-    backgroundColor: '#bedcfa',
+    backgroundColor: colors.backgroundBlue,
     flex: 1,
   },
   subView: {
@@ -42,7 +43,7 @@ const usageListStyles = StyleSheet.create({
   dropDownStyle: {
     width: 150,
     height: 200,
-    backgroundColor: '#fb5b5a',
+    backgroundColor: colors.darkBlue,
   },
   dropDownTextStyle: {
     fontSize: 15,
@@ -52,7 +53,7 @@ const usageListStyles = StyleSheet.create({
   dropDownDropTextStyle: {
     fontSize: 15,
     color: 'white',
-    backgroundColor: '#003f5c',
+    backgroundColor: colors.darkBlue,
   },
   buttonViewStyle: {
     alignItems: 'center',
@@ -62,15 +63,19 @@ const usageListStyles = StyleSheet.create({
     fontWeight: 'bold',
     fontFamily: 'Roboto',
     marginTop: 10,
-    color: '#fb5b5a',
+    color: colors.darkRed,
   },
   overlayView: {
-    backgroundColor: '#003f5c',
+    backgroundColor: colors.darkBlue,
     borderRadius: 10,
   },
   overlayTextStyle: {
     color: 'white',
     fontSize: 15,
+  },
+  renderView: {
+    borderColor: colors.darkRed,
+    borderWidth: 1,
   },
 });
 

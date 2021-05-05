@@ -6,6 +6,7 @@ import InputSpinner from 'react-native-input-spinner';
 import {GeneralButton} from '../../authentification/components';
 import {RadioButton} from '../../questions/components';
 import {editHouseholdScreenStyles} from './styles';
+import { colors } from '../../core/themes';
 
 const EditHouseholdScreen = ({
   route,
@@ -72,7 +73,7 @@ const EditHouseholdScreen = ({
               minValue={0}
               width={130}
               textColor="white"
-              color="#fb5b5a"
+              color={colors.darkRed}
             />
           </View>
           <View style={editHouseholdScreenStyles.locationTypeView}>
@@ -86,7 +87,7 @@ const EditHouseholdScreen = ({
               minValue={0}
               width={130}
               textColor="white"
-              color="#fb5b5a"
+              color={colors.darkRed}
             />
           </View>
           <View style={editHouseholdScreenStyles.locationTypeView}>
@@ -100,7 +101,7 @@ const EditHouseholdScreen = ({
               minValue={1}
               width={130}
               textColor="white"
-              color="#fb5b5a"
+              color={colors.darkRed}
             />
           </View>
           <View style={editHouseholdScreenStyles.locationTypeView}>
@@ -148,7 +149,7 @@ const EditHouseholdScreen = ({
               min={1}
               width={130}
               textColor="white"
-              color="#fb5b5a"
+              color={colors.darkRed}
             />
           </View>
           <View style={editHouseholdScreenStyles.locationTypeView}>
@@ -171,7 +172,7 @@ const EditHouseholdScreen = ({
               initialValue={handWashingNumber}
               width={130}
               textColor="white"
-              color="#fb5b5a"
+              color={colors.darkRed}
             />
           </View>
           <View style={editHouseholdScreenStyles.locationTypeView}>
@@ -186,7 +187,7 @@ const EditHouseholdScreen = ({
               min={0}
               max={100}
               textColor="white"
-              color="#fb5b5a"
+              color={colors.darkRed}
             />
           </View>
           <View style={editHouseholdScreenStyles.locationTypeView}>

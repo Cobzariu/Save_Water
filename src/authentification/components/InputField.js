@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, TextInput} from 'react-native';
+import { colors } from '../../core/themes';
 import {inputFieldStyles} from './styles';
 
 const InputField = ({
@@ -20,7 +21,7 @@ const InputField = ({
         secureTextEntry={secureTextEntry}
         style={inputFieldStyles.inputText}
         placeholder={placeholder}
-        placeholderTextColor="#003f5c"
+        placeholderTextColor={colors.darkBlue}
         onChangeText={onChangeText}
         keyboardType={keyboardType}
       />

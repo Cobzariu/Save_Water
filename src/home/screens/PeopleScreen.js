@@ -7,6 +7,7 @@ import {PeopleList} from '../components';
 import {peopleScreenStyles} from './styles';
 import {ScrollView} from 'react-native';
 import {Spinner} from '../../authentification/components';
+import { colors } from '../../core/themes';
 
 const PeopleScreen = ({people, navigation, getPeople, isLoading}) => {
   useEffect(() => {
@@ -22,7 +23,7 @@ const PeopleScreen = ({people, navigation, getPeople, isLoading}) => {
             onPress={() => {
               navigation.navigate('ManagePerson', {type: 'add'});
             }}>
-            <Ionicons name="person-add-outline" size={25} color="#fb5b5a" />
+            <Ionicons name="person-add-outline" size={25} color={colors.darkRed} />
           </TouchableOpacity>
         </View>
         <View style={peopleScreenStyles.listView}>
