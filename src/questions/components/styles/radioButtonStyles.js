@@ -31,12 +31,6 @@ const radioButtonStyles = StyleSheet.create({
     borderRadius: 50,
     backgroundColor: colors.darkRed,
   },
-  result: {
-    marginTop: 20,
-    color: 'white',
-    fontWeight: '600',
-    backgroundColor: '#F3FBFE',
-  },
 });
 
 export default radioButtonStyles;
