@@ -24,7 +24,9 @@ const TabBar = () => {
         inactiveTintColor: colors.darkBlue,
         labelStyle: {
           fontSize: 12,
+          fontFamily: 'Roboto-Regular'
         },
+        
       }}>
       <Tab.Screen
         component={AdviceScreen}

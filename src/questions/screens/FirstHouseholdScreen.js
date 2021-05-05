@@ -16,9 +16,9 @@ const FirstHouseholdScreen = ({
 }) => {
   const [locationType, setLocationType] = useState(false);
   const [numberPeople, setNumberPeople] = useState(1);
-  const [washingMachineNumber, setWashingMachineNumber] = useState(1);
+  const [washingMachineNumber, setWashingMachineNumber] = useState(0);
   const [fullyLoad, setFullyLoad] = useState(true);
-  const [handWashingNumber, setHandWashingNumber] = useState(1);
+  const [handWashingNumber, setHandWashingNumber] = useState(0);
   const [dishWasherNumber, setDishWasherNumber] = useState(0);
   const [useBowl, setUseBowl] = useState(false);
   const [dualFlush, setDualFlush] = useState(false);
@@ -65,6 +65,7 @@ const FirstHouseholdScreen = ({
               width={130}
               textColor="white"
               color={colors.darkRed}
+              fontFamily="Roboto-Regular"
             />
           </View>
           <View style={firstHouseholdScreenStyles.locationTypeView}>
@@ -75,10 +76,10 @@ const FirstHouseholdScreen = ({
               onChange={(item) => setWashingMachineNumber(item)}
               value={washingMachineNumber}
               initialValue={washingMachineNumber}
-              min={1}
               width={130}
               textColor="white"
               color={colors.darkRed}
+              fontFamily="Roboto-Regular"
             />
           </View>
           <View style={firstHouseholdScreenStyles.locationTypeView}>
@@ -102,6 +103,7 @@ const FirstHouseholdScreen = ({
               width={130}
               textColor="white"
               color={colors.darkRed}
+              fontFamily="Roboto-Regular"
             />
           </View>
           <View style={firstHouseholdScreenStyles.locationTypeView}>
@@ -117,6 +119,7 @@ const FirstHouseholdScreen = ({
               max={100}
               textColor="white"
               color={colors.darkRed}
+              fontFamily="Roboto-Regular"
             />
           </View>
           <View style={firstHouseholdScreenStyles.locationTypeView}>

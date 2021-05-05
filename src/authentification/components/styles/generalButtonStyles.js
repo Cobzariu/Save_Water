@@ -14,6 +14,7 @@ const generalButtonStyles = StyleSheet.create({
   },
   textStyle: {
     color: 'white',
+    fontFamily: 'Roboto-Regular'
   },
 });
 

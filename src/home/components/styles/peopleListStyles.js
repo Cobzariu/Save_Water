@@ -12,6 +12,7 @@ const peopleListStyles = StyleSheet.create({
   titleText: {
     fontSize: 18,
     color: 'black',
+    fontFamily: 'Roboto-Regular',
   },
   addView: {
     flexDirection: 'row',

@@ -4,6 +4,7 @@ const householdComponentStyle = StyleSheet.create({
   mainTitleText: {
     fontSize: 22,
     textAlign: 'center',
+    fontFamily: 'Roboto-Regular',
     marginBottom: 15,
   },
   mainView: {
@@ -17,14 +18,14 @@ const householdComponentStyle = StyleSheet.create({
   titleText: {
     fontSize: 17,
     marginRight: 20,
+    fontFamily: 'Roboto-Regular'
   },
   subTitleText: {
     fontSize: 18,
-    fontWeight: 'bold',
-    fontFamily: 'Roboto',
+    fontFamily: 'Roboto-Bold',
   },
   valueText: {
-    fontStyle: 'italic',
+    fontFamily: 'Roboto-LightItalic',
     fontSize: 15,
   },
   outdoorView: {

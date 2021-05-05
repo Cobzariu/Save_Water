@@ -6,7 +6,7 @@ import InputSpinner from 'react-native-input-spinner';
 import {GeneralButton} from '../../authentification/components';
 import {RadioButton} from '../../questions/components';
 import {editHouseholdScreenStyles} from './styles';
-import { colors } from '../../core/themes';
+import {colors} from '../../core/themes';
 
 const EditHouseholdScreen = ({
   route,
@@ -74,6 +74,7 @@ const EditHouseholdScreen = ({
               width={130}
               textColor="white"
               color={colors.darkRed}
+              fontFamily="Roboto-Regular"
             />
           </View>
           <View style={editHouseholdScreenStyles.locationTypeView}>
@@ -88,6 +89,7 @@ const EditHouseholdScreen = ({
               width={130}
               textColor="white"
               color={colors.darkRed}
+              fontFamily="Roboto-Regular"
             />
           </View>
           <View style={editHouseholdScreenStyles.locationTypeView}>
@@ -102,6 +104,7 @@ const EditHouseholdScreen = ({
               width={130}
               textColor="white"
               color={colors.darkRed}
+              fontFamily="Roboto-Regular"
             />
           </View>
           <View style={editHouseholdScreenStyles.locationTypeView}>
@@ -150,6 +153,7 @@ const EditHouseholdScreen = ({
               width={130}
               textColor="white"
               color={colors.darkRed}
+              fontFamily="Roboto-Regular"
             />
           </View>
           <View style={editHouseholdScreenStyles.locationTypeView}>
@@ -173,6 +177,7 @@ const EditHouseholdScreen = ({
               width={130}
               textColor="white"
               color={colors.darkRed}
+              fontFamily="Roboto-Regular"
             />
           </View>
           <View style={editHouseholdScreenStyles.locationTypeView}>
@@ -188,6 +193,7 @@ const EditHouseholdScreen = ({
               max={100}
               textColor="white"
               color={colors.darkRed}
+              fontFamily="Roboto-Regular"
             />
           </View>
           <View style={editHouseholdScreenStyles.locationTypeView}>

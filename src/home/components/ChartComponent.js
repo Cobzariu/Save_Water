@@ -11,7 +11,7 @@ import {
 } from 'react-native-chart-kit';
 import {months} from '../../utils/variables';
 import {chartComponentStyles} from './styles';
-import { colors } from '../../core/themes';
+import {colors} from '../../core/themes';
 
 const ChartCompnent = ({usages}) => {
   const currentYear = new Date().getFullYear();

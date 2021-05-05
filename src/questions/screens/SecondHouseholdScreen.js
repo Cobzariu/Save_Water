@@ -40,6 +40,7 @@ const SecondHouseholdScreen = ({navigation, saveHousehold}) => {
             width={130}
             textColor="white"
             color={colors.darkRed}
+            fontFamily="Roboto-Regular"
           />
         </View>
         <View style={secondHouseholdScreenStyles.locationTypeView}>
@@ -54,6 +55,7 @@ const SecondHouseholdScreen = ({navigation, saveHousehold}) => {
             width={130}
             textColor="white"
             color={colors.darkRed}
+            fontFamily="Roboto-Regular"
           />
         </View>
         <View style={secondHouseholdScreenStyles.locationTypeView}>
@@ -68,6 +70,7 @@ const SecondHouseholdScreen = ({navigation, saveHousehold}) => {
             width={130}
             textColor="white"
             color={colors.darkRed}
+            fontFamily="Roboto-Regular"
           />
         </View>
         <View style={secondHouseholdScreenStyles.locationTypeView}>

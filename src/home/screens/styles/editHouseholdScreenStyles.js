@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import { colors } from '../../../core/themes';
+import {colors} from '../../../core/themes';
 
 const editHouseholdScreenStyles = StyleSheet.create({
   titleStyle: {
@@ -8,9 +8,11 @@ const editHouseholdScreenStyles = StyleSheet.create({
     marginBottom: 15,
     marginTop: 15,
     color: 'white',
+    fontFamily: 'Roboto-Regular',
   },
   qustionTextStyle: {
     fontSize: 15,
+    fontFamily: 'Roboto-Regular',
     marginBottom: 10,
     color: 'white',
   },
@@ -38,6 +40,7 @@ const editHouseholdScreenStyles = StyleSheet.create({
     color: 'white',
     textAlign: 'left',
     justifyContent: 'flex-start',
+    fontFamily: 'Roboto-Bold',
     fontSize: 18,
   },
   indoorView: {

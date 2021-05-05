@@ -8,11 +8,13 @@ const secondHouseholdScreenStyles = StyleSheet.create({
     marginBottom: 15,
     marginTop: 15,
     color: 'white',
+    fontFamily: 'Roboto-Regular'
   },
   qustionTextStyle: {
     fontSize: 15,
     marginBottom: 10,
     color: 'white',
+    fontFamily: 'Roboto-Regular'
   },
   locationTypeView: {
     alignItems: 'center',

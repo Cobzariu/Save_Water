@@ -8,11 +8,13 @@ const personScreenStyles = StyleSheet.create({
     marginBottom: 15,
     marginTop: 15,
     color: 'white',
+    fontFamily: 'Roboto-Regular',
   },
   qustionTextStyle: {
     fontSize: 15,
     marginBottom: 10,
     color: 'white',
+    fontFamily: 'Roboto-Regular',
   },
   locationTypeView: {
     alignItems: 'center',
@@ -39,8 +41,7 @@ const personScreenStyles = StyleSheet.create({
   errorMessage: {
     fontSize: 16,
     color: colors.darkRed,
-    fontWeight: 'bold',
-    fontFamily: 'Roboto',
+    fontFamily: 'Roboto-Italic',
   },
 });
 

@@ -9,17 +9,15 @@ const chartComponentStyles = StyleSheet.create({
   },
   textStyle: {
     fontSize: 20,
-    lineHeight: 20,
     alignSelf: 'center',
     color: colors.darkRed,
-    fontWeight: 'bold',
-    fontFamily: 'Roboto',
+    fontFamily: 'Roboto-Bold',
+
   },
   noDataTextStyle: {
     marginVertical: 20,
     fontSize: 20,
-    lineHeight: 20,
-    fontWeight: 'bold',
+    fontFamily: 'Roboto-Bold',
     alignSelf: 'center',
     color: colors.darkRed,
   },

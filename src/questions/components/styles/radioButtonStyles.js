@@ -2,6 +2,9 @@ import {StyleSheet} from 'react-native';
 import {colors} from '../../../core/themes';
 
 const radioButtonStyles = StyleSheet.create({
+  mainView: {
+    flexDirection: 'row',
+  },
   container: {
     marginRight: 20,
     alignItems: 'center',
@@ -11,6 +14,7 @@ const radioButtonStyles = StyleSheet.create({
   radioText: {
     marginRight: 15,
     color: 'white',
+    fontFamily: 'Roboto-Regular',
   },
   radioCircle: {
     height: 30,

@@ -26,15 +26,16 @@ const usageItemStyles = StyleSheet.create({
     fontSize: 16,
     marginRight: 20,
     color: 'white',
+    fontFamily: 'Roboto-Light',
   },
   valueText: {
-    fontStyle: 'italic',
     fontSize: 15,
+    fontFamily: 'Roboto-LightItalic',
     color: colors.darkRed,
   },
   superScriptText: {
     lineHeight: 18,
-    fontStyle: 'italic',
+    fontFamily: 'Roboto-LightItalic',
     fontSize: 15,
     color: colors.darkRed,
   },

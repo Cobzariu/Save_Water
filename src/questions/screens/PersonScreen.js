@@ -52,6 +52,7 @@ const PersonScreen = ({
             value={name}
             onChangeText={setName}
             autoCorrect={false}
+            
           />
         </View>
         <View style={personScreenStyles.locationTypeView}>
@@ -67,6 +68,7 @@ const PersonScreen = ({
             max={100}
             textColor="white"
             color={colors.darkRed}
+            fontFamily="Roboto-Regular"
           />
         </View>
         <View style={personScreenStyles.locationTypeView}>
@@ -82,6 +84,7 @@ const PersonScreen = ({
             max={100}
             textColor="white"
             color={colors.darkRed}
+            fontFamily="Roboto-Regular"
           />
         </View>
         <View style={personScreenStyles.locationTypeView}>
@@ -97,6 +100,7 @@ const PersonScreen = ({
             max={100}
             textColor="white"
             color={colors.darkRed}
+            fontFamily="Roboto-Regular"
           />
         </View>
         <View style={personScreenStyles.locationTypeView}>

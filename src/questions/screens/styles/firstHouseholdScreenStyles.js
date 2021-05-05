@@ -8,9 +8,11 @@ const firstHouseholdScreenStyles = StyleSheet.create({
     marginBottom: 15,
     marginTop: 15,
     color: 'white',
+    fontFamily: 'Roboto-Regular'
   },
   qustionTextStyle: {
     fontSize: 15,
+    fontFamily: 'Roboto-Regular',
     marginBottom: 10,
     color: 'white',
   },

@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
-import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
+import React from 'react';
+import {View, TouchableOpacity, Text} from 'react-native';
 import {radioButtonStyles} from './styles';
 
 const RadioButton = ({props, selectedValue, setSelectedValue}) => {
   return (
-    <View style={{flexDirection: 'row'}}>
+    <View style={radioButtonStyles.mainView}>
       {props.map((res) => {
         return (
           <View key={res.value} style={radioButtonStyles.container}>

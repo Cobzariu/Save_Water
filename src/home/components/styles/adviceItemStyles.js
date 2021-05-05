@@ -17,7 +17,7 @@ const adviceItemStyles = StyleSheet.create({
   },
   descriptionText: {
     fontSize: 18,
-    fontWeight: '500',
+    fontFamily: 'Roboto-Regular',
     color: 'black',
   },
 });

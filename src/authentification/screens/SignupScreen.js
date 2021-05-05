@@ -19,6 +19,7 @@ const SignupScreen = ({navigation, signup, message, clearUserMessage}) => {
       <InputField
         onChangeText={(e) => setEmail(e)}
         placeholder="Email"
+        autoCapitalize={'none'}
         value={email}
       />
       <InputField

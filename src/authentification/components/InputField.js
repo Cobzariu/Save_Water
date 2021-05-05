@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, TextInput} from 'react-native';
-import { colors } from '../../core/themes';
+import {colors} from '../../core/themes';
 import {inputFieldStyles} from './styles';
 
 const InputField = ({
@@ -11,6 +11,7 @@ const InputField = ({
   autoCorrect,
   width,
   keyboardType,
+  autoCapitalize,
 }) => {
   const setWidth = width ? {width: width} : null;
   return (
@@ -24,6 +25,7 @@ const InputField = ({
         placeholderTextColor={colors.darkBlue}
         onChangeText={onChangeText}
         keyboardType={keyboardType}
+        autoCapitalize={autoCapitalize}
       />
     </View>
   );

@@ -17,6 +17,7 @@ const usageListStyles = StyleSheet.create({
   },
   titleText: {
     fontSize: 18,
+    fontFamily: 'Roboto-Regular'
   },
   amountView: {
     flexDirection: 'row',
@@ -49,9 +50,11 @@ const usageListStyles = StyleSheet.create({
     fontSize: 15,
     margin: 5,
     color: 'white',
+    fontFamily: 'Roboto-Light',
   },
   dropDownDropTextStyle: {
     fontSize: 15,
+    fontFamily: 'Roboto-Light',
     color: 'white',
     backgroundColor: colors.darkBlue,
   },
@@ -60,8 +63,7 @@ const usageListStyles = StyleSheet.create({
   },
   errorMessage: {
     fontSize: 13,
-    fontWeight: 'bold',
-    fontFamily: 'Roboto',
+    fontFamily: 'Roboto-Bold',
     marginTop: 10,
     color: colors.darkRed,
   },
@@ -72,6 +74,13 @@ const usageListStyles = StyleSheet.create({
   overlayTextStyle: {
     color: 'white',
     fontSize: 15,
+    fontFamily: 'Roboto-Light',
+  },
+  superScriptText: {
+    lineHeight: 16,
+    fontFamily: 'Roboto-Light',
+    fontSize: 15,
+    color: 'white',
   },
   renderView: {
     borderColor: colors.darkRed,

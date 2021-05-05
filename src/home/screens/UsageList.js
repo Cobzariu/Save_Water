@@ -52,7 +52,9 @@ const UsageList = ({
           overlayStyle={usageListStyles.overlayView}>
           <View style={usageListStyles.overlayView}>
             <View style={usageListStyles.amountView}>
-              <Text style={usageListStyles.overlayTextStyle}>Amount</Text>
+              <Text style={usageListStyles.overlayTextStyle}>Amount (m</Text>
+              <Text style={usageListStyles.superScriptText}>3</Text>
+              <Text style={usageListStyles.overlayTextStyle}>)</Text>
               <InputSpinner
                 max={amount}
                 min={1}
@@ -66,6 +68,7 @@ const UsageList = ({
                 style={usageListStyles.inputSpinnerStyle}
                 textColor="white"
                 color={colors.darkRed}
+                fontFamily="Roboto-Medium"
               />
             </View>
             <View style={usageListStyles.amountView}>
@@ -82,6 +85,7 @@ const UsageList = ({
                 style={usageListStyles.inputSpinnerStyle}
                 textColor="white"
                 color={colors.darkRed}
+                fontFamily="Roboto-Medium"
               />
             </View>
             <View style={usageListStyles.amountView}>
