@@ -4,7 +4,7 @@ import InputSpinner from 'react-native-input-spinner';
 import {View, Text} from 'react-native';
 import {firstHouseholdSave, saveHousehold} from '../../actions/household';
 import {firstHouseholdScreenStyles} from './styles';
-import {GeneralButton} from '../../authentification/components';
+import {GeneralButton, Spinner} from '../../authentification/components';
 import {ScrollView} from 'react-native';
 import {RadioButton} from '../components';
 
@@ -22,6 +22,8 @@ const FirstHouseholdScreen = ({
   const [useBowl, setUseBowl] = useState(false);
   const [dualFlush, setDualFlush] = useState(false);
 
+  const [loading, setLoading] = useState(false);
+
   const radio_props = [
     {label: 'Yes', value: true},
     {label: 'No', value: false},
@@ -35,6 +37,7 @@ const FirstHouseholdScreen = ({
   return (
     <ScrollView>
       <View style={firstHouseholdScreenStyles.mainViewStyle}>
+        <Spinner loading={loading} />
         <Text style={firstHouseholdScreenStyles.titleStyle}>
           Enter your households details
         </Text>
@@ -152,11 +155,15 @@ const FirstHouseholdScreen = ({
             if (locationType === true) {
               navigation.navigate('SecondHousehold');
             } else {
+              setLoading(true);
               saveHousehold(0, 0, 0, false).then(
                 (succ) => {
+                  setLoading(false);
                   navigation.navigate('Person');
                 },
-                (fail) => {},
+                (fail) => {
+                  setLoading(false);
+                },
               );
             }
           }}

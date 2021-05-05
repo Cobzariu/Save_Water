@@ -4,14 +4,13 @@ import {PersistGate} from 'redux-persist/integration/react';
 import {Provider} from 'react-redux';
 import AppNavigator from './src/navigation/AppNavigator';
 import configureStore from './src/configureStore';
-import {Spinner} from './src/authentification/components';
-import { SplashScreen } from './src/core/screens';
+import {SplashScreen} from './src/core/screens';
 
 const {persistor, store} = configureStore();
 
 const App = () => {
   useEffect(() => {
-    // /AsyncStorage.clear();
+    //AsyncStorage.clear();
   }, []);
   return (
     <Provider store={store}>

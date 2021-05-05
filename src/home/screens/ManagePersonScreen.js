@@ -94,7 +94,7 @@ const ManagePersonScreen = ({
         </View>
         <View style={managePersonStyles.locationTypeView}>
           <Text style={managePersonStyles.qustionTextStyle}>
-            Baths do you take per week
+            Baths per week
           </Text>
           <InputSpinner
             onChange={(item) => setBathsWeek(item)}

@@ -5,7 +5,11 @@ import {savePerson, clearPersonMessage} from '../../actions/person';
 import {signupComplete} from '../../actions/user';
 import {View, Text, ScrollView} from 'react-native';
 import {personScreenStyles} from './styles';
-import {GeneralButton, InputField} from '../../authentification/components';
+import {
+  GeneralButton,
+  InputField,
+  Spinner,
+} from '../../authentification/components';
 import InputSpinner from 'react-native-input-spinner';
 import {RadioButton} from '../components';
 
@@ -25,6 +29,8 @@ const PersonScreen = ({
   const [showerLength, setShowerLength] = useState(1);
   const [leaveTap, setLeaveTap] = useState(false);
 
+  const [loading, setLoading] = useState(false);
+
   const radio_props = [
     {label: 'Yes', value: true},
     {label: 'No', value: false},
@@ -34,6 +40,7 @@ const PersonScreen = ({
     <ScrollView
       style={personScreenStyles.mainViewStyle}
       contentContainerStyle={personScreenStyles.contentContainerStyle}>
+      <Spinner loading={loading} />
       <Text style={personScreenStyles.titleStyle}>
         Enter some details person #{countPeople}
       </Text>
@@ -48,7 +55,7 @@ const PersonScreen = ({
         </View>
         <View style={personScreenStyles.locationTypeView}>
           <Text style={personScreenStyles.qustionTextStyle}>
-            Baths do you take per week
+            Baths per week
           </Text>
           <InputSpinner
             onChange={(item) => setBathsWeek(item)}
@@ -109,8 +116,10 @@ const PersonScreen = ({
       <GeneralButton
         title="Next"
         onPress={() => {
+          setLoading(true);
           savePerson(name, showersWeek, bathsWeek, showerLength, leaveTap).then(
             (success) => {
+              setLoading(false);
               if (countPeople < personNumber) {
                 increaseCountPeople(countPeople + 1);
                 navigation.navigate('Person');
@@ -125,7 +134,9 @@ const PersonScreen = ({
                 clearPersonMessage();
               }
             },
-            (error) => {},
+            (error) => {
+              setLoading(false);
+            },
           );
         }}
       />

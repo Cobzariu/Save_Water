@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {View, Text} from 'react-native';
 import {saveHousehold} from '../../actions/household';
 import {secondHouseholdScreenStyles} from './styles';
-import {GeneralButton} from '../../authentification/components';
+import {GeneralButton, Spinner} from '../../authentification/components';
 import InputSpinner from 'react-native-input-spinner';
 import {RadioButton} from '../components';
 
@@ -13,6 +13,8 @@ const SecondHouseholdScreen = ({navigation, saveHousehold}) => {
   const [wateringLength, setWateringLength] = useState(1);
   const [collectWater, setCollectWater] = useState(false);
 
+  const [loading, setLoading] = useState(false);
+
   const radio_props = [
     {label: 'Yes', value: true},
     {label: 'No', value: false},
@@ -20,6 +22,7 @@ const SecondHouseholdScreen = ({navigation, saveHousehold}) => {
 
   return (
     <View style={secondHouseholdScreenStyles.mainViewStyle}>
+      <Spinner loading={loading} />
       <Text style={secondHouseholdScreenStyles.titleStyle}>
         Enter some details about your house
       </Text>
@@ -80,6 +83,7 @@ const SecondHouseholdScreen = ({navigation, saveHousehold}) => {
       <GeneralButton
         title="Next"
         onPress={() => {
+          setLoading(true);
           saveHousehold(
             washCarNumber,
             waterGarden,
@@ -87,9 +91,12 @@ const SecondHouseholdScreen = ({navigation, saveHousehold}) => {
             collectWater,
           ).then(
             (succ) => {
+              setLoading(false);
               navigation.navigate('Person');
             },
-            (fail) => {},
+            (fail) => {
+              setLoading(false);
+            },
           );
         }}
       />
