@@ -11,6 +11,7 @@ const {persistor, store} = configureStore();
 const App = () => {
   useEffect(() => {
     //AsyncStorage.clear();
+    //persistor.purge();
   }, []);
   return (
     <Provider store={store}>

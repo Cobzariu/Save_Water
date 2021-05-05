@@ -1,14 +1,10 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {connect} from 'react-redux';
 import AuthStack from './AuthStack';
-import {tryLocalSignIn} from '../actions/user';
 import AppStack from './AppStack';
 
-const AppNavigator = ({loggedIn, tryLocalSignIn}) => {
-  useEffect(() => {
-    tryLocalSignIn();
-  }, []);
+const AppNavigator = ({loggedIn}) => {
   return (
     <NavigationContainer>
       {loggedIn ? <AppStack /> : <AuthStack />}
@@ -20,4 +16,4 @@ const mapStateToProps = (state) => {
     loggedIn: state.user.loggedIn,
   };
 };
-export default connect(mapStateToProps, {tryLocalSignIn})(AppNavigator);
+export default connect(mapStateToProps, null)(AppNavigator);

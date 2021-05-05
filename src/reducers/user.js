@@ -4,7 +4,6 @@ import {
   LOGOUT,
   SIGNUP_FAIL,
   SIGNUP_SUCCESS,
-  LOCAL_LOGIN,
   SIGNUP_COMPLETE,
   CLEAR_USER_MESSAGE,
 } from '../constants';
@@ -26,15 +25,6 @@ export default function (state = initialState, action) {
         token: payload,
       };
     }
-    case LOCAL_LOGIN: {
-      const {token, loggedStatus} = payload;
-      return {
-        ...state,
-        loggedIn: loggedStatus,
-        token: token,
-      };
-    }
-
     case LOGIN_FAIL:
       return {
         ...state,

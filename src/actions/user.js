@@ -50,15 +50,6 @@ export const signup = (username, password) => (dispatch) => {
   );
 };
 
-export const tryLocalSignIn = () => async (dispatch) => {
-  const token = await AsyncStorage.getItem('accessToken');
-  const loggedStatus = token && token.length > 0 ? true : false;
-  dispatch({
-    type: LOCAL_LOGIN,
-    payload: {token, loggedStatus},
-  });
-};
-
 export const logout = () => async (dispatch) => {
   await AsyncStorage.removeItem('accessToken');
   dispatch({
