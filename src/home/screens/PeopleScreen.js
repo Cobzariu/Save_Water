@@ -7,30 +7,34 @@ import {PeopleList} from '../components';
 import {peopleScreenStyles} from './styles';
 import {ScrollView} from 'react-native';
 import {Spinner} from '../../authentification/components';
-import { colors } from '../../core/themes';
+import {colors} from '../../core/themes';
 
 const PeopleScreen = ({people, navigation, getPeople, isLoading}) => {
   useEffect(() => {
     getPeople();
   }, []);
   return (
-    <ScrollView style={peopleScreenStyles.mainView}>
+    <View style={peopleScreenStyles.mainView}>
       <Spinner loading={isLoading} />
       <View style={peopleScreenStyles.subView}>
         <View style={peopleScreenStyles.addView}>
-          <Text style={peopleScreenStyles.titleText}>People in your household</Text>
+          <Text style={peopleScreenStyles.titleText}>
+            People in your household
+          </Text>
           <TouchableOpacity
             onPress={() => {
               navigation.navigate('ManagePerson', {type: 'add'});
             }}>
-            <Ionicons name="person-add-outline" size={25} color={colors.darkRed} />
+            <Ionicons
+              name="person-add-outline"
+              size={25}
+              color={colors.darkRed}
+            />
           </TouchableOpacity>
         </View>
-        <View style={peopleScreenStyles.listView}>
-          <PeopleList people={people} navigation={navigation} />
-        </View>
       </View>
-    </ScrollView>
+      <PeopleList people={people} navigation={navigation} />
+    </View>
   );
 };
 const mapStateToProps = (state) => {

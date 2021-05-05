@@ -19,7 +19,6 @@ const peopleScreenStyles = StyleSheet.create({
     marginRight: 5,
     marginBottom: 5,
   },
-  listView: {},
 });
 
 export default peopleScreenStyles;
