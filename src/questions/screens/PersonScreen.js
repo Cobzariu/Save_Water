@@ -12,7 +12,7 @@ import {
 } from '../../authentification/components';
 import InputSpinner from 'react-native-input-spinner';
 import {RadioButton} from '../components';
-import { colors } from '../../core/themes';
+import {colors} from '../../core/themes';
 
 const PersonScreen = ({
   countPeople,
@@ -113,7 +113,6 @@ const PersonScreen = ({
       {message ? (
         <Text style={personScreenStyles.errorMessage}>{message}</Text>
       ) : null}
-      {/* <View style={personScreenStyles.buttonView}> */}
       <GeneralButton
         title="Next"
         onPress={() => {
@@ -141,7 +140,6 @@ const PersonScreen = ({
           );
         }}
       />
-      {/* </View> */}
     </ScrollView>
   );
 };

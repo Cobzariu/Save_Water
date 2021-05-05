@@ -6,7 +6,6 @@ import {splashScreenStyles} from './styles';
 const SplashScreen = () => {
   return (
     <View style={splashScreenStyles.mainView}>
-      {/* <Image source={images.waterDrop} style={splashScreenStyles.imageStyle} /> */}
       <ImageBackground
         source={images.waterDrop}
         style={splashScreenStyles.imageStyle}>
