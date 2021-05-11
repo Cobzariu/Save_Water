@@ -13,9 +13,8 @@ import {months} from '../../utils/variables';
 import {chartComponentStyles} from './styles';
 import {colors} from '../../core/themes';
 
-const ChartCompnent = ({usages}) => {
+const ChartCompnent = ({usages,year,setYear}) => {
   const currentYear = new Date().getFullYear();
-  const [year, setYear] = useState(currentYear);
   const [chartData, setChartData] = useState([]);
   const [chartLabels, setChartLabels] = useState([]);
   const graphic =

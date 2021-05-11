@@ -39,9 +39,11 @@ const UsageList = ({
   const [amount, setAmount] = useState(1);
   const [year, setYear] = useState(currentYear);
   const [month, setMonth] = useState(currentMonth);
+  const [chartYear, setChartYear] = useState(currentYear);
   const toggleOverlay = () => {
     setVisible(!visible);
   };
+
   return (
     <View style={usageListStyles.mainView}>
       <Spinner loading={isLoading} />
@@ -129,7 +131,7 @@ const UsageList = ({
           </View>
         </Overlay>
         <FlatList
-          data={usages}
+          data={usages.filter((cons) => cons.year === chartYear)}
           showsVerticalScrollIndicator={false}
           keyExtractor={(item) => item._id}
           renderItem={({item}) => (
@@ -147,7 +149,11 @@ const UsageList = ({
           )}
           ListHeaderComponent={
             <View>
-              <ChartCompnent usages={usages} />
+              <ChartCompnent
+                usages={usages}
+                year={chartYear}
+                setYear={setChartYear}
+              />
               <View style={usageListStyles.headerMainView}>
                 <Text style={usageListStyles.titleText}>
                   Your household consumption
