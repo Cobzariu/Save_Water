@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import {View, FlatList, Text, TouchableOpacity, Dimensions} from 'react-native';
 import InputSpinner from 'react-native-input-spinner';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -40,6 +40,10 @@ const UsageListScreen = ({
     setVisible(!visible);
   };
 
+  const computedList = useMemo(() => {
+    const result = usages.filter((cons) => cons.year === chartYear);
+    return result;
+  }, [chartYear]);
   return (
     <View style={usageListStyles.mainView}>
       <Spinner loading={isLoading} />
@@ -127,7 +131,7 @@ const UsageListScreen = ({
           </View>
         </Overlay>
         <FlatList
-          data={usages.filter((cons) => cons.year === chartYear)}
+          data={computedList}
           showsVerticalScrollIndicator={false}
           keyExtractor={(item) => item._id}
           renderItem={({item}) => (
@@ -144,13 +148,13 @@ const UsageListScreen = ({
             />
           )}
           ListHeaderComponent={
-            <View>
+            <View style={usageListStyles.mainHeaderView}>
               <ChartCompnent
                 usages={usages}
                 year={chartYear}
                 setYear={setChartYear}
               />
-              <View style={usageListStyles.headerMainView}>
+              <View style={usageListStyles.headerSecondView}>
                 <Text style={usageListStyles.titleText}>
                   Your household consumption
                 </Text>

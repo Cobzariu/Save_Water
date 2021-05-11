@@ -9,15 +9,17 @@ const usageListStyles = StyleSheet.create({
   subView: {
     marginHorizontal: 5,
   },
-  headerMainView: {
+  headerSecondView: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+  },
+  mainHeaderView: {
     margin: 5,
   },
   titleText: {
     fontSize: 18,
-    fontFamily: 'Roboto-Regular'
+    fontFamily: 'Roboto-Regular',
   },
   amountView: {
     flexDirection: 'row',

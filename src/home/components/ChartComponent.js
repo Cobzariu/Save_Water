@@ -13,7 +13,7 @@ import {months} from '../../utils/variables';
 import {chartComponentStyles} from './styles';
 import {colors} from '../../core/themes';
 
-const ChartCompnent = ({usages,year,setYear}) => {
+const ChartCompnent = ({usages, year, setYear}) => {
   const currentYear = new Date().getFullYear();
   const [chartData, setChartData] = useState([]);
   const [chartLabels, setChartLabels] = useState([]);
@@ -28,7 +28,7 @@ const ChartCompnent = ({usages,year,setYear}) => {
             },
           ],
         }}
-        width={Dimensions.get('screen').width + 1}
+        width={Dimensions.get('screen').width - 10}
         height={220}
         yAxisSuffix="m3"
         chartConfig={{
@@ -48,6 +48,7 @@ const ChartCompnent = ({usages,year,setYear}) => {
           },
         }}
         on
+        style={{borderRadius: 10}}
       />
     ) : (
       <Text style={chartComponentStyles.noDataTextStyle}>
