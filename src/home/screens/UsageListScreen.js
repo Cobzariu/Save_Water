@@ -43,7 +43,7 @@ const UsageListScreen = ({
   const computedList = useMemo(() => {
     const result = usages.filter((cons) => cons.year === chartYear);
     return result;
-  }, [chartYear]);
+  }, [chartYear, usages]);
 
   return (
     <View style={usageListStyles.mainView}>

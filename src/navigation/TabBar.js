@@ -3,13 +3,9 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {
-  AdviceScreen,
-  HouseholdScreen,
-  UsageListScreen,
-} from '../home/screens';
+import {AdviceScreen, HouseholdScreen, UsageListScreen} from '../home/screens';
 import {colors} from '../core/themes';
-import { PeopleList } from '../home/components';
+import {PeopleList} from '../home/components';
 
 const Tab = createBottomTabNavigator();
 
@@ -24,9 +20,8 @@ const TabBar = () => {
         inactiveTintColor: colors.darkBlue,
         labelStyle: {
           fontSize: 12,
-          fontFamily: 'Roboto-Regular'
+          fontFamily: 'Roboto-Regular',
         },
-        
       }}>
       <Tab.Screen
         component={AdviceScreen}
