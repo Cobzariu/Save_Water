@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {View, FlatList, Text, TouchableOpacity, Dimensions} from 'react-native';
 import InputSpinner from 'react-native-input-spinner';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -44,6 +44,7 @@ const UsageListScreen = ({
     const result = usages.filter((cons) => cons.year === chartYear);
     return result;
   }, [chartYear]);
+
   return (
     <View style={usageListStyles.mainView}>
       <Spinner loading={isLoading} />
@@ -133,6 +134,7 @@ const UsageListScreen = ({
         <FlatList
           data={computedList}
           showsVerticalScrollIndicator={false}
+          maxToRenderPerBatch={5}
           keyExtractor={(item) => item._id}
           renderItem={({item}) => (
             <UsageItem
