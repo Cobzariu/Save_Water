@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 import colors from '../../../core/themes/colors';
 
-const usageListStyles = StyleSheet.create({
+const usageListScreenStyles = StyleSheet.create({
   mainView: {
     backgroundColor: colors.backgroundBlue,
     flex: 1,
@@ -90,4 +90,4 @@ const usageListStyles = StyleSheet.create({
   },
 });
 
-export default usageListStyles;
+export default usageListScreenStyles;

@@ -31,9 +31,9 @@ const initialState = {
   waterGardenNumberWeek: 0,
   waterGardenLength: 0,
   collectRainwater: false,
-  usages: [],
+  usages: null,
   householdBackend: null,
-  advices: [],
+  advices: null,
   statistics: null,
   isLoading: false,
 };

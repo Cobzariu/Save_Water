@@ -6,7 +6,13 @@ import {AdviceItem, StatsDetails} from '../components';
 import {adviceScreenStyles} from './styles';
 import {Spinner} from '../../authentification/components';
 
-const AdviceScreen = ({advices, statistics, isLoading, getAdvices}) => {
+const AdviceScreen = ({
+  advices,
+  statistics,
+  isLoading,
+  getAdvices,
+  navigation,
+}) => {
   const [loadingType, setLoadingType] = useState('');
   useEffect(() => {
     setLoadingType('fetch');
@@ -21,9 +27,7 @@ const AdviceScreen = ({advices, statistics, isLoading, getAdvices}) => {
   }, []);
   return (
     <View style={adviceScreenStyles.mainView}>
-      <Spinner
-        loading={loadingType === 'fetch'}
-      />
+      <Spinner loading={loadingType === 'fetch'} />
       <FlatList
         style={adviceScreenStyles.listStyle}
         showsVerticalScrollIndicator={false}
@@ -31,7 +35,14 @@ const AdviceScreen = ({advices, statistics, isLoading, getAdvices}) => {
         keyExtractor={(item, index) => index}
         renderItem={({item}) => <AdviceItem data={item} />}
         ListHeaderComponent={
-          statistics ? <StatsDetails statistics={statistics} /> : null
+          statistics ? (
+            <StatsDetails
+              statistics={statistics}
+              onPressWaterUsage={() => {
+                navigation.navigate('DetailedStats');
+              }}
+            />
+          ) : null
         }
         refreshControl={
           <RefreshControl

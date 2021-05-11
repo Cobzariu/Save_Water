@@ -12,7 +12,7 @@ import {
 } from '../../actions/household';
 import {connect} from 'react-redux';
 import {ChartCompnent, UsageItem} from '../components';
-import {usageListStyles} from './styles';
+import {usageListScreenStyles} from './styles';
 import {months} from '../../utils/variables';
 import {GeneralButton, Spinner} from '../../authentification/components';
 import {colors} from '../../core/themes';
@@ -46,18 +46,18 @@ const UsageListScreen = ({
   }, [chartYear, usages]);
 
   return (
-    <View style={usageListStyles.mainView}>
+    <View style={usageListScreenStyles.mainView}>
       <Spinner loading={isLoading} />
       <View>
         <Overlay
           isVisible={visible}
           onBackdropPress={toggleOverlay}
-          overlayStyle={usageListStyles.overlayView}>
-          <View style={usageListStyles.overlayView}>
-            <View style={usageListStyles.amountView}>
-              <Text style={usageListStyles.overlayTextStyle}>Amount (m</Text>
-              <Text style={usageListStyles.superScriptText}>3</Text>
-              <Text style={usageListStyles.overlayTextStyle}>)</Text>
+          overlayStyle={usageListScreenStyles.overlayView}>
+          <View style={usageListScreenStyles.overlayView}>
+            <View style={usageListScreenStyles.amountView}>
+              <Text style={usageListScreenStyles.overlayTextStyle}>Amount (m</Text>
+              <Text style={usageListScreenStyles.superScriptText}>3</Text>
+              <Text style={usageListScreenStyles.overlayTextStyle}>)</Text>
               <InputSpinner
                 max={amount}
                 min={1}
@@ -68,14 +68,14 @@ const UsageListScreen = ({
                   setAmount(num);
                 }}
                 width={150}
-                style={usageListStyles.inputSpinnerStyle}
+                style={usageListScreenStyles.inputSpinnerStyle}
                 textColor="white"
                 color={colors.darkRed}
                 fontFamily="Roboto-Medium"
               />
             </View>
-            <View style={usageListStyles.amountView}>
-              <Text style={usageListStyles.overlayTextStyle}>Year</Text>
+            <View style={usageListScreenStyles.amountView}>
+              <Text style={usageListScreenStyles.overlayTextStyle}>Year</Text>
               <InputSpinner
                 max={currentYear}
                 min={2000}
@@ -85,33 +85,33 @@ const UsageListScreen = ({
                   setYear(num);
                 }}
                 width={150}
-                style={usageListStyles.inputSpinnerStyle}
+                style={usageListScreenStyles.inputSpinnerStyle}
                 textColor="white"
                 color={colors.darkRed}
                 fontFamily="Roboto-Medium"
               />
             </View>
-            <View style={usageListStyles.amountView}>
-              <Text style={usageListStyles.overlayTextStyle}>Month</Text>
+            <View style={usageListScreenStyles.amountView}>
+              <Text style={usageListScreenStyles.overlayTextStyle}>Month</Text>
               <ModalDropdown
                 defaultValue={months[currentMonth]}
                 options={months}
-                textStyle={usageListStyles.dropDownTextStyle}
-                style={usageListStyles.dropDownMainStyle}
-                dropdownStyle={usageListStyles.dropDownStyle}
-                dropdownTextStyle={usageListStyles.dropDownDropTextStyle}
+                textStyle={usageListScreenStyles.dropDownTextStyle}
+                style={usageListScreenStyles.dropDownMainStyle}
+                dropdownStyle={usageListScreenStyles.dropDownStyle}
+                dropdownTextStyle={usageListScreenStyles.dropDownDropTextStyle}
                 onSelect={(index) => {
                   setMonth(index);
                 }}
                 renderSeparator={() => (
-                  <View style={usageListStyles.renderView} />
+                  <View style={usageListScreenStyles.renderView} />
                 )}
               />
             </View>
             {error_message ? (
-              <Text style={usageListStyles.errorMessage}>{error_message}</Text>
+              <Text style={usageListScreenStyles.errorMessage}>{error_message}</Text>
             ) : null}
-            <View style={usageListStyles.buttonViewStyle}>
+            <View style={usageListScreenStyles.buttonViewStyle}>
               <GeneralButton
                 title="Save"
                 onPress={() => {
@@ -150,14 +150,14 @@ const UsageListScreen = ({
             />
           )}
           ListHeaderComponent={
-            <View style={usageListStyles.mainHeaderView}>
+            <View style={usageListScreenStyles.mainHeaderView}>
               <ChartCompnent
                 usages={usages}
                 year={chartYear}
                 setYear={setChartYear}
               />
-              <View style={usageListStyles.headerSecondView}>
-                <Text style={usageListStyles.titleText}>
+              <View style={usageListScreenStyles.headerSecondView}>
+                <Text style={usageListScreenStyles.titleText}>
                   Your household consumption
                 </Text>
                 <TouchableOpacity>

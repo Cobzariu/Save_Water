@@ -1,8 +1,8 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 import {statsDetailsStyles} from './styles';
 
-const StatsDetails = ({statistics}) => {
+const StatsDetails = ({statistics, onPressWaterUsage}) => {
   const waterUsage =
     statistics.waterUsedPerCapitaLiters === -1 ? (
       <Text style={statsDetailsStyles.textStyleError}>
@@ -60,7 +60,11 @@ const StatsDetails = ({statistics}) => {
             {statistics.averageBathFrequency} times a week
           </Text>
         </View>
-        <View style={statsDetailsStyles.item}>{waterUsage}</View>
+        <TouchableOpacity
+          style={statsDetailsStyles.item}
+          onPress={onPressWaterUsage}>
+          {waterUsage}
+        </TouchableOpacity>
       </View>
       <View style={statsDetailsStyles.secondView}>
         {carUsage}
