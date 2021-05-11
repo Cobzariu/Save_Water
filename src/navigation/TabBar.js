@@ -6,7 +6,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {
   AdviceScreen,
   HouseholdScreen,
-  UsageList,
+  UsageListScreen,
 } from '../home/screens';
 import {colors} from '../core/themes';
 import { PeopleList } from '../home/components';
@@ -38,7 +38,7 @@ const TabBar = () => {
         }}
       />
       <Tab.Screen
-        component={UsageList}
+        component={UsageListScreen}
         name="Consumption"
         options={{
           tabBarIcon: ({size, color}) => (

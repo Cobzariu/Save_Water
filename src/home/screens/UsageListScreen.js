@@ -14,14 +14,10 @@ import {connect} from 'react-redux';
 import {ChartCompnent, UsageItem} from '../components';
 import {usageListStyles} from './styles';
 import {months} from '../../utils/variables';
-import {
-  GeneralButton,
-  InputField,
-  Spinner,
-} from '../../authentification/components';
+import {GeneralButton, Spinner} from '../../authentification/components';
 import {colors} from '../../core/themes';
 
-const UsageList = ({
+const UsageListScreen = ({
   usages,
   error_message,
   getUsages,
@@ -191,4 +187,4 @@ export default connect(mapStateToProps, {
   saveUsage,
   deleteUsage,
   clearHouseholdMessage,
-})(UsageList);
+})(UsageListScreen);
