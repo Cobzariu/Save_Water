@@ -13,7 +13,11 @@ const inputFieldStyles = StyleSheet.create({
   inputText: {
     height: 50,
     color: 'white',
-    fontFamily: 'Roboto-Regular'
+    fontFamily: 'Roboto-Regular',
+  },
+  touchableOpacityStyle: {
+    position: 'absolute',
+    right: 15,
   },
 });
 

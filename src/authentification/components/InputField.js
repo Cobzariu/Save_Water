@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, TextInput} from 'react-native';
+import {View, TextInput, TouchableOpacity} from 'react-native';
 import {colors} from '../../core/themes';
 import {inputFieldStyles} from './styles';
 
@@ -12,6 +12,8 @@ const InputField = ({
   width,
   keyboardType,
   autoCapitalize,
+  icon,
+  onPressIcon,
 }) => {
   const setWidth = width ? {width: width} : null;
   return (
@@ -27,6 +29,11 @@ const InputField = ({
         keyboardType={keyboardType}
         autoCapitalize={autoCapitalize}
       />
+      <TouchableOpacity
+        onPress={onPressIcon}
+        style={inputFieldStyles.touchableOpacityStyle}>
+        {icon}
+      </TouchableOpacity>
     </View>
   );
 };
