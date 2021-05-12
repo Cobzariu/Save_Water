@@ -13,6 +13,8 @@ import {
   GET_ADVICES_FAIL,
   CHANGE_LOADING_TRUE,
   CHANGE_LOADING_FALSE,
+  GET_STATISTICS_SUCCESS,
+  GET_STATISTICS_FAIL,
 } from '../constants';
 
 const initialState = {
@@ -36,6 +38,8 @@ const initialState = {
   advices: null,
   statistics: null,
   isLoading: false,
+  lpdList: null,
+  seasonsStats: null,
 };
 
 export default function (state = initialState, action) {
@@ -112,6 +116,21 @@ export default function (state = initialState, action) {
         ...state,
         usages: payload,
         isLoading: false,
+      };
+    }
+    case GET_STATISTICS_SUCCESS: {
+      return {
+        ...state,
+        seasonsStats: payload.seasonsStats,
+        lpdList: payload.lpdList,
+        isLoading: false,
+      };
+    }
+    case GET_STATISTICS_FAIL: {
+      return {
+        ...state,
+        isLoading: false,
+        error_message: payload,
       };
     }
     case SAVE_USAGE_FAIL: {

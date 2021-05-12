@@ -1,5 +1,6 @@
 import adviceApi from '../api/adviceApi';
 import householdApi from '../api/householdApi';
+import statisticsApi from '../api/statisticsApi';
 import usageApi from '../api/usageApi';
 import {
   CHANGE_LOADING_TRUE,
@@ -11,6 +12,8 @@ import {
   GET_ADVICES_SUCCESS,
   GET_HOUSEHOLD_FAIL,
   GET_HOUSEHOLD_SUCCESS,
+  GET_STATISTICS_FAIL,
+  GET_STATISTICS_SUCCESS,
   GET_USAGES_FAIL,
   GET_USAGES_SUCCESS,
   INCREASE_COUNT_PEOPLE,
@@ -249,6 +252,26 @@ export const getAdvices = () => (dispatch) => {
         payload: error,
       });
       return Promise.reject();
+    },
+  );
+};
+
+export const getStatistics = (year) => (dispatch) => {
+  dispatch({
+    type: CHANGE_LOADING_TRUE,
+  });
+  return statisticsApi.getStatistics(year).then(
+    (data) => {
+      dispatch({
+        type: GET_STATISTICS_SUCCESS,
+        payload: data,
+      });
+    },
+    (error) => {
+      dispatch({
+        type: GET_STATISTICS_FAIL,
+        payload: error,
+      });
     },
   );
 };

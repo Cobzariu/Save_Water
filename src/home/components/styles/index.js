@@ -5,3 +5,4 @@ export {default as adviceItemStyles} from './adviceItemStyles';
 export {default as statsDetailsStyles} from './statsDetailsStyles';
 export {default as chartComponentStyles} from './chartComponentStyles';
 export {default as peopleListStyles} from './peopleListStyles';
+export {default as detailedStatsScreenStyles} from './detailedStatsScreenStyles';
