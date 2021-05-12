@@ -41,8 +41,11 @@ const UsageListScreen = ({
   };
 
   const computedList = useMemo(() => {
-    const result = usages.filter((cons) => cons.year === chartYear);
-    return result;
+    if (usages) {
+      const result = usages.filter((cons) => cons.year === chartYear);
+      return result;
+    }
+    return [];
   }, [chartYear, usages]);
 
   return (
@@ -55,7 +58,9 @@ const UsageListScreen = ({
           overlayStyle={usageListScreenStyles.overlayView}>
           <View style={usageListScreenStyles.overlayView}>
             <View style={usageListScreenStyles.amountView}>
-              <Text style={usageListScreenStyles.overlayTextStyle}>Amount (m</Text>
+              <Text style={usageListScreenStyles.overlayTextStyle}>
+                Amount (m
+              </Text>
               <Text style={usageListScreenStyles.superScriptText}>3</Text>
               <Text style={usageListScreenStyles.overlayTextStyle}>)</Text>
               <InputSpinner
@@ -109,7 +114,9 @@ const UsageListScreen = ({
               />
             </View>
             {error_message ? (
-              <Text style={usageListScreenStyles.errorMessage}>{error_message}</Text>
+              <Text style={usageListScreenStyles.errorMessage}>
+                {error_message}
+              </Text>
             ) : null}
             <View style={usageListScreenStyles.buttonViewStyle}>
               <GeneralButton
