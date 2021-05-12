@@ -106,38 +106,40 @@ const DetailedStatsScreen = ({
     ) : null;
 
   function computeData() {
-    setLPDChartData(lpdList.map((x) => x.lpd));
-    setLPDChartLabels(lpdList.map((x) => months[x.month].substr(0, 3)));
-    var seasonList = [];
-    seasonList.push({
-      name: 'Summer',
-      amount: seasonsStats.summerAmount,
-      color: '#f2ce0f',
-      legendFontColor: colors.darkBlue,
-      legendFontSize: 15,
-    });
-    seasonList.push({
-      name: 'Winter',
-      amount: seasonsStats.winterAmount,
-      color: '#0f97db',
-      legendFontColor: colors.darkBlue,
-      legendFontSize: 15,
-    });
-    seasonList.push({
-      name: 'Autumn',
-      amount: seasonsStats.fallAmount,
-      color: '#b35b00',
-      legendFontColor: colors.darkBlue,
-      legendFontSize: 15,
-    });
-    seasonList.push({
-      name: 'Spring',
-      amount: seasonsStats.springAmount,
-      color: '#00ad14',
-      legendFontColor: colors.darkBlue,
-      legendFontSize: 15,
-    });
-    setSeasonsChartData(seasonList);
+    if (lpdList && seasonsStats) {
+      setLPDChartData(lpdList.map((x) => x.lpd));
+      setLPDChartLabels(lpdList.map((x) => months[x.month].substr(0, 3)));
+      var seasonList = [];
+      seasonList.push({
+        name: 'Summer',
+        amount: seasonsStats.summerAmount,
+        color: '#f2ce0f',
+        legendFontColor: colors.darkBlue,
+        legendFontSize: 15,
+      });
+      seasonList.push({
+        name: 'Winter',
+        amount: seasonsStats.winterAmount,
+        color: '#0f97db',
+        legendFontColor: colors.darkBlue,
+        legendFontSize: 15,
+      });
+      seasonList.push({
+        name: 'Autumn',
+        amount: seasonsStats.fallAmount,
+        color: '#b35b00',
+        legendFontColor: colors.darkBlue,
+        legendFontSize: 15,
+      });
+      seasonList.push({
+        name: 'Spring',
+        amount: seasonsStats.springAmount,
+        color: '#00ad14',
+        legendFontColor: colors.darkBlue,
+        legendFontSize: 15,
+      });
+      setSeasonsChartData(seasonList);
+    }
   }
 
   useEffect(() => {

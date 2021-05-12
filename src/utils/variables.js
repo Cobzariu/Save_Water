@@ -1,4 +1,4 @@
-export const API_BASE = 'http://9389d1542cad.ngrok.io';
+export const API_BASE = 'https://savingwaterbackend.herokuapp.com';
 export const months = [
   'January',
   'February',
