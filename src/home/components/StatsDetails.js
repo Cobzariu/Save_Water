@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
+import Feather from 'react-native-vector-icons/Feather';
 import {statsDetailsStyles} from './styles';
 
 const StatsDetails = ({statistics, onPressWaterUsage}) => {
@@ -11,6 +12,7 @@ const StatsDetails = ({statistics, onPressWaterUsage}) => {
     ) : (
       <>
         <Text style={statsDetailsStyles.textStyle}>Water usage</Text>
+
         <Text style={statsDetailsStyles.textStyleValue}>
           {statistics.waterUsedPerCapitaLiters} liters/person/day
         </Text>
@@ -63,6 +65,12 @@ const StatsDetails = ({statistics, onPressWaterUsage}) => {
         <TouchableOpacity
           style={statsDetailsStyles.item}
           onPress={onPressWaterUsage}>
+          <Feather
+            name="info"
+            size={20}
+            color="white"
+            style={statsDetailsStyles.infoIconStyle}
+          />
           {waterUsage}
         </TouchableOpacity>
       </View>

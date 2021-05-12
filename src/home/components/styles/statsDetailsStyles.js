@@ -38,5 +38,10 @@ const statsDetailsStyles = StyleSheet.create({
     marginHorizontal: 5,
     backgroundColor: colors.darkBlue,
   },
+  infoIconStyle: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+  },
 });
 export default statsDetailsStyles;
