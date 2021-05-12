@@ -64,13 +64,16 @@ const StatsDetails = ({statistics, onPressWaterUsage}) => {
         </View>
         <TouchableOpacity
           style={statsDetailsStyles.item}
+          disabled={statistics.waterUsedPerCapitaLiters === -1}
           onPress={onPressWaterUsage}>
-          <Feather
-            name="info"
-            size={20}
-            color="white"
-            style={statsDetailsStyles.infoIconStyle}
-          />
+          {statistics.waterUsedPerCapitaLiters !== -1 ? (
+            <Feather
+              name="info"
+              size={20}
+              color="white"
+              style={statsDetailsStyles.infoIconStyle}
+            />
+          ) : null}
           {waterUsage}
         </TouchableOpacity>
       </View>
