@@ -10,28 +10,11 @@ import {colors} from '../../core/themes';
 const WaterPointsScreen = ({isLoading, waterPoints, getWaterPoints}) => {
   const [labels, setLabels] = useState([]);
   const [data, setData] = useState([]);
-  useEffect(() => {
-    getWaterPoints();
-  }, []);
-  useEffect(() => {
-    computeData();
-  }, [waterPoints]);
+
   const HEIGHT = 220;
+  const WIDTH = Dimensions.get('screen').width - 10;
   const legend = ['Shower points', 'Bath points', 'Other points'];
-  const chartConfig = {
-    backgroundColor: colors.darkRed,
-    backgroundGradientFrom: '#ff8685',
-    backgroundGradientTo: '#ff6261',
-    color: (opacity = 1) => `rgba(0, 63, 92, ${opacity})`,
-    labelColor: (opacity = 1) => `rgba(0, 63, 92, ${opacity})`,
-    strokeWidth: 2, // optional, default 3
-    barPercentage: 0.5,
-    propsForDots: {
-      r: '5',
-      strokeWidth: '2',
-      stroke: colors.darkBlue,
-    },
-  };
+
   function computeData() {
     setLabels(waterPoints.map((item) => item.personName));
     var data = [];
@@ -47,13 +30,19 @@ const WaterPointsScreen = ({isLoading, waterPoints, getWaterPoints}) => {
     });
     setData(data);
   }
+  useEffect(() => {
+    getWaterPoints();
+  }, []);
+  useEffect(() => {
+    computeData();
+  }, [waterPoints]);
   return (
     <View style={waterPointsScreenStyles.mainView}>
       <Spinner loading={isLoading} />
       <Text style={waterPointsScreenStyles.mainTitleText}>Water Points</Text>
       <View style={waterPointsScreenStyles.chartView}>
         <StackedBarChart
-          width={Dimensions.get('screen').width - 10}
+          width={WIDTH}
           height={HEIGHT}
           data={{
             labels: labels,
@@ -61,7 +50,20 @@ const WaterPointsScreen = ({isLoading, waterPoints, getWaterPoints}) => {
             data: data,
             barColors: ['red', 'green', 'yellow'],
           }}
-          chartConfig={chartConfig}
+          chartConfig={{
+            backgroundColor: colors.darkRed,
+            backgroundGradientFrom: '#ff8685',
+            backgroundGradientTo: '#ff6261',
+            color: (opacity = 1) => `rgba(0, 63, 92, ${opacity})`,
+            labelColor: (opacity = 1) => `rgba(0, 63, 92, ${opacity})`,
+            strokeWidth: 2, // optional, default 3
+            barPercentage: 0.5,
+            propsForDots: {
+              r: '5',
+              strokeWidth: '2',
+              stroke: colors.darkBlue,
+            },
+          }}
           style={{borderRadius: 10}}
         />
         <Text style={waterPointsScreenStyles.infoText}>

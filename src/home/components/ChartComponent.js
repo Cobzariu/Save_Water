@@ -1,14 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {View, Dimensions, TouchableOpacity, Text} from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import {
-  LineChart,
-  BarChart,
-  PieChart,
-  ProgressChart,
-  ContributionGraph,
-  StackedBarChart,
-} from 'react-native-chart-kit';
+import {LineChart} from 'react-native-chart-kit';
 import {months} from '../../utils/variables';
 import {chartComponentStyles} from './styles';
 import {colors} from '../../core/themes';

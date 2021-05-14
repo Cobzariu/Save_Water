@@ -170,7 +170,6 @@ const DetailedStatsScreen = ({
       </View>
       <View style={detailedStatsScreenStyles.graphsViewStyle}>
         {LPDChart}
-
         {seasonsChart}
       </View>
       {noData}
