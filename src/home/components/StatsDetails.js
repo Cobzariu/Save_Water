@@ -3,7 +3,7 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import {statsDetailsStyles} from './styles';
 
-const StatsDetails = ({statistics, onPressWaterUsage}) => {
+const StatsDetails = ({statistics, onPressWaterUsage, onPressWaterPoints}) => {
   const waterUsage =
     statistics.waterUsedPerCapitaLiters === -1 ? (
       <Text style={statsDetailsStyles.textStyleError}>
@@ -56,12 +56,14 @@ const StatsDetails = ({statistics, onPressWaterUsage}) => {
         </View>
       </View>
       <View style={statsDetailsStyles.secondView}>
-        <View style={statsDetailsStyles.item}>
+        <TouchableOpacity
+          style={statsDetailsStyles.item}
+          onPress={onPressWaterPoints}>
           <Text style={statsDetailsStyles.textStyle}>Bath frequency</Text>
           <Text style={statsDetailsStyles.textStyleValue}>
             {statistics.averageBathFrequency} times a week
           </Text>
-        </View>
+        </TouchableOpacity>
         <TouchableOpacity
           style={statsDetailsStyles.item}
           disabled={statistics.waterUsedPerCapitaLiters === -1}

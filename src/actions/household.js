@@ -16,6 +16,8 @@ import {
   GET_STATISTICS_SUCCESS,
   GET_USAGES_FAIL,
   GET_USAGES_SUCCESS,
+  GET_WATER_POINTS_FAIL,
+  GET_WATER_POINTS_SUCCESS,
   INCREASE_COUNT_PEOPLE,
   SAVE_HOUSEHOLD_FAIL,
   SAVE_HOUSEHOLD_SUCCESS,
@@ -270,6 +272,26 @@ export const getStatistics = (year) => (dispatch) => {
     (error) => {
       dispatch({
         type: GET_STATISTICS_FAIL,
+        payload: error,
+      });
+    },
+  );
+};
+
+export const getWaterPoints = () => (dispatch) => {
+  dispatch({
+    type: CHANGE_LOADING_TRUE,
+  });
+  return statisticsApi.getWaterPoints().then(
+    (data) => {
+      dispatch({
+        type: GET_WATER_POINTS_SUCCESS,
+        payload: data,
+      });
+    },
+    (error) => {
+      dispatch({
+        type: GET_WATER_POINTS_FAIL,
         payload: error,
       });
     },

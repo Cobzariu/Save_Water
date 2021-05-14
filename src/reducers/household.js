@@ -15,6 +15,8 @@ import {
   CHANGE_LOADING_FALSE,
   GET_STATISTICS_SUCCESS,
   GET_STATISTICS_FAIL,
+  GET_WATER_POINTS_SUCCESS,
+  GET_WATER_POINTS_FAIL,
 } from '../constants';
 
 const initialState = {
@@ -33,13 +35,14 @@ const initialState = {
   waterGardenNumberWeek: 0,
   waterGardenLength: 0,
   collectRainwater: false,
-  usages: null,
+  usages: [],
   householdBackend: null,
-  advices: null,
+  advices: [],
   statistics: null,
   isLoading: false,
-  lpdList: null,
+  lpdList: [],
   seasonsStats: null,
+  waterPoints: null,
 };
 
 export default function (state = initialState, action) {
@@ -127,6 +130,20 @@ export default function (state = initialState, action) {
       };
     }
     case GET_STATISTICS_FAIL: {
+      return {
+        ...state,
+        isLoading: false,
+        error_message: payload,
+      };
+    }
+    case GET_WATER_POINTS_SUCCESS: {
+      return {
+        ...state,
+        waterPoints: payload,
+        isLoading: false,
+      };
+    }
+    case GET_WATER_POINTS_FAIL: {
       return {
         ...state,
         isLoading: false,

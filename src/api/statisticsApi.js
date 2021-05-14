@@ -19,6 +19,22 @@ const getStatistics = async (year) => {
     );
 };
 
+const getWaterPoints = async () => {
+  return await axios
+    .get(API_BASE + '/water_points', {
+      headers: await authHeader(),
+    })
+    .then(
+      async (response) => {
+        return response.data.waterPoints;
+      },
+      (error) => {
+        throw error.response.data.error;
+      },
+    );
+};
+
 export default {
   getStatistics,
+  getWaterPoints
 };

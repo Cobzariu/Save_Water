@@ -41,6 +41,9 @@ const AdviceScreen = ({
               onPressWaterUsage={() => {
                 navigation.navigate('DetailedStats');
               }}
+              onPressWaterPoints={() => {
+                navigation.navigate('WaterPoints');
+              }}
             />
           ) : null
         }
