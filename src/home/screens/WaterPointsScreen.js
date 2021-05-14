@@ -4,6 +4,8 @@ import {View, Text, Dimensions} from 'react-native';
 import {connect} from 'react-redux';
 import {getWaterPoints} from '../../actions/household';
 import {Spinner} from '../../authentification/components';
+import {waterPointsScreenStyles} from './styles';
+import {colors} from '../../core/themes';
 
 const WaterPointsScreen = ({isLoading, waterPoints, getWaterPoints}) => {
   const [labels, setLabels] = useState([]);
@@ -17,43 +19,55 @@ const WaterPointsScreen = ({isLoading, waterPoints, getWaterPoints}) => {
   const HEIGHT = 220;
   const legend = ['Shower points', 'Bath points', 'Other points'];
   const chartConfig = {
-    backgroundGradientFrom: '#1E2923',
-    backgroundGradientFromOpacity: 0,
-    backgroundGradientTo: '#08130D',
-    backgroundGradientToOpacity: 0.5,
-    color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+    backgroundColor: colors.darkRed,
+    backgroundGradientFrom: '#ff8685',
+    backgroundGradientTo: '#ff6261',
+    color: (opacity = 1) => `rgba(0, 63, 92, ${opacity})`,
+    labelColor: (opacity = 1) => `rgba(0, 63, 92, ${opacity})`,
     strokeWidth: 2, // optional, default 3
     barPercentage: 0.5,
-    useShadowColorFromDataset: false, // optional
+    propsForDots: {
+      r: '5',
+      strokeWidth: '2',
+      stroke: colors.darkBlue,
+    },
   };
   function computeData() {
     setLabels(waterPoints.map((item) => item.personName));
     var data = [];
     waterPoints.forEach((item) => {
-      //data.push([item.showerPoints, item.bathPoints, item.otherPoints]);
       var localArray = [];
       if (item.showerPoints > 0) localArray.push(item.showerPoints);
+      else localArray.push(null);
       if (item.bathPoints > 0) localArray.push(item.bathPoints);
+      else localArray.push(null);
       if (item.otherPoints > 0) localArray.push(item.otherPoints);
+      else localArray.push(null);
       data.push(localArray);
     });
     setData(data);
   }
-  console.log('data', data);
   return (
-    <View>
+    <View style={waterPointsScreenStyles.mainView}>
       <Spinner loading={isLoading} />
-      <StackedBarChart
-        width={Dimensions.get('screen').width}
-        height={HEIGHT}
-        data={{
-          labels: labels,
-          legend: legend,
-          data: data,
-          barColors: ['red', 'green', 'yellow'],
-        }}
-        chartConfig={chartConfig}
-      />
+      <Text style={waterPointsScreenStyles.mainTitleText}>Water Points</Text>
+      <View style={waterPointsScreenStyles.chartView}>
+        <StackedBarChart
+          width={Dimensions.get('screen').width - 10}
+          height={HEIGHT}
+          data={{
+            labels: labels,
+            legend: legend,
+            data: data,
+            barColors: ['red', 'green', 'yellow'],
+          }}
+          chartConfig={chartConfig}
+          style={{borderRadius: 10}}
+        />
+        <Text style={waterPointsScreenStyles.infoText}>
+          Water points are calculated after each person's use of water
+        </Text>
+      </View>
     </View>
   );
 };
