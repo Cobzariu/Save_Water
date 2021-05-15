@@ -10,7 +10,7 @@ const waterPointsScreenStyles = StyleSheet.create({
     margin: 5,
   },
   mainTitleText: {
-    fontSize: 22,
+    fontSize: 20,
     textAlign: 'center',
     fontFamily: 'Roboto-Regular',
     marginBottom: 15,

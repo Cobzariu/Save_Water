@@ -1,6 +1,6 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {ManagePersonScreen, PeopleScreen} from '../home/screens';
+import {ManagePersonScreen, PeopleScreen,WaterPointsScreen} from '../home/screens';
 
 const Stack = createStackNavigator();
 
@@ -12,6 +12,7 @@ const PersonStack = () => {
       }}>
       <Stack.Screen component={PeopleScreen} name="People" />
       <Stack.Screen component={ManagePersonScreen} name="ManagePerson" />
+      <Stack.Screen component={WaterPointsScreen} name="WaterPoints" />
     </Stack.Navigator>
   );
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {AdviceScreen, DetailedStatsScreen, WaterPointsScreen} from '../home/screens';
+import {AdviceScreen, DetailedStatsScreen} from '../home/screens';
 
 const Stack = createStackNavigator();
 
@@ -12,7 +12,6 @@ const AdviceStack = () => {
       }}>
       <Stack.Screen component={AdviceScreen} name="Advice" />
       <Stack.Screen component={DetailedStatsScreen} name="DetailedStats" />
-      <Stack.Screen component={WaterPointsScreen} name="WaterPoints" />
     </Stack.Navigator>
   );
 };

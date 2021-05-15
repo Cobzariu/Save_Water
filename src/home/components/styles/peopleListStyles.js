@@ -10,9 +10,10 @@ const peopleListStyles = StyleSheet.create({
     padding: 5,
   },
   titleText: {
-    fontSize: 18,
+    fontSize: 20,
     color: 'black',
     fontFamily: 'Roboto-Regular',
+    textAlign: 'center',
   },
   addView: {
     flexDirection: 'row',

@@ -13,12 +13,13 @@ const usageListScreenStyles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    marginTop: 10,
   },
   mainHeaderView: {
     margin: 5,
   },
   titleText: {
-    fontSize: 18,
+    fontSize: 20,
     fontFamily: 'Roboto-Regular',
   },
   amountView: {

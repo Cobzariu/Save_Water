@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 
 const householdComponentStyle = StyleSheet.create({
   mainTitleText: {
-    fontSize: 22,
+    fontSize: 20,
     textAlign: 'center',
     fontFamily: 'Roboto-Regular',
     marginBottom: 15,

@@ -49,6 +49,16 @@ const PeopleList = ({
         ListHeaderComponent={
           <View style={peopleListStyles.subView}>
             <View style={peopleListStyles.addView}>
+              <TouchableOpacity>
+                <Ionicons
+                  name="stats-chart"
+                  size={25}
+                  color={colors.darkRed}
+                  onPress={() => {
+                    navigation.navigate('WaterPoints');
+                  }}
+                />
+              </TouchableOpacity>
               <Text style={peopleListStyles.titleText}>
                 People in your household
               </Text>

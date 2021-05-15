@@ -5,7 +5,7 @@ const adviceItemStyles = StyleSheet.create({
     margin: 10,
     padding: 10,
     alignSelf: 'center',
-    width: '95%',
+    width: '96%',
     backgroundColor: '#FFF',
     flexDirection: 'row',
     borderRadius: 5,

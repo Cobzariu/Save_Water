@@ -16,19 +16,21 @@ const WaterPointsScreen = ({isLoading, waterPoints, getWaterPoints}) => {
   const legend = ['Shower points', 'Bath points', 'Other points'];
 
   function computeData() {
-    setLabels(waterPoints.map((item) => item.personName));
-    var data = [];
-    waterPoints.forEach((item) => {
-      var localArray = [];
-      if (item.showerPoints > 0) localArray.push(item.showerPoints);
-      else localArray.push(null);
-      if (item.bathPoints > 0) localArray.push(item.bathPoints);
-      else localArray.push(null);
-      if (item.otherPoints > 0) localArray.push(item.otherPoints);
-      else localArray.push(null);
-      data.push(localArray);
-    });
-    setData(data);
+    if (waterPoints) {
+      setLabels(waterPoints.map((item) => item.personName));
+      var data = [];
+      waterPoints.forEach((item) => {
+        var localArray = [];
+        if (item.showerPoints > 0) localArray.push(item.showerPoints);
+        else localArray.push(null);
+        if (item.bathPoints > 0) localArray.push(item.bathPoints);
+        else localArray.push(null);
+        if (item.otherPoints > 0) localArray.push(item.otherPoints);
+        else localArray.push(null);
+        data.push(localArray);
+      });
+      setData(data);
+    }
   }
   useEffect(() => {
     getWaterPoints();
@@ -48,7 +50,7 @@ const WaterPointsScreen = ({isLoading, waterPoints, getWaterPoints}) => {
             labels: labels,
             legend: legend,
             data: data,
-            barColors: ['red', 'green', 'yellow'],
+            barColors: ['#dbdbdb', '#bababa', '#999999'],
           }}
           chartConfig={{
             backgroundColor: colors.darkRed,
