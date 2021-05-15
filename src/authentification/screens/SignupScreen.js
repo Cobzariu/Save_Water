@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
+import Feather from 'react-native-vector-icons/Feather';
 import {connect} from 'react-redux';
 import {signup, clearUserMessage} from '../../actions/user';
+import {colors} from '../../core/themes';
 import {GeneralButton, InputField, Spinner} from '../components';
 import {signupScreenStyles} from './styles';
 
@@ -12,6 +14,7 @@ const SignupScreen = ({navigation, signup, message, clearUserMessage}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [isSecure, setIsSecure] = useState(true);
   return (
     <View style={signupScreenStyles.container}>
       <Spinner loading={loading} />
@@ -25,8 +28,12 @@ const SignupScreen = ({navigation, signup, message, clearUserMessage}) => {
       <InputField
         onChangeText={(e) => setPassword(e)}
         placeholder="Password"
-        secureTextEntry
+        secureTextEntry={isSecure}
         value={password}
+        icon={<Feather name="eye" size={22} color={colors.darkRed} />}
+        onPressIcon={() => {
+          setIsSecure(!isSecure);
+        }}
       />
       {message ? (
         <Text style={signupScreenStyles.errorMessage}>{message}</Text>
