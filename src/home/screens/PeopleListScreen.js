@@ -3,13 +3,13 @@ import {connect} from 'react-redux';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {getPeople, deletePerson} from '../../actions/person';
 import {getHousehold} from '../../actions/household';
-import PeopleItem from './PeopleItem';
+import PeopleItem from '../components/PeopleItem';
 import {FlatList, View, Text, TouchableOpacity} from 'react-native';
 import {colors} from '../../core/themes';
-import {peopleListStyles} from './styles';
 import {Spinner} from '../../authentification/components';
+import {peopleListScreenStyles} from './styles';
 
-const PeopleList = ({
+const PeopleListScreen = ({
   people,
   navigation,
   getPeople,
@@ -21,7 +21,7 @@ const PeopleList = ({
     getPeople();
   }, []);
   return (
-    <View style={peopleListStyles.mainView}>
+    <View style={peopleListScreenStyles.mainView}>
       <Spinner loading={isLoading} />
       <FlatList
         data={people}
@@ -47,8 +47,8 @@ const PeopleList = ({
           />
         )}
         ListHeaderComponent={
-          <View style={peopleListStyles.subView}>
-            <View style={peopleListStyles.addView}>
+          <View style={peopleListScreenStyles.subView}>
+            <View style={peopleListScreenStyles.addView}>
               <TouchableOpacity>
                 <Ionicons
                   name="stats-chart"
@@ -59,7 +59,7 @@ const PeopleList = ({
                   }}
                 />
               </TouchableOpacity>
-              <Text style={peopleListStyles.titleText}>
+              <Text style={peopleListScreenStyles.titleText}>
                 People in your household
               </Text>
               <TouchableOpacity
@@ -90,4 +90,4 @@ export default connect(mapStateToProps, {
   getPeople,
   deletePerson,
   getHousehold,
-})(PeopleList);
+})(PeopleListScreen);
