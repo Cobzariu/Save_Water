@@ -69,7 +69,8 @@ const WaterPointsScreen = ({isLoading, waterPoints, getWaterPoints}) => {
           style={{borderRadius: 10}}
         />
         <Text style={waterPointsScreenStyles.infoText}>
-          Water points are calculated after each person's use of water
+          Water points are calculated after each person's use of water. A lower
+          number indicates a smaller amount of water consumption.
         </Text>
       </View>
     </View>
