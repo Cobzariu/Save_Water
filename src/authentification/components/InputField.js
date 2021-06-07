@@ -12,7 +12,8 @@ const InputField = ({
   width,
   keyboardType,
   autoCapitalize,
-  icon,
+  iconShow,
+  iconHide,
   onPressIcon,
 }) => {
   const setWidth = width ? {width: width} : null;
@@ -32,7 +33,7 @@ const InputField = ({
       <TouchableOpacity
         onPress={onPressIcon}
         style={inputFieldStyles.touchableOpacityStyle}>
-        {icon}
+        {secureTextEntry ? iconShow : iconHide}
       </TouchableOpacity>
     </View>
   );

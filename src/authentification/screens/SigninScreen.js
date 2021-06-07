@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Feather from 'react-native-vector-icons/Feather';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import {View, TouchableOpacity, Text} from 'react-native';
 import {connect} from 'react-redux';
 import {login, clearUserMessage} from '../../actions/user';
@@ -36,7 +37,16 @@ const SigninScreen = ({navigation, message, login, clearUserMessage}) => {
         placeholder="Password"
         secureTextEntry={isSecure}
         value={password}
-        icon={<Feather name="eye" size={22} color={colors.darkRed} />}
+        iconShow={
+          <Ionicons name="ios-eye-outline" size={22} color={colors.darkRed} />
+        }
+        iconHide={
+          <Ionicons
+            name="ios-eye-off-outline"
+            size={22}
+            color={colors.darkRed}
+          />
+        }
         onPressIcon={() => {
           setIsSecure(!isSecure);
         }}
