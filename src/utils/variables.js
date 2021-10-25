@@ -1,4 +1,4 @@
-export const API_BASE = 'https://savingwaterbackend.herokuapp.com';
+export const API_BASE = 'API_URL';
 export const months = [
   'January',
   'February',
