@@ -20,3 +20,6 @@ For my Bachelor's degree I tried to tackle the problem of increasing water consu
 ## Screenshots
 
 ![Screenshot_Collage](https://user-images.githubusercontent.com/62259244/138668491-2c342277-09c1-49af-80d1-3b6cb12fceaf.jpg)
+
+## Usage
+Check the Release section to download the latest APK.
